@@ -18,6 +18,16 @@ namespace Business_observatory.Controllers
             return View();
         }
 
+        public IActionResult Repository()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
