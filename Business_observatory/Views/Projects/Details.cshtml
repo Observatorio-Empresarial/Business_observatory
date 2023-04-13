@@ -23,10 +23,29 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
+<<<<<<< HEAD
+            @Html.DisplayNameFor(model => model.File)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.File)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdateDate)
+=======
             @Html.DisplayNameFor(model => model.RegistrationDate)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.RegistrationDate)
+>>>>>>> 2cbae7c4a88c311a52d3d0b4b4c4d1b6372ec190
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Status)
@@ -34,6 +53,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Status)
         </dd>
+<<<<<<< HEAD
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdProject">Edit</a> |
+=======
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.ApplicationUser)
         </dt>
@@ -50,5 +75,6 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+>>>>>>> 2cbae7c4a88c311a52d3d0b4b4c4d1b6372ec190
     <a asp-action="Index">Back to List</a>
 </div>

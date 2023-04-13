@@ -12,7 +12,11 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<<<<<<< HEAD
+            <input type="hidden" asp-for="IdProject" />
+=======
             <input type="hidden" asp-for="Id" />
+>>>>>>> 2cbae7c4a88c311a52d3d0b4b4c4d1b6372ec190
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
@@ -24,9 +28,25 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
+<<<<<<< HEAD
+                <label asp-for="File" class="control-label"></label>
+                <input asp-for="File" class="form-control" />
+                <span asp-validation-for="File" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreationDate" class="control-label"></label>
+                <input asp-for="CreationDate" class="form-control" />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateDate" class="control-label"></label>
+                <input asp-for="UpdateDate" class="form-control" />
+                <span asp-validation-for="UpdateDate" class="text-danger"></span>
+=======
                 <label asp-for="RegistrationDate" class="control-label"></label>
                 <input asp-for="RegistrationDate" class="form-control" />
                 <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+>>>>>>> 2cbae7c4a88c311a52d3d0b4b4c4d1b6372ec190
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
@@ -34,6 +54,8 @@
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
+<<<<<<< HEAD
+=======
                 <label asp-for="CompanyId" class="control-label"></label>
                 <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
                 <span asp-validation-for="CompanyId" class="text-danger"></span>
@@ -44,6 +66,7 @@
                 <span asp-validation-for="AspNetUserId" class="text-danger"></span>
             </div>
             <div class="form-group">
+>>>>>>> 2cbae7c4a88c311a52d3d0b4b4c4d1b6372ec190
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
