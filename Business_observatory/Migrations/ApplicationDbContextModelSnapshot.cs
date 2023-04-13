@@ -19,6 +19,141 @@ namespace Business_observatory.Migrations
                 .HasAnnotation("ProductVersion", "7.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("Business_observatory.Models.Categoriesproject", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Categoriesprojects");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("EconomicSector")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nit")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.File", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Format")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int?>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("RegistrationDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Route")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Files");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Project", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("AspNetUserId")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("RegistrationDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AspNetUserId");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("Projects");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -80,6 +215,10 @@ namespace Business_observatory.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
@@ -130,6 +269,10 @@ namespace Business_observatory.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -215,6 +358,52 @@ namespace Business_observatory.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Business_observatory.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Categoriesproject", b =>
+                {
+                    b.HasOne("Business_observatory.Models.Category", "Category")
+                        .WithMany("Categoriesprojects")
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("Business_observatory.Models.Project", "Project")
+                        .WithMany("Categoriesprojects")
+                        .HasForeignKey("ProjectId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.File", b =>
+                {
+                    b.HasOne("Business_observatory.Models.Project", "Project")
+                        .WithMany("Files")
+                        .HasForeignKey("ProjectId");
+
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Project", b =>
+                {
+                    b.HasOne("Business_observatory.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Projects")
+                        .HasForeignKey("AspNetUserId");
+
+                    b.HasOne("Business_observatory.Models.Company", "Company")
+                        .WithMany("Projects")
+                        .HasForeignKey("CompanyId");
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Company");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -264,6 +453,28 @@ namespace Business_observatory.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Category", b =>
+                {
+                    b.Navigation("Categoriesprojects");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Company", b =>
+                {
+                    b.Navigation("Projects");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Project", b =>
+                {
+                    b.Navigation("Categoriesprojects");
+
+                    b.Navigation("Files");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Projects");
                 });
 #pragma warning restore 612, 618
         }

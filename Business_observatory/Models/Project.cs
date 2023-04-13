@@ -5,19 +5,24 @@ namespace Business_observatory.Models;
 
 public partial class Project
 {
-    public int IdProject { get; set; }
+    public int Id { get; set; }
 
-    public string? Title { get; set; }
+    public string Title { get; set; } = null!;
 
-    public string? Description { get; set; }
+    public string Description { get; set; } = null!;
 
-    public string? File { get; set; }
+    public DateTime? RegistrationDate { get; set; }
 
-    public DateTime CreationDate { get; set; }
+    public string? Status { get; set; }="Activo";
 
-    public DateTime? UpdateDate { get; set; }
+    public int? CompanyId { get; set; }=null;
+    public string? AspNetUserId { get; set; } = null!;
 
-    public string? Status { get; set; }
+    public virtual ApplicationUser? ApplicationUser { get; set; }
 
-    public virtual ICollection<Download> Downloads { get; } = new List<Download>();
+    public virtual ICollection<Categoriesproject> Categoriesprojects { get; } = new List<Categoriesproject>();
+
+    public virtual Company? Company { get; set; }
+
+    public virtual ICollection<File> Files { get; } = new List<File>();
 }
