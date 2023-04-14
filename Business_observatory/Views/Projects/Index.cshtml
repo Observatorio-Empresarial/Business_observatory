@@ -1,12 +1,167 @@
 ﻿@model IEnumerable<Business_observatory.Models.Project>
 
 @{
-    ViewData["Title"] = "Index";
+    
 }
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-text">
+                    <h2>FILE LIST</h2>
+                    <div class="div-dec"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h1>Index</h1>
+<section class="services" id="services">
+    <div class="container">
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>*@
+        </tr>
+    </thead>
+    <tbody>
+      
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div style="height:100px;">
+                        <div class="service-item">
+                            <h2 >@Html.DisplayFor(modelItem => item.Title)</h2>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                            @{
+                                string descripcion = item.Description;
+                                int longitudTotal = descripcion.Length;
+                                int longitudVeintePorciento = (int)(longitudTotal * 0.5);
+                                string primerosCaracteres = descripcion.Substring(0, longitudVeintePorciento);
+                            }
 
-<p>
+                            <div style="height:100px;">
+                        <div class="service-item">
+                                     <p>@primerosCaracteres</p>
+                        </div>
+                    </div>
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.RegistrationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company.Id)
+                </td>*@
+                <td>
+                    <div>
+                        <div class="service-item">
+                            <a type="button" class="btn btn-dark" asp-controller="File" asp-action="DownloadFileFromDatabase">DOWNLOAD</a>
+                        </div>
+                    </div>
+                   @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/isotope.min.js"></script>
+<script src="assets/js/owl-carousel.js"></script>
+
+<script src="assets/js/tabs.js"></script>
+<script src="assets/js/swiper.js"></script>
+<script src="assets/js/custom.js"></script>
+<script>
+    var interleaveOffset = 0.5;
+
+    var swiperOptions = {
+        loop: true,
+        speed: 1000,
+        grabCursor: true,
+        watchSlidesProgress: true,
+        mousewheelControl: true,
+        keyboardControl: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+        on: {
+            progress: function () {
+                var swiper = this;
+                for (var i = 0; i < swiper.slides.length; i++) {
+                    var slideProgress = swiper.slides[i].progress;
+                    var innerOffset = swiper.width * interleaveOffset;
+                    var innerTranslate = slideProgress * innerOffset;
+                    swiper.slides[i].querySelector(".slide-inner").style.transform =
+                        "translate3d(" + innerTranslate + "px, 0, 0)";
+                }
+            },
+            touchStart: function () {
+                var swiper = this;
+                for (var i = 0; i < swiper.slides.length; i++) {
+                    swiper.slides[i].style.transition = "";
+                }
+            },
+            setTransition: function (speed) {
+                var swiper = this;
+                for (var i = 0; i < swiper.slides.length; i++) {
+                    swiper.slides[i].style.transition = speed + "ms";
+                    swiper.slides[i].querySelector(".slide-inner").style.transition =
+                        speed + "ms";
+                }
+            }
+        }
+    };
+
+    var swiper = new Swiper(".swiper-container", swiperOptions);
+</script>
+
+@*<p>
     <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
@@ -63,3 +218,4 @@
 }
     </tbody>
 </table>
+*@
