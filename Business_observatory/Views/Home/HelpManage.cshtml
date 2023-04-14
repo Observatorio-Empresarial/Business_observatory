@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-text">
+                    <h2>STUDY CASE MANAGER</h2>
+                    <div class="div-dec"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="services" id="services">
+    <div class="container">
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">TITLE</th>
+                    <th scope="col">DESCRIPTION</th>
+                    <th scope="col">OPTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <div>
+                            <div class="service-item">
+                                <h3>This is case 1</h3>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div class="service-item">
+                                <h4>This is a description for this study case</h4>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <div class="service-item">
+                                <a type="button" class="btn btn-dark" asp-controller="File" asp-action="DownloadFileFromDatabase">IN PROGRESS</a>
+                                <a type="button" class="btn btn-dark" asp-controller="File" asp-action="DownloadFileFromDatabase">ABANDONED</a>
+                                <br>
+                                <input type="file" id="myfile" name="myfile">
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+                
+            </tbody>
+        </table>
+
+    </div>
+</section>
