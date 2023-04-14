@@ -1,0 +1,227 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<body>
+
+
+    <!-- ***** Header Area Start ***** -->
+    
+    <!-- ***** Header Area End ***** -->
+
+    <div class="page-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header-text">
+                        <h2>FILE LIST</h2>
+                        <div class="div-dec"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Main Banner Area End ***** -->
+
+    <div class="col-lg-2" style="margin-left: 60px; margin-top: 30px">
+        <div class="topnav" style="float:left; display:inline; width: 49%;">
+            <input type="text" placeholder="Search..">
+        </div>
+
+        <div class="buttons" style="float:left; display:inline; width: 49%">
+            <div class="green-button">
+                <a href="#">Search</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="services" id="services">
+        <div class="container">
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">TITLE</th>
+                        <th scope="col">DESCRIPTION</th>
+                        <th scope="col">OPTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <h3>This is case 1</h3>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <h4>This is a description for this study case</h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <a type="button" class="btn btn-dark" asp-controller="File" asp-action="DownloadFileFromDatabase">DOWNLOAD</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <h3>This is case 2</h3>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <h4>This is a description for this study case</h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <a type="button" class="btn btn-dark" asp-controller="File" asp-action="DownloadFileFromDatabase">DOWNLOAD</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <h3>This is case 3</h3>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <h4>This is a description for this study case</h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <a type="button" class="btn btn-dark" asp-controller="File" asp-action="DownloadFileFromDatabase">DOWNLOAD</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <h3>This is case 4</h3>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <h4>This is a description for this study case</h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="service-item">
+                                    <a type="button" class="btn btn-dark" asp-controller="File" asp-action="DownloadFileFromDatabase">DOWNLOAD</a>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <div class="service-item"> </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/swiper.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+        var interleaveOffset = 0.5;
+
+        var swiperOptions = {
+            loop: true,
+            speed: 1000,
+            grabCursor: true,
+            watchSlidesProgress: true,
+            mousewheelControl: true,
+            keyboardControl: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            on: {
+                progress: function () {
+                    var swiper = this;
+                    for (var i = 0; i < swiper.slides.length; i++) {
+                        var slideProgress = swiper.slides[i].progress;
+                        var innerOffset = swiper.width * interleaveOffset;
+                        var innerTranslate = slideProgress * innerOffset;
+                        swiper.slides[i].querySelector(".slide-inner").style.transform =
+                            "translate3d(" + innerTranslate + "px, 0, 0)";
+                    }
+                },
+                touchStart: function () {
+                    var swiper = this;
+                    for (var i = 0; i < swiper.slides.length; i++) {
+                        swiper.slides[i].style.transition = "";
+                    }
+                },
+                setTransition: function (speed) {
+                    var swiper = this;
+                    for (var i = 0; i < swiper.slides.length; i++) {
+                        swiper.slides[i].style.transition = speed + "ms";
+                        swiper.slides[i].querySelector(".slide-inner").style.transition =
+                            speed + "ms";
+                    }
+                }
+            }
+        };
+
+        var swiper = new Swiper(".swiper-container", swiperOptions);
+    </script>
+
+</body>
