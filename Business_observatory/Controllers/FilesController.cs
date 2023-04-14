@@ -5,94 +5,99 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Business_observatory.Data;
 using Business_observatory.Models;
+using System.Security.Claims;
 
 namespace Business_observatory.Controllers
 {
-    public class StudentsController : Controller
+    public class FilesController : Controller
     {
-        private readonly ObservatorioEmpresarialContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public StudentsController(ObservatorioEmpresarialContext context)
+        public FilesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Students
+        // GET: Files
         public async Task<IActionResult> Index()
         {
-            var observatorioEmpresarialContext = _context.Students.Include(s => s.IdUserNavigation);
-            return View(await observatorioEmpresarialContext.ToListAsync());
+            var applicationDbContext = _context.Files.Include(f => f.Project);
+            return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Students/Details/5
+        // GET: Files/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Students == null)
+            if (id == null || _context.Files == null)
             {
                 return NotFound();
             }
 
-            var student = await _context.Students
-                .Include(s => s.IdUserNavigation)
-                .FirstOrDefaultAsync(m => m.IdUser == id);
-            if (student == null)
+            var file = await _context.Files
+                .Include(f => f.Project)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (file == null)
             {
                 return NotFound();
             }
 
-            return View(student);
+            return View(file);
         }
 
-        // GET: Students/Create
+        // GET: Files/Create
         public IActionResult Create()
         {
-            ViewData["IdUser"] = new SelectList(_context.Users, "IdUser", "IdUser");
+            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id");
             return View();
         }
 
-        // POST: Students/Create
+        // POST: Files/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUser,StudentCode")] Student student)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,RegistrationDate,Format,Route,ProjectId")] Models.File file)
         {
+            string userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
             if (ModelState.IsValid)
             {
-                _context.Add(student);
+
+                _context.Add(file);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdUser"] = new SelectList(_context.Users, "IdUser", "IdUser", student.IdUser);
-            return View(student);
+            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", file.ProjectId);
+            return View(file);
         }
 
-        // GET: Students/Edit/5
+        // GET: Files/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Students == null)
+            if (id == null || _context.Files == null)
             {
                 return NotFound();
             }
 
-            var student = await _context.Students.FindAsync(id);
-            if (student == null)
+            var file = await _context.Files.FindAsync(id);
+            if (file == null)
             {
                 return NotFound();
             }
-            ViewData["IdUser"] = new SelectList(_context.Users, "IdUser", "IdUser", student.IdUser);
-            return View(student);
+            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", file.ProjectId);
+            return View(file);
         }
 
-        // POST: Students/Edit/5
+        // POST: Files/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdUser,StudentCode")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,RegistrationDate,Format,Route,ProjectId")] Models.File file)
         {
-            if (id != student.IdUser)
+            if (id != file.Id)
             {
                 return NotFound();
             }
@@ -101,12 +106,12 @@ namespace Business_observatory.Controllers
             {
                 try
                 {
-                    _context.Update(student);
+                    _context.Update(file);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StudentExists(student.IdUser))
+                    if (!FileExists(file.Id))
                     {
                         return NotFound();
                     }
@@ -117,51 +122,51 @@ namespace Business_observatory.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdUser"] = new SelectList(_context.Users, "IdUser", "IdUser", student.IdUser);
-            return View(student);
+            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", file.ProjectId);
+            return View(file);
         }
 
-        // GET: Students/Delete/5
+        // GET: Files/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Students == null)
+            if (id == null || _context.Files == null)
             {
                 return NotFound();
             }
 
-            var student = await _context.Students
-                .Include(s => s.IdUserNavigation)
-                .FirstOrDefaultAsync(m => m.IdUser == id);
-            if (student == null)
+            var file = await _context.Files
+                .Include(f => f.Project)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (file == null)
             {
                 return NotFound();
             }
 
-            return View(student);
+            return View(file);
         }
 
-        // POST: Students/Delete/5
+        // POST: Files/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Students == null)
+            if (_context.Files == null)
             {
-                return Problem("Entity set 'ObservatorioEmpresarialContext.Students'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Files'  is null.");
             }
-            var student = await _context.Students.FindAsync(id);
-            if (student != null)
+            var file = await _context.Files.FindAsync(id);
+            if (file != null)
             {
-                _context.Students.Remove(student);
+                _context.Files.Remove(file);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool StudentExists(int id)
+        private bool FileExists(int id)
         {
-          return (_context.Students?.Any(e => e.IdUser == id)).GetValueOrDefault();
+          return (_context.Files?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

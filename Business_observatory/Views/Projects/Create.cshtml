@@ -1,4 +1,4 @@
-﻿@model Business_observatory.Models.Project
+﻿@model Business_observatory.Models.ProjectCreate
 
 @{
     ViewData["Title"] = "Create";
@@ -13,47 +13,41 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+                <label asp-for="Project.Title" class="control-label"></label>
+                <input asp-for="Project.Title" class="form-control" />
+                <span asp-validation-for="Project.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+                <label asp-for="Project.Description" class="control-label"></label>
+                <input asp-for="Project.Description" class="form-control" />
+                <span asp-validation-for="Project.Description" class="text-danger"></span>
+            </div>
+            <div hidden class="form-group">
+                <label asp-for="Project.RegistrationDate" class="control-label"></label>
+                <input asp-for="Project.RegistrationDate" class="form-control" />
+                <span asp-validation-for="Project.RegistrationDate" class="text-danger"></span>
+            </div>
+            <div hidden class="form-group">
+                <label asp-for="Project.Status" class="control-label"></label>
+                <input asp-for="Project.Status" class="form-control" />
+                <span asp-validation-for="Project.Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-<<<<<<< HEAD
-                <label asp-for="File" class="control-label"></label>
-                <input asp-for="File" class="form-control" />
-                <span asp-validation-for="File" class="text-danger"></span>
+                <label for="CategoryID">Categories</label>
+                <select name="CategoryID" class="form-control">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
             </div>
-            <div class="form-group">
-                <label asp-for="UpdateDate" class="control-label"></label>
-                <input asp-for="UpdateDate" class="form-control" />
-                <span asp-validation-for="UpdateDate" class="text-danger"></span>
-=======
-                <label asp-for="RegistrationDate" class="control-label"></label>
-                <input asp-for="RegistrationDate" class="form-control" />
-                <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+            <div hidden class="form-group">
+                <label asp-for="Project.CompanyId" class="control-label"></label>
+                <select asp-for="Project.CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
             </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="Categories" class="control-label"></label>
-                <select for="Categories" class="form-control" asp-items="ViewBag.Categories"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="CompanyId" class="control-label"></label>
-                <select asp-for="CompanyId" class ="form-control" asp-items="ViewBag.CompanyId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="AspNetUserId" class="control-label"></label>
-                <select asp-for="AspNetUserId" class ="form-control" asp-items="ViewBag.AspNetUserId"></select>
->>>>>>> 2cbae7c4a88c311a52d3d0b4b4c4d1b6372ec190
+            <div hidden class="form-group">
+                <label asp-for="Project.AspNetUserId" class="control-label"></label>
+                <select asp-for="Project.AspNetUserId" class="form-control" asp-items="ViewBag.AspNetUserId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

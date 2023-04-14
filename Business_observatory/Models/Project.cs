@@ -11,7 +11,7 @@ public partial class Project
 
     public string Description { get; set; } = null!;
 
-    public DateTime? RegistrationDate { get; set; }
+    public DateTime? RegistrationDate { get; set; }=DateTime.Now;
 
     public string? Status { get; set; }="Activo";
 
