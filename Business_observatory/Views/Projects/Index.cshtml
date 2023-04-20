@@ -1,165 +1,65 @@
 ﻿@model IEnumerable<Business_observatory.Models.Project>
 
 @{
-    
+
 }
+
 <div class="page-heading">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="header-text">
-                    <h2>FILE LIST</h2>
+                    <h2>PROYECTOS</h2>
                     <div class="div-dec"></div>
+                    <div class="div"><p class="div__p">Los proyectos de investigación son estudios planificados y diseñados para investigar un tema específico con el objetivo de obtener nuevos conocimientos o desarrollar soluciones a problemas.</p></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<section class="services" id="services">
-    <div class="container">
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.RegistrationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ApplicationUser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Company)
-            </th>*@
-        </tr>
-    </thead>
-    <tbody>
-      
-        @foreach (var item in Model)
+<section class="section">
+    <div class="container section__div">
+        @foreach (var item in Model.Reverse())
         {
-            <tr>
-                <td>
-                    <div style="height:100px;">
-                        <div class="service-item">
-                            <h2 >@Html.DisplayFor(modelItem => item.Title)</h2>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                            @{
-                                string descripcion = item.Description;
-                                int longitudTotal = descripcion.Length;
-                                int longitudVeintePorciento = (int)(longitudTotal * 0.5);
-                                string primerosCaracteres = descripcion.Substring(0, longitudVeintePorciento);
-                            }
+            <div class="card">
+                <h3 class="card__title">
+                    @Html.DisplayFor(modelItem=>item.Title)
+                </h3>
+                @{
+                    string descripcion = item.Description;
+                    int longitudTotal = descripcion.Length;
+                    int longitudVeintePorciento = (int)(longitudTotal * 0.7);
+                    int ultimoEspacio = descripcion.LastIndexOf(" ", longitudVeintePorciento);
 
-                            <div style="height:100px;">
-                        <div class="service-item">
-                                     <p>@primerosCaracteres</p>
-                        </div>
-                    </div>
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.RegistrationDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Company.Id)
-                </td>*@
-                <td>
-                    <div>
-                        <div class="service-item">
-                            <a type="button" class="btn btn-dark" asp-controller="File" asp-action="DownloadFileFromDatabase">DOWNLOAD</a>
-                        </div>
-                    </div>
-                   @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
-                </td>
-            </tr>
+                    // Si no se encuentra ningún espacio en blanco, se utiliza la longitud original.
+                    if (ultimoEspacio < 0)
+                    {
+                        ultimoEspacio = longitudVeintePorciento;
+                    }
+
+                    string primerosCaracteres = descripcion.Substring(0, ultimoEspacio);
+                }
+                <p class="card__content">
+                    @primerosCaracteres ...
+                </p>
+                <div class="card__date">
+                    @Html.DisplayFor(modelItem=>item.RegistrationDate)
+                </div>
+                <div class="card__arrow">
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="20" width="20">
+                        <path fill="#fff" d="M13.4697 17.9697C13.1768 18.2626 13.1768 18.7374 13.4697 19.0303C13.7626 19.3232 14.2374 19.3232 14.5303 19.0303L20.3232 13.2374C21.0066 12.554 21.0066 11.446 20.3232 10.7626L14.5303 4.96967C14.2374 4.67678 13.7626 4.67678 13.4697 4.96967C13.1768 5.26256 13.1768 5.73744 13.4697 6.03033L18.6893 11.25H4C3.58579 11.25 3.25 11.5858 3.25 12C3.25 12.4142 3.58579 12.75 4 12.75H18.6893L13.4697 17.9697Z"></path>
+                    </svg>
+                    </a>
+                </div>
+            </div>
         }
-        
-    </tbody>
-</table>
+
+
     </div>
+
 </section>
 
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- Scripts -->
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<script src="assets/js/isotope.min.js"></script>
-<script src="assets/js/owl-carousel.js"></script>
-
-<script src="assets/js/tabs.js"></script>
-<script src="assets/js/swiper.js"></script>
-<script src="assets/js/custom.js"></script>
-<script>
-    var interleaveOffset = 0.5;
-
-    var swiperOptions = {
-        loop: true,
-        speed: 1000,
-        grabCursor: true,
-        watchSlidesProgress: true,
-        mousewheelControl: true,
-        keyboardControl: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev"
-        },
-        on: {
-            progress: function () {
-                var swiper = this;
-                for (var i = 0; i < swiper.slides.length; i++) {
-                    var slideProgress = swiper.slides[i].progress;
-                    var innerOffset = swiper.width * interleaveOffset;
-                    var innerTranslate = slideProgress * innerOffset;
-                    swiper.slides[i].querySelector(".slide-inner").style.transform =
-                        "translate3d(" + innerTranslate + "px, 0, 0)";
-                }
-            },
-            touchStart: function () {
-                var swiper = this;
-                for (var i = 0; i < swiper.slides.length; i++) {
-                    swiper.slides[i].style.transition = "";
-                }
-            },
-            setTransition: function (speed) {
-                var swiper = this;
-                for (var i = 0; i < swiper.slides.length; i++) {
-                    swiper.slides[i].style.transition = speed + "ms";
-                    swiper.slides[i].querySelector(".slide-inner").style.transition =
-                        speed + "ms";
-                }
-            }
-        }
-    };
-
-    var swiper = new Swiper(".swiper-container", swiperOptions);
-</script>
 
 @*<p>
     <a asp-action="Create">Create New</a>
