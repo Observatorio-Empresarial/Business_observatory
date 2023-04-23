@@ -19,6 +19,7 @@ namespace Business_observatory.Data
         public virtual DbSet<Models.File> Files { get; set; }
 
         public virtual DbSet<Project> Projects { get; set; }
+   
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -27,5 +28,6 @@ namespace Business_observatory.Data
                 .WithMany(a => a.Projects)
                 .HasForeignKey(p => p.AspNetUserId);
         }
+        public DbSet<Business_observatory.Models.Contact>? Contact { get; set; }
     }
 }

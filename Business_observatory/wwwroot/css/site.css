@@ -1262,12 +1262,17 @@ page heading
     padding: 215px 0px 120px 0px;
     text-align: center;
 }
-
-    .page-heading h2 {
-        font-size: 56px;
-        color: #fff;
-        font-weight: 700;
-    }
+/*.page__heading__img{
+    background-image: url(../images/meeting-business.jpg);
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}*/
+.page-heading h2 {
+    font-size: 56px;
+    color: #fff;
+    font-weight: 700;
+}
 
     .page-heading .div-dec {
         width: 80px;
