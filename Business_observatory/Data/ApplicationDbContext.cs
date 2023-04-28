@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Business_observatory.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Business_observatory.Data
@@ -9,5 +10,7 @@ namespace Business_observatory.Data
             : base(options)
         {
         }
+
+        public DbSet<FileOnFileSystem> FilesOnFileSystem { get; set; }
     }
 }
