@@ -8,15 +8,75 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="header-text">
-                    <h2>Contactenos</h2>
+                    <h2>Solicitudes</h2>
                     <div class="div-dec"></div>
-                    <div class="div"><p class="div__p">Los proyectos de investigación son estudios planificados y diseñados para investigar un tema específico con el objetivo de obtener nuevos conocimientos o desarrollar soluciones a problemas.</p></div>
+                    <div class="div"><p class="div__p">Gracias por su interés en nuestro observatorio empresarial. Estamos comprometidos en proporcionar información precisa y relevante para ayudar a las empresas a tomar decisiones informadas y estratégicas.<br />Si tiene alguna pregunta, comentario o sugerencia, no dude en ponerse en contacto con nosotros utilizando el formulario que se encuentra a continuación. </p></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<hr />
+<div class="container">
+    <div class="col-lg-6 mx-auto p-5 form__text">
+        <form asp-action="Create">
+            <div class="controls">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Name">Firstname *</label>
+                            <input asp-for="Name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Surname">Lastname *</label>
+                            <input asp-for="Surname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Email">Email *</label>
+                            <input asp-for="Email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Phone" for="form_phone">Phone</label>
+                            <input asp-for="Phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="form_message">Message *</label>
+                            <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 p-2">
+                        <input asp-for="Message" type="submit" class="btn btn-success btn-send" value="Send message">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-muted"><strong>*</strong> These fields are required. </p>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
 <div class="container">
     <p>Coordinadora</p>
     <p>Dr. Juan Carlos Sánchez</p>
@@ -24,61 +84,6 @@
     <p>Teléfono: 123456789</p>
     <p>Horario de atención: 8:00 a 12:00 y 2:00 a 6:00</p>
     <p>Ubicación: Edificio 1, piso 2, oficina 2.1.1</p>
-</div>
-<hr />
-<div class="container">
-    <div class="row">
-        <div class="col ">
-            <p>Redes Sociales</p>
-            <p>Facebook: <a href="https://www.facebook.com/">Universidad del Valle</a></p>
-            <p>Twitter: <a href="https://twitter.com">Universidad del Valle</a></p>
-
-        </div>
-        <div class="col">
-            <div class="container container__contact ">
-                <div class="col-md-4 align-content-center">
-                    <form asp-action="Create">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="form-group">
-                            <label asp-for="Name" class="control-label"></label>
-                            <input asp-for="Name" class="form-control" />
-                            <span asp-validation-for="Name" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Surname" class="control-label"></label>
-                            <input asp-for="Surname" class="form-control" />
-                            <span asp-validation-for="Surname" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Email" class="control-label"></label>
-                            <input asp-for="Email" class="form-control" />
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Phone" class="control-label"></label>
-                            <input asp-for="Phone" class="form-control" />
-                            <span asp-validation-for="Phone" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Message" class="control-label"></label>
-                            <input asp-for="Message" class="form-control" />
-                            <span asp-validation-for="Message" class="text-danger"></span>
-                        </div>
-                        <br />
-                        <div class="form-group">
-                            <input type="submit" value="Enviar" class="btn btn-primary" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
