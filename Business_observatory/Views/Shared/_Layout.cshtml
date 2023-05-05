@@ -1,50 +1,1303 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- meta tag -->
+    <meta charset="utf-8">
     <title>@ViewData["Title"] - Business_observatory</title>
+    <meta name="description" content="">
+    <!-- responsive tag -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <!-- Bootstrap v4.4.1 css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <!-- font-awesome css -->
+    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css">
+    <!-- Remixicon css -->
+    <link rel="stylesheet" type="text/css" href="~/css/remixicon.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/flaticon.css">
+    <!-- animate css -->
+    <link rel="stylesheet" type="text/css" href="~/css/animate.css">
+    <!-- slick css -->
+    <link rel="stylesheet" type="text/css" href="~/css/slick.css">
+    <!-- swiper css -->
+    <link rel="stylesheet" type="text/css" href="~/css/swiper.min.css">
+    <!-- off canvas css -->
+    <link rel="stylesheet" type="text/css" href="~/css/off-canvas.css">
+    <!-- magnific popup css -->
+    <link rel="stylesheet" type="text/css" href="~/css/magnific-popup.css">
+    <!-- Main Menu css -->
+    <link rel="stylesheet" href="~/css/rsmenu-main.css">
+    <!-- spacing css -->
+    <link rel="stylesheet" type="text/css" href="~/css/rs-spacing.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="~/css/site.css"> <!-- This stylesheet dynamically changed from style.less -->
+    <!-- responsive css -->
+    <link rel="stylesheet" type="text/css" href="~/css/responsive.css">
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Business_observatory.styles.css" asp-append-version="true" />
+@*    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+*@  <link rel="stylesheet" href="~/Business_observatory.styles.css" asp-append-version="true" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Business_observatory</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
+<body class="defult-home">
+    <div class="offwrap"></div>
+	<div class="main-content">
+
+		<!--Full width header Start-->
+		<div class="full-width-header">
+			<!--Header Start-->
+			<header id="rs-header" class="rs-header header-style1 header-modify3 header-transparent">
+				<!-- Menu Start -->
+				<div class="menu-area menu-sticky">
+					<div class="container box-layout">
+						<div class="row-table">
+							<div class="col-cell header-logo">
+								<div class="logo-area">
+									<a href="index.html">
+										<img class="normal-logo" src="~/images/logo_principal.svg" alt="logo">
+										<img class="sticky-logo" src="~/images/logo_principal.svg" alt="logo">
+									</a>
+								</div>
+							</div>
+							<div class="col-cell">
+								<div class="rs-menu-area">
+									<div class="main-menu">
+										<nav class="rs-menu hidden-md">
+											<ul class="nav-menu">
+												<li class="menu-item-has-children current-menu-item">
+													<a href="index.html">Home</a>
+													<ul class="sub-menu">
+														<li class="menu-item-has-children current-menu-item">
+															<a href="#">Multipages</a>
+															<ul class="sub-menu">
+																<li><a href="index.html">Consulting Business</a> </li>
+																<li><a href="index-2.html">Corporate Business</a> </li>
+																<li><a href="index-3.html">Business Consulting 1</a> </li>
+																<li><a href="index-4.html">Business Consutling 2</a> </li>
+																<li><a href="index-5.html">Insurance Business</a> </li>
+																<li class="active"><a href="index-6.html">Marketing Consultant</a> </li>
+																<li><a href="index-7.html">Fintech</a> </li>
+																<li><a href="index-8.html">Digital Business</a> </li>
+																<li><a href="index-9.html">Personal Advisor</a> </li>
+																<li><a href="index-10.html">Finance Consulting</a> </li>
+															</ul>
+														</li>
+														<li class="menu-item-has-children">
+															<a href="#">Onepages</a>
+															<ul class="sub-menu">
+																<li><a href="onepage-1.html">Onepage Consulting</a> </li>
+																<li><a href="onepage-2.html">Onepage Corporate</a> </li>
+																<li><a href="onepage-3.html">Onepage Consulting 1</a> </li>
+																<li><a href="onepage-4.html">Onepage Consutling 2</a> </li>
+																<li><a href="onepage-5.html">Onepage Insurance</a> </li>
+																<li><a href="onepage-6.html">Onepage Marketing</a> </li>
+																<li><a href="onepage-7.html">Onepage Fintech</a> </li>
+																<li><a href="onepage-8.html">Onepage Digital</a> </li>
+																<li><a href="onepage-9.html">Onepage Personal</a> </li>
+																<li><a href="onepage-10.html">Onepage Finance</a> </li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li>
+													<a href="about-us.html">About Us</a>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#">Pages</a>
+													<ul class="sub-menu">
+														<li><a href="team.html">Team</a></li>
+														<li class="last-item menu-item-has-children">
+															<a href="#">Portfolio</a>
+															<ul class="sub-menu">
+																<li><a href="portfolio-01.html">Portfolio 01</a></li>
+																<li><a href="portfolio-02.html">Portfolio 02</a></li>
+																<li><a href="portfolio-03.html">Portfolio 03</a></li>
+																<li><a href="portfolio-filter.html">Portfolio Filter</a></li>
+																<li><a href="portfolio-single.html">Portfolio Single</a></li>
+															</ul>
+														</li>
+														<li class="last-item menu-item-has-children">
+															<a href="#">Pricing Plan</a>
+															<ul class="sub-menu">
+																<li><a href="pricing-plan-01.html">Pricing Plan 01</a></li>
+																<li><a href="pricing-plan-02.html">Pricing Plan 02</a></li>
+																<li><a href="pricing-plan-02.html">Pricing Plan 03</a></li>
+															</ul>
+														</li>
+														<li><a href="faq.html">Faqs</a></li>
+														<li><a href="partners.html">Partners</a></li>
+													</ul>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#">Services</a>
+													<ul class="sub-menu">
+														<li><a href="services-style-1.html">Service style 1</a></li>
+														<li><a href="services-style-2.html">Services style 2</a></li>
+														<li><a href="services-style-3.html">Services style 3</a></li>
+														<li><a href="services-style-4.html">Services style 4</a></li>
+														<li><a href="services-style-5.html">Services style 5</a></li>
+														<li><a href="services-style-6.html">Services style 6</a></li>
+														<li><a href="services-style-7.html">Services style 7</a></li>
+														<li class="last-item menu-item-has-children">
+															<a href="#">Service Tab Styles</a>
+															<ul class="sub-menu">
+																<li><a href="advance-tab-service-01.html">Advance Tab  Service 01</a></li>
+																<li><a href="advance-tab-service-01.html">Advance Tab  Service 02</a></li>
+															</ul>
+														</li>
+														<li class="last-item menu-item-has-children">
+															<a href="#">Service Details</a>
+															<ul class="sub-menu">
+																<li><a href="consulting-services.html">Consulting Services</a></li>
+																<li><a href="advanced-analytic.html">Advanced Analytic</a></li>
+																<li><a href="business-services.html">Business Services</a></li>
+																<li><a href="consumer-product.html">Consumer Product</a></li>
+																<li><a href="financial-advisory.html">Financial Advisory</a></li>
+																<li><a href="investment-advisory.html">Investment Advisory</a></li>
+																<li><a href="quality-resourcing.html">Quality Resourcing</a></li>
+																<li><a href="security-services.html">Security Services</a></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#">Blog</a>
+													<ul class="sub-menu">
+														<li><a href="blog-standard.html">Blog Standard</a></li>
+														<li><a href="blog-grid-style-1.html">Blog Grid Style 1</a></li>
+														<li><a href="blog-grid-style-2.html">Blog Grid Style 2</a></li>
+														<li><a href="blog-slider-style.html">Blog Slider Style</a></li>
+														<li><a href="blog-single.html">blog-single</a></li>
+													</ul>
+												</li>
+												<li class="last-item menu-item-has-children">
+													<a href="#">Shop</a>
+													<ul class="sub-menu">
+														<li><a href="shop.html">Shop</a></li>
+														<li><a href="shop-single.html">Shop Single</a></li>
+														<li><a href="cart.html">Cart</a></li>
+														<li><a href="checkout.html">Checkout</a></li>
+														<li><a href="my-account.html">My Account</a></li>
+													</ul>
+												</li>
+												<li class="last-item menu-item-has-children">
+													<a href="#">Contact</a>
+													<ul class="sub-menu">
+														<li><a href="contact-us-1.html">Contact Us 1</a></li>
+														<li><a href="contact-us-2.html">Contact Us 2</a></li>
+														<li><a href="contact-us-3.html">Contact Us 3</a></li>
+													</ul>
+												</li>
+											</ul>  <!-- //.nav-menu -->
+										</nav>
+									</div> <!-- //.main-menu -->
+								</div>
+							</div>
+							<div class="col-cell">
+								<div class="expand-btn-inner">
+									<ul>
+										<li class="btn-normal">
+											<a href="#">Get a Quote</a>
+										</li>
+										<li class="nav-link">
+											<a id="nav-expander" class="nav-expander bar" href="#">
+												<div class="bar">
+													<span class="dot1"></span>
+													<span class="dot2"></span>
+													<span class="dot3"></span>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Menu End -->
+				<!-- Canvas Mobile Menu start -->
+				<nav class="right_menu_togle mobile-navbar-menu" id="mobile-navbar-menu">
+					<div class="close-btn">
+						<a id="nav-close2" class="nav-close">
+							<div class="line">
+								<span class="line1"></span>
+								<span class="line2"></span>
+							</div>
+						</a>
+					</div>
+					<ul class="nav-menu">
+						<li class="menu-item-has-children current-menu-item">
+							<a href="index.html">Home</a>
+							<ul class="sub-menu">
+								<li class="menu-item-has-children current-menu-item">
+									<a href="#">Multipages</a>
+									<ul class="sub-menu">
+										<li><a href="index.html">Consulting Business</a> </li>
+										<li><a href="index-2.html">Corporate Business</a> </li>
+										<li><a href="index-3.html">Business Consulting 1</a> </li>
+										<li><a href="index-4.html">Business Consutling 2</a> </li>
+										<li><a href="index-5.html">Insurance Business</a> </li>
+										<li class="active"><a href="index-6.html">Marketing Consultant</a> </li>
+										<li><a href="index-7.html">Fintech</a> </li>
+										<li><a href="index-8.html">Digital Business</a> </li>
+										<li><a href="index-9.html">Personal Advisor</a> </li>
+										<li><a href="index-10.html">Finance Consulting</a> </li>
+									</ul>
+								</li>
+								<li class="menu-item-has-children">
+									<a href="#">Onepages</a>
+									<ul class="sub-menu">
+										<li><a href="onepage-1.html">Onepage Consulting</a> </li>
+										<li><a href="onepage-2.html">Onepage Corporate</a> </li>
+										<li><a href="onepage-3.html">Onepage Consulting 1</a> </li>
+										<li><a href="onepage-4.html">Onepage Consutling 2</a> </li>
+										<li><a href="onepage-5.html">Onepage Insurance</a> </li>
+										<li><a href="onepage-6.html">Onepage Marketing</a> </li>
+										<li><a href="onepage-7.html">Onepage Fintech</a> </li>
+										<li><a href="onepage-8.html">Onepage Digital</a> </li>
+										<li><a href="onepage-9.html">Onepage Personal</a> </li>
+										<li><a href="onepage-10.html">Onepage Finance</a> </li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="about-us.html">About Us</a>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#">Pages</a>
+							<ul class="sub-menu">
+								<li><a href="team.html">Team</a></li>
+								<li class="last-item menu-item-has-children">
+									<a href="#">Portfolio</a>
+									<ul class="sub-menu">
+										<li><a href="portfolio-01.html">Portfolio 01</a></li>
+										<li><a href="portfolio-02.html">Portfolio 02</a></li>
+										<li><a href="portfolio-03.html">Portfolio 03</a></li>
+										<li><a href="portfolio-filter.html">Portfolio Filter</a></li>
+										<li><a href="portfolio-single.html">Portfolio Single</a></li>
+									</ul>
+								</li>
+								<li class="last-item menu-item-has-children">
+									<a href="#">Pricing Plan</a>
+									<ul class="sub-menu">
+										<li><a href="pricing-plan-01.html">Pricing Plan 01</a></li>
+										<li><a href="pricing-plan-02.html">Pricing Plan 02</a></li>
+										<li><a href="pricing-plan-02.html">Pricing Plan 03</a></li>
+									</ul>
+								</li>
+								<li><a href="faq.html">Faqs</a></li>
+								<li><a href="partners.html">Partners</a></li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#">Services</a>
+							<ul class="sub-menu">
+								<li><a href="services-style-1.html">Service style 1</a></li>
+								<li><a href="services-style-2.html">Services style 2</a></li>
+								<li><a href="services-style-3.html">Services style 3</a></li>
+								<li><a href="services-style-4.html">Services style 4</a></li>
+								<li><a href="services-style-5.html">Services style 5</a></li>
+								<li><a href="services-style-6.html">Services style 6</a></li>
+								<li><a href="services-style-7.html">Services style 7</a></li>
+								<li class="last-item menu-item-has-children">
+									<a href="#">Service Tab Styles</a>
+									<ul class="sub-menu">
+										<li><a href="advance-tab-service-01.html">Advance Tab  Service 01</a></li>
+										<li><a href="advance-tab-service-01.html">Advance Tab  Service 02</a></li>
+									</ul>
+								</li>
+								<li class="last-item menu-item-has-children">
+									<a href="#">Service Details</a>
+									<ul class="sub-menu">
+										<li><a href="consulting-services.html">Consulting Services</a></li>
+										<li><a href="advanced-analytic.html">Advanced Analytic</a></li>
+										<li><a href="business-services.html">Business Services</a></li>
+										<li><a href="consumer-product.html">Consumer Product</a></li>
+										<li><a href="financial-advisory.html">Financial Advisory</a></li>
+										<li><a href="investment-advisory.html">Investment Advisory</a></li>
+										<li><a href="quality-resourcing.html">Quality Resourcing</a></li>
+										<li><a href="security-services.html">Security Services</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#">Blog</a>
+							<ul class="sub-menu">
+								<li><a href="blog-standard.html">Blog Standard</a></li>
+								<li><a href="blog-grid-style-1.html">Blog Grid Style 1</a></li>
+								<li><a href="blog-grid-style-2.html">Blog Grid Style 2</a></li>
+								<li><a href="blog-slider-style.html">Blog Slider Style</a></li>
+								<li><a href="blog-single.html">blog-single</a></li>
+							</ul>
+						</li>
+						<li class="last-item menu-item-has-children">
+							<a href="#">Shop</a>
+							<ul class="sub-menu">
+								<li><a href="shop.html">Shop</a></li>
+								<li><a href="shop-single.html">Shop Single</a></li>
+								<li><a href="cart.html">Cart</a></li>
+								<li><a href="checkout.html">Checkout</a></li>
+								<li><a href="my-account.html">My Account</a></li>
+							</ul>
+						</li>
+						<li class="last-item menu-item-has-children">
+							<a href="#">Contact</a>
+							<ul class="sub-menu">
+								<li><a href="contact-us-1.html">Contact Us 1</a></li>
+								<li><a href="contact-us-2.html">Contact Us 2</a></li>
+								<li><a href="contact-us-3.html">Contact Us 3</a></li>
+							</ul>
+						</li>
+					</ul> <!-- //.nav-menu -->
+					<!-- //.nav-menu -->
+					<!-- //.nav-menu -->
+					<div class="canvas-contact">
+						<ul>
+							<li class="btn-signin">
+								<a class="signin-button" href="contact-1.html">
+									<span class="sign-text"><i class="ri-user-3-line"></i> Sign In </span>
+								</a>
+							</li>
+							<li class="btn-quote">
+								<a href="contact-1.html"><span class="btn-text"><i class="ri-download-line"></i> Download</span></a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<!-- Canvas Menu end -->
+			</header>
+			<!--Header End-->
+		</div>
+		<!--Full width header End-->
+		<!-- Banner Start -->
+		<div class="rs-banner banner-style2">
+			<div class="container">
+				<div class="row y-middle">
+					<div class="col-lg-5">
+						<div class="bnr-images">
+							<img class="wow fadeInUp" src="~/images/banner/banner3-img3.png" alt="Images">
+						</div>
+					</div>
+					<div class="col-lg-7">
+						<div class="content-wrap">
+							<span class="sub-title wow fadeInDown">We are the best</span>
+							<h1 class="title wow fadeInRight pb-25">Expert marketing consulting grow your business</h1>
+							<div class="description wow fadeInRight2">
+								<p>
+									Laor eet non curabitur gravida arcu ac tortor dignissim convallis. Nunc mattis enim ut tellus elementum sagittis vitae et leo morbi
+								</p>
+							</div>
+							<ul class="bnr-btn wow fadeInUp">
+								<li>
+									<a class="readon consultant get-orange" href="contact-us-1.html">Get Free Consultant</a>
+								</li>
+								<li>
+									<div class="rs-videos mt--5">
+										<div class="animate-border animate-style1">
+											<a class="popup-border popup-videos" href="https://www.youtube.com/watch?v=FMvA5fyZ338">
+												<i class="fa fa-play"></i>
+												<span class="btn-text">Watch Demo</span>
+											</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Banner End -->
+		<!-- Partner Start -->
+		<div class="rs-partner partner-main-home partner-modify1 gray-bg4 pt-75 pb-70">
+			<div class="container">
+				<div class="sec-title text-center mb-50 md-mb-35">
+					<h6 class="title title7">
+						Bcom is partnered with  30k+ fastest growing companies
+					</h6>
+				</div>
+				<div class="slider partner-slide-1">
+					<div class="partner-item">
+						<div class="logo-img">
+							<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="assets/images/partner/style2/ptnr-1.png" title="" alt="">
+								<img class="mains-logos rs-grid-img " src="assets/images/partner/style2/ptnr-1.png" title="" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="partner-item">
+						<div class="logo-img">
+							<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="assets/images/partner/style2/ptnr-2.png" title="" alt="">
+								<img class="mains-logos rs-grid-img " src="assets/images/partner/style2/ptnr-2.png" title="" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="partner-item">
+						<div class="logo-img">
+							<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="assets/images/partner/style2/ptnr-3.png" title="" alt="">
+								<img class="mains-logos rs-grid-img " src="assets/images/partner/style2/ptnr-3.png" title="" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="partner-item">
+						<div class="logo-img">
+							<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="assets/images/partner/style2/ptnr-4.png" title="" alt="">
+								<img class="mains-logos rs-grid-img " src="assets/images/partner/style2/ptnr-4.png" title="" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="partner-item">
+						<div class="logo-img">
+							<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="assets/images/partner/style2/ptnr-5.png" title="" alt="">
+								<img class="mains-logos rs-grid-img " src="assets/images/partner/style2/ptnr-5.png" title="" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="partner-item">
+						<div class="logo-img">
+							<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="assets/images/partner/style2/ptnr-6.png" title="" alt="">
+								<img class="mains-logos rs-grid-img " src="assets/images/partner/style2/ptnr-6.png" title="" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="partner-item">
+						<div class="logo-img">
+							<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="assets/images/partner/style2/ptnr-7.png" title="" alt="">
+								<img class="mains-logos rs-grid-img " src="assets/images/partner/style2/ptnr-7.png" title="" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="partner-item">
+						<div class="logo-img">
+							<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="assets/images/partner/style2/ptnr-8.png" title="" alt="">
+								<img class="mains-logos rs-grid-img " src="assets/images/partner/style2/ptnr-8.png" title="" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Partner End -->
+		<!-- Feature Start -->
+		<div class="rs-feature feature-style1 feature-modify1 pt-140 pb-140 md-pt-75 md-pb-80">
+			<div class="container">
+				<div class="row y-middle">
+					<div class="col-lg-6 md-mb-35">
+						<div class="feature-wrap">
+							<div class="sec-title">
+								<span class="sub-text">What it does</span>
+								<h2 class="title pb-27">
+									We provide useful<br>features
+								</h2>
+								<p class="desc">
+									Males uada bibe ndum arcu vitae elementum. eget duis at tellus at urna condimentum. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc ringilla urna porttitor rhoncus ut tellus elementum.
+								</p>
+								<ul class="check-lists check-list2 mt-22">
+									<li class="list-item">
+										<span class="icon-list-icon">
+											<i class="ri-checkbox-circle-line"></i>
+										</span>
+										<span class="list-text">Track your daily activity.</span>
+									</li>
+									<li class="list-item">
+										<span class="icon-list-icon">
+											<i class="ri-checkbox-circle-line"></i>
+										</span>
+										<span class="list-text">Multiply global marketing strategy</span>
+									</li>
+									<li class="list-item">
+										<span class="icon-list-icon">
+											<i class="ri-checkbox-circle-line"></i>
+										</span>
+										<span class="list-text">Vertual support team</span>
+									</li>
+								</ul>
+								<ul class="feature-btn mt-32">
+									<li>
+										<a class="readon consultant get-orange small-normal" href="about-us.html">Get Free Consultant</a>
+									</li>
+									<li>
+										<a class="readon consultant phone-number orange-phn" href="about-us.html">
+											<span class="btn-icon">
+												<i class="fa fa-phone"></i>
+											</span>
+											<span class="btn-text">(00) 123 456 789</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="images-wrap">
+							<img src="assets/images/feature/style4/img-1.png" alt="Images">
+							<div class="feature-counter count-box1 veritcal3">
+								<div class="feature-counter-list">
+									<div class="count-text">
+										<div class="count-number">
+											<span class="rs-count">3</span>
+											<span class="prefix">M</span>
+											<span class="prefix">+</span>
+										</div>
+										<span class="title">Business Using Stripe</span>
+									</div>
+								</div>
+							</div>
+							<div class="feature-shape one">
+								<img class="wow fadeInUp" src="assets/images/feature/style4/shape1.png" alt="Images">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Feature End -->
+		<!-- Services Start -->
+		<div class="rs-services services-style1 bg31">
+			<div class="container custom4">
+				<div class="services-provides-wrap pt-125 pb-130 md-pt-75 md-pb-80">
+					<div class="sec-title text-center mb-40">
+						<span class="sub-text">What it provides</span>
+						<h2 class="title">
+							business shaped<br>
+							solutions
+						</h2>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-3 col-md-6 mb-20">
+								<div class="services-item">
+									<div class="services-wrap">
+										<div class="services-icon">
+											<img src="assets/images/services/style2/ser-1.png" alt="">
+										</div>
+										<div class="services-content">
+											<h6 class="title"><a href="business-services.html">Digital Marketing</a></h6>
+											<p class="services-txt">Globally incubate standards compliant channels before scalable benefits. </p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6 mb-20">
+								<div class="services-item">
+									<div class="services-wrap">
+										<div class="services-icon">
+											<img src="assets/images/services/style2/ser-2.png" alt="">
+										</div>
+										<div class="services-content">
+											<h6 class="title"><a href="consumer-product.html">Product Promotion</a></h6>
+											<p class="services-txt">Globally incubate standards compliant channels before scalable benefits. </p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6 mb-20">
+								<div class="services-item">
+									<div class="services-wrap">
+										<div class="services-icon">
+											<img src="assets/images/services/style2/ser-3.png" alt="">
+										</div>
+										<div class="services-content">
+											<h6 class="title"><a href="financial-services.html">Financial Services</a></h6>
+											<p class="services-txt">Globally incubate standards compliant channels before scalable benefits. </p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6 mb-20">
+								<div class="services-item">
+									<div class="services-wrap">
+										<div class="services-icon">
+											<img src="assets/images/services/style2/ser-4.png" alt="">
+										</div>
+										<div class="services-content">
+											<h6 class="title"><a href="quality-resourcing.html">Quality Resourcing</a></h6>
+											<p class="services-txt">Globally incubate standards compliant channels before scalable benefits. </p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6 xl-mb-30">
+								<div class="services-item">
+									<div class="services-wrap">
+										<div class="services-icon">
+											<img src="assets/images/services/style2/ser-5.png" alt="">
+										</div>
+										<div class="services-content">
+											<h6 class="title"><a href="investment-advisory.html">Investment Advisory</a></h6>
+											<p class="services-txt">Globally incubate standards compliant channels before scalable benefits. </p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6 xl-mb-30">
+								<div class="services-item">
+									<div class="services-wrap">
+										<div class="services-icon">
+											<img src="assets/images/services/style2/ser-6.png" alt="">
+										</div>
+										<div class="services-content">
+											<h6 class="title"><a href="financial-advisory.html">Financial Advisory</a></h6>
+											<p class="services-txt">Globally incubate standards compliant channels before scalable benefits. </p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6 sm-mb-30">
+								<div class="services-item">
+									<div class="services-wrap">
+										<div class="services-icon">
+											<img src="assets/images/services/style2/ser-7.png" alt="">
+										</div>
+										<div class="services-content">
+											<h6 class="title"><a href="advanced-analytic.html">Advabced Analytic</a></h6>
+											<p class="services-txt">Globally incubate standards compliant channels before scalable benefits. </p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-3 col-md-6">
+								<div class="services-item">
+									<div class="services-wrap">
+										<div class="services-icon">
+											<img src="assets/images/services/style2/ser-8.png" alt="">
+										</div>
+										<div class="services-content">
+											<h6 class="title"><a href="business-services.html">24/7 Rapid Support</a></h6>
+											<p class="services-txt">Globally incubate standards compliant channels before scalable benefits. </p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Services End -->
+		<!-- Swiper Project Section Start -->
+		<div class="rs-project project-style3 pt-70 pb-140 md-pt-14 md-pb-80">
+			<div class="container">
+				<div class="sec-title pro-sec">
+					<span class="sub-text">our projects</span>
+					<h2 class="title">
+						Our Works
+					</h2>
+				</div>
+				<div class="swiper project-slide2">
+					<div class="swiper-wrapper">
+						<div class="project-item swiper-slide">
+							<div class="project-img">
+								<a href="portfolio-single.html"><img src="assets/images/project/style3/pro-1.jpg" alt="Images"></a>
+							</div>
+							<div class="project-content">
+								<span class="category"><a href="portfolio-single.html">Digital Marketing</a></span>
+								<h5 class="title"><a href="portfolio-single.html">Alex Brand Promotion</a></h5>
+							</div>
+						</div>
+						<div class="project-item swiper-slide">
+							<div class="project-img">
+								<a href="portfolio-single.html"><img src="assets/images/project/style3/pro-2.jpg" alt="Images"></a>
+							</div>
+							<div class="project-content">
+								<span class="category"><a href="portfolio-single.html">Product Promotion</a></span>
+								<h5 class="title"><a href="portfolio-single.html">Marketing Plan</a></h5>
+							</div>
+						</div>
+						<div class="project-item swiper-slide">
+							<div class="project-img">
+								<a href="portfolio-single.html"><img src="assets/images/project/style3/pro-3.jpg" alt="Images"></a>
+							</div>
+							<div class="project-content">
+								<span class="category"><a href="portfolio-single.html">Financial Advisory</a></span>
+								<h5 class="title"><a href="portfolio-single.html">Investment Plan</a></h5>
+							</div>
+						</div>
+						<div class="project-item swiper-slide">
+							<div class="project-img">
+								<a href="portfolio-single.html"><img src="assets/images/project/style3/pro-1.jpg" alt="Images"></a>
+							</div>
+							<div class="project-content">
+								<span class="category"><a href="portfolio-single.html">Digital Marketing</a></span>
+								<h5 class="title"><a href="portfolio-single.html">Alex Brand Promotion</a></h5>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-scrollbar"></div>
+					<div class="swiper-navigation">
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- Swiper Project Section End -->
+		<!-- Skillbar Start -->
+		<div class="rs-skillbar skillbar-style1 bg32 pt-130 pb-130 md-pt-80 md-pb-60">
+			<div class="container">
+				<div class="row y-middle">
+					<div class="col-lg-6 md-mb-50">
+						<div class="skillbar-wrap">
+							<img src="assets/images/skillbar/style1/img1.png" alt="Images">
+							<div class="shape-img">
+								<img class="wow horizontal2" src="assets/images/skillbar/style1/shape1.png" alt="Images">
+							</div>
+							<div class="skillbar-counter count-box1 veritcal3">
+								<div class="skillbar-counter-list">
+									<div class="count-text">
+										<div class="count-number">
+											<span class="rs-count">95</span>
+											<span class="prefix">%</span>
+										</div>
+										<span class="title">Business Growth</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="sec-title">
+							<span class="sub-text">your path to success capital</span>
+							<h2 class="title pb-26">
+								We know how to develop business marketing globally
+							</h2>
+							<p class="desc pb-30">
+								Malesuada bibendum arcu vitae elementum. Semper eget duis at tellus at urna condimentum. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Fringilla urna porttitor rhoncus dolor purus non enim.
+							</p>
+						</div>
+						<!-- Skillbar Section Start -->
+						<div class="cl-skill-bar">
+							<span class="skillbar-title">Design & Development</span>
+							<!-- Start Skill Bar -->
+							<div class="skillbar" data-percent="90">
+								<p class="skillbar-bar"></p>
+								<span class="skill-bar-percent">90%</span>
+							</div>
+						</div>
+						<!-- Skillbar Section End -->
+						<div class="cl-skill-bar">
+							<span class="skillbar-title">Digital Marketing</span>
+							<!-- Start Skill Bar -->
+							<div class="skillbar" data-percent="80">
+								<p class="skillbar-bar"></p>
+								<span class="skill-bar-percent">80%</span>
+							</div>
+						</div>
+						<!-- Skillbar Section End -->
+						<div class="cl-skill-bar">
+							<span class="skillbar-title">Product Promotion</span>
+							<!-- Start Skill Bar -->
+							<div class="skillbar" data-percent="94">
+								<p class="skillbar-bar"></p>
+								<span class="skill-bar-percent">94%</span>
+							</div>
+						</div>
+						<!-- Skillbar Section End -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Skillbar End -->
+		<!-- Testimonial Section End -->
+		<div class="rs-testimonial testimonial-style1 bg33 pt-135 pb-110 md-pt-75 md-pb-80">
+			<div class="container">
+				<div class="sec-title text-center mb-50 md-mb-35">
+					<span class="sub-text">Testimonial</span>
+					<h2 class="title white-color">
+						What’s Clients says<br>
+						about Us
+					</h2>
+				</div>
+				<div class="slider testi-slide-1">
+					<div class="testi-item">
+						<div class="testi-images">
+							<div class="image-wrap">
+								<img src="assets/images/testimonial/style3/testi-1.png" alt="Images">
+							</div>
+						</div>
+						<div class="testi-wrap">
+							<div class="testi-content">
+								<div class="rattings">
+									<img src="assets/images/testimonial/style3/ratting.png" alt="Images">
+								</div>
+								<p class="desc">It’s incredible. it’s really wonderful. bcom has completely surpassed our expect. Urna porttitor rhoncus dolor purus non enim praesent at the facilisis lectus. Adipiscing tristique risus feugiat fermentum.</p>
+								<div class="testi-information">
+									<div class="testi-name">Brooklyn Simmons</div>
+									<span class="testi-title">CEO, Bribbble LLC</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="testi-item">
+						<div class="testi-images">
+							<div class="image-wrap">
+								<img src="assets/images/testimonial/style3/testi-2.png" alt="Images">
+							</div>
+						</div>
+						<div class="testi-wrap">
+							<div class="testi-content">
+								<div class="rattings">
+									<img src="assets/images/testimonial/style3/ratting.png" alt="Images">
+								</div>
+								<p class="desc">It’s incredible. it’s really wonderful. bcom has completely surpassed our expect. Urna porttitor rhoncus dolor purus non enim praesent at the facilisis lectus. Adipiscing tristique risus feugiat fermentum.</p>
+								<div class="testi-information">
+									<div class="testi-name">Micheal Holding</div>
+									<span class="testi-title">Personal Counseling</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="testi-item">
+						<div class="testi-images">
+							<div class="image-wrap">
+								<img src="assets/images/testimonial/style3/testi-3.png" alt="Images">
+							</div>
+						</div>
+						<div class="testi-wrap">
+							<div class="testi-content">
+								<div class="rattings">
+									<img src="assets/images/testimonial/style3/ratting.png" alt="Images">
+								</div>
+								<p class="desc">It’s incredible. it’s really wonderful. bcom has completely surpassed our expect. Urna porttitor rhoncus dolor purus non enim praesent at the facilisis lectus. Adipiscing tristique risus feugiat fermentum.</p>
+								<div class="testi-information">
+									<div class="testi-name">Brooklyn Simmons</div>
+									<span class="testi-title">CEO, Bribbble LLC</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="testi-item">
+						<div class="testi-images">
+							<div class="image-wrap">
+								<img src="assets/images/testimonial/style3/testi-1.png" alt="Images">
+							</div>
+						</div>
+						<div class="testi-wrap">
+							<div class="testi-content">
+								<div class="rattings">
+									<img src="assets/images/testimonial/style3/ratting.png" alt="Images">
+								</div>
+								<p class="desc">It’s incredible. it’s really wonderful. bcom has completely surpassed our expect. Urna porttitor rhoncus dolor purus non enim praesent at the facilisis lectus. Adipiscing tristique risus feugiat fermentum.</p>
+								<div class="testi-information">
+									<div class="testi-name">Brooklyn Simmons</div>
+									<span class="testi-title">CEO, Bribbble LLC</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Partner Start -->
+			<div class="rs-partner partner-style4 pt-80 md-pt-40">
+				<div class="container">
+					<div class="slider partner-slide-1">
+						<div class="partner-item">
+							<div class="logo-img">
+								<a href="https://rstheme.com">
+									<img class="dance-pop" src="assets/images/partner/style5/ptnr-1.png" title="" alt="">
+								</a>
+							</div>
+						</div>
+						<div class="partner-item">
+							<div class="logo-img">
+								<a href="https://rstheme.com">
+									<img class="dance-pop" src="assets/images/partner/style5/ptnr-2.png" title="" alt="">
+								</a>
+							</div>
+						</div>
+						<div class="partner-item">
+							<div class="logo-img">
+								<a href="https://rstheme.com">
+									<img class="dance-pop" src="assets/images/partner/style5/ptnr-3.png" title="" alt="">
+								</a>
+							</div>
+						</div>
+						<div class="partner-item">
+							<div class="logo-img">
+								<a href="https://rstheme.com">
+									<img class="dance-pop" src="assets/images/partner/style5/ptnr-4.png" title="" alt="">
+								</a>
+							</div>
+						</div>
+						<div class="partner-item">
+							<div class="logo-img">
+								<a href="https://rstheme.com">
+									<img class="dance-pop" src="assets/images/partner/style5/ptnr-5.png" title="" alt="">
+								</a>
+							</div>
+						</div>
+						<div class="partner-item">
+							<div class="logo-img">
+								<a href="https://rstheme.com">
+									<img class="dance-pop" src="assets/images/partner/style5/ptnr-6.png" title="" alt="">
+								</a>
+							</div>
+						</div>
+						<div class="partner-item">
+							<div class="logo-img">
+								<a href="https://rstheme.com">
+									<img class="dance-pop" src="assets/images/partner/style5/ptnr-7.png" title="" alt="">
+								</a>
+							</div>
+						</div>
+						<div class="partner-item">
+							<div class="logo-img">
+								<a href="https://rstheme.com">
+									<img class="dance-pop" src="assets/images/partner/style5/ptnr-8.png" title="" alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Partner End -->
+		</div>
+		<!-- Testimonial Section End -->
+		<!-- Process Section Start -->
+		<div class="rs-process process-style1 pt-125 pb-130 md-pt-75 md-pb-80">
+			<div class="container">
+				<div class="sec-title text-center mb-50">
+					<span class="sub-text">Work process</span>
+					<h2 class="title">
+						How we works
+					</h2>
+				</div>
+				<div class="process-bg-wrap">
+					<div class="row">
+						<div class="col-lg-4 md-mb-40">
+							<div class="process-item">
+								<div class="icon-image">
+									<img src="assets/images/process/style1/icon-1.png" alt="Images">
+								</div>
+								<div class="content-txt">
+									<h4 class="title">Business Strategy</h4>
+									<p class="desc">Vestibulum lectus mauris ultrices eros in. Cursus sit amet dictum sit amet. Adipiscing tristique risus nec feugiat</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 md-mb-40">
+							<div class="process-item">
+								<div class="icon-image">
+									<img src="assets/images/process/style1/icon-2.png" alt="Images">
+								</div>
+								<div class="content-txt">
+									<h4 class="title">Idea Validation</h4>
+									<p class="desc">Vestibulum lectus mauris ultrices eros in. Cursus sit amet dictum sit amet. Adipiscing tristique risus nec feugiat </p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="process-item">
+								<div class="icon-image">
+									<img src="assets/images/process/style1/icon-3.png" alt="Images">
+								</div>
+								<div class="content-txt">
+									<h4 class="title">Implementation</h4>
+									<p class="desc">Vestibulum lectus mauris ultrices eros in. Cursus sit amet dictum sit amet. Adipiscing tristique risus nec feugiat </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Process Section End -->
+		<!-- Blog Section Start -->
+		<div class="rs-blog blog-style1 bg34 pt-125 pb-130 md-pb-80 md-pt-75 md-pb-80">
+			<div class="container">
+				<div class="row y-middle">
+					<div class="col-lg-6">
+						<div class="sec-title mb-50">
+							<span class="sub-text">blog & news</span>
+							<h2 class="title">
+								Our Least Blog
+							</h2>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="blog-button mt--30 md-mb-50 blog-btn3 text-right md-left">
+							<a href="blog-details.html">
+								<span class="btn-txt">View all post</span>
+								<i class="ri-arrow-right-line"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 md-mb-30">
+						<div class="blog-item">
+							<div class="image-wrap">
+								<a href="blog-single.html"><img src="assets/images/blog/style2/bl1.jpg" alt=""></a>
+							</div>
+							<div class="blog-content">
+								<ul class="blog-meta">
+									<li class="categories"><i class="ri-calendar-line"></i>March 20,2023</li>
+									<li class="admin"><i class="ri-user-line"></i><a href="blog-single.html">Bcom</a></li>
+								</ul>
+								<h5 class="blog-title"><a href="blog-single.html">Earn good money and make you very successful creative</a></h5>
+								<div class="blog-button">
+									<a href="blog-single.html">
+										<span class="btn-txt">Read More</span>
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="blog-horizontal">
+							<div class="blog-meta mb-30">
+								<div class="blog-item-wrap">
+									<div class="image-wrap">
+										<a href="blog-single.html"><img src="assets/images/blog/style2/bl2.jpg" alt=""></a>
+									</div>
+									<div class="blog-content">
+										<ul class="blog-meta">
+											<li class="categories"><i class="ri-calendar-line"></i>March 20,2023</li>
+											<li class="admin"><i class="ri-user-line"></i><a href="blog-single.html">Bcom</a></li>
+										</ul>
+										<h5 class="blog-title"><a href="blog-single.html">Do it right is the ultimate winning strategy for consultant</a></h5>
+										<p class="blog-desc">
+											Vestibulum lectus mauris ultrices eros in. Cursus sit amet dictum sit amet.
+										</p>
+										<div class="blog-button">
+											<a href="blog-single.html">
+												<span class="btn-txt">Read More</span>
+												<i class="ri-arrow-right-line"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="blog-meta">
+								<div class="blog-item-wrap">
+									<div class="image-wrap">
+										<a href="blog-single.html"><img src="assets/images/blog/style2/bl3.jpg" alt=""></a>
+									</div>
+									<div class="blog-content">
+										<ul class="blog-meta">
+											<li class="categories"><i class="ri-calendar-line"></i>March 20,2023</li>
+											<li class="admin"><i class="ri-user-line"></i><a href="blog-single.html">Bcom</a></li>
+										</ul>
+										<h5 class="blog-title"><a href="blog-single.html">Ultrices dui sapien eget mi. Enim nulla aliquet porttitor lacus</a></h5>
+										<p class="blog-desc">
+											Vestibulum lectus mauris ultrices eros in. Cursus sit amet dictum sit amet.
+										</p>
+										<div class="blog-button">
+											<a href="blog-single.html">
+												<span class="btn-txt">Read More</span>
+												<i class="ri-arrow-right-line"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Blog Section End -->
+		<!-- Contact Section End -->
+		<div class="rs-contact contact-style2 pt-130 pb-130 bg35 md-pt-80 md-pb-80">
+			<div class="container">
+				<div class="row no-gutters">
+					<div class="col-lg-7">
+						<div class="touch-wrap">
+							<div class="sec-title sec-modify1 mb-40">
+								<span class="sub-text">Get in touch</span>
+								<h2 class="title pb-25">
+									Get free marketing consultation today
+								</h2>
+								<p class="desc desc2">
+									Vestibulum lectus mauris ultrices eros in. Cursus sit amet dictum sit amet. Adipiscing tristique risus nec feugiat
+								</p>
+							</div>
+							<ul class="contact-button">
+								<li>
+									<a class="readon contact-icon" href="#">
+										<span class="btn-txt">Contact Us</span>
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</li>
+								<li>
+									<a class="readon consultant phone-number orange-light" href="contact-us-1.html">
+										<span class="btn-icon">
+											<i class="fa fa-phone"></i>
+										</span>
+										<span class="btn-text">(00) 123 456 789</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-5">
+						<div class="contact-wrap">
+							<div class="sec-title mb-30">
+								<h5 class="title title2 white-color">
+									Get in touch
+								</h5>
+							</div>
+							<div id="form-messages"></div>
+							<form id="contact-form" method="post" action="mailer.php">
+								<fieldset>
+									<div class="row">
+										<div class="col-sm-12 mb-20">
+											<input class="from-control" type="text" id="name" name="name" placeholder="Name" required="">
+										</div>
+										<div class="col-sm-12 mb-20">
+											<input class="from-control" type="text" id="email" name="email" placeholder="Email" required="">
+										</div>
+										<div class="col-sm-12 mb-20">
+											<textarea class="from-control" id="message" name="message" placeholder="Write Your Message Here" required=""></textarea>
+										</div>
+									</div>
+									<div class="btn-part">
+										<div class="form-group mb-0">
+											<input class="readon submit submit-orange2" type="submit" value="Submit Now">
+										</div>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Contact Section End -->
+	</div>
+	<div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Business_observatory - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<footer id="rs-footer" class="rs-footer footer-main-home footer-modify1 footer-orange-style1">
+		<div class="footer-overlay"></div>
+		<div class="container custom8">
+			<div class="footer-top">
+				<div class="row">
+					<div class="col-lg-3 md-mb-30">
+						<div class="footer-logo">
+							<a href="index.html"><img src="assets/images/orange-black.png" alt=""></a>
+						</div>
+						<p class="description">Fermentum odio eu feugiat pretiums nibh. Dolor sit consectetur adipiscini over the aenean bcom here.</p>
+						<ul class="footer-social">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-lg-9">
+						<div class="row">
+							<div class="col-lg-3 pl-60 md-pl-15">
+								<h5 class="footer-title">Company</h5>
+								<ul class="site-map">
+									<li><a href="about-us.html">About Us</a></li>
+									<li><a href="services-1.html">Services</a></li>
+									<li><a href="faq.html">FAQ</a></li>
+									<li><a href="blog-standard.html">Blog Standard</a></li>
+									<li><a href="contact-1.html">Contact Us</a></li>
+								</ul>
+							</div>
+							<div class="col-lg-3">
+								<h5 class="footer-title">Solutions</h5>
+								<ul class="site-map">
+									<li><a href="advanced-analytic.html">Advanced Analytic</a></li>
+									<li><a href="business-services.html">Business Services</a></li>
+									<li><a href="consulting-services.html">Consulting Services</a></li>
+									<li><a href="consumer-product.html">Consumer Product</a></li>
+									<li><a href="financial-services.html">Financial Services</a></li>
+								</ul>
+							</div>
+							<div class="col-lg-6 pl-30 md-pl-15 md-mt-30">
+								<div class="newsletter-wrap">
+									<h2 class="title">Newsletter</h2>
+									<div class="description">
+										<p>You will get weekly update on Email</p>
+									</div>
+									<div class="-newsletter-form">
+										<div class="form-inner">
+											<input id="news_email" type="email" name="email" placeholder="Email Address" required="">
+											<input class="submit_nl" type="submit" value="Subscribe">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="bottom-border">
+					<div class="row y-middle">
+						<div class="col-lg-6 md-mb-10 text-lg-end text-center order-last">
+							<ul class="copy-right-menu">
+								<li><a href="about-us.html">About</a></li>
+								<li><a href="faq.html">FAQ</a></li>
+								<li><a href="blog-standard.html">Blog Standard</a></li>
+								<li><a href="contact-1.html">Contact</a></li>
+							</ul>
+						</div>
+						<div class="col-lg-6">
+							<div class="copyright text-lg-start text-center">
+								<p>© 2023 Bcom.  Designed By <a href="https://rstheme.com" target="blank">RSTheme</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+   @* <script src="~/lib/jquery/dist/jquery.min.js"></script>*@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+	<!-- Search Modal End -->
+	<!-- modernizr js -->
+	<script src="~/js/modernizr.min.js"></script>
+	<!-- jquery latest version -->
+	<script src="~/js/jquery.min.js"></script>
+	<!-- Bootstrap v4.4.1 js -->
+	<script src="~/js/bootstrap.min.js"></script>
+	<!-- op nav js -->
+	<script src="~/js/jquery.nav.js"></script>
+	<!-- wow js -->
+	<script src="~/js/wow.min.js"></script>
+	<!-- Skill bar js -->
+	<script src="~/js/skill.bars.jquery.js"></script>
+	<!-- imagesloaded js -->
+	<script src="~/js/imagesloaded.pkgd.min.js"></script>
+	<!-- Slick js -->
+	<script src="~/js/slick.min.js"></script>
+	<!-- swiper js -->
+	<script src="~/js/swiper.min.js"></script>
+	<!-- waypoints.min js -->
+	<script src="~/js/waypoints.min.js"></script>
+	<!-- magnific popup js -->
+	<script src="~/js/jquery.magnific-popup.min.js"></script>
+	<!-- counterup.min js -->
+	<script src="~/js/jquery.counterup.min.js"></script>
+	<!-- contact form js -->
+	<script src="~/js/contact.form.js"></script>
+	<!-- main js -->
+	<script src="~/js/main.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
