@@ -22,9 +22,9 @@ namespace Business_observatory.Controllers
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-              return _context.Contact != null ? 
-                          View(await _context.Contact.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Contact'  is null.");
+            return _context.Contact != null ?
+                View(await _context.Contact.ToListAsync()) :
+                Problem("Entity set 'ApplicationDbContext.Categories'  is null.");
         }
 
         // GET: Contacts/Details/5
@@ -56,9 +56,9 @@ namespace Business_observatory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,SurName,Email,Phone,Message")] Contact contact)
+        public async Task<IActionResult> Create([Bind("Id,Name,Surname,Email,Phone,Message")] Contact contact)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 				_context.Add(contact);
 				await _context.SaveChangesAsync();
