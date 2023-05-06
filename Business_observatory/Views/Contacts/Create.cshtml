@@ -84,41 +84,41 @@
 							Proactively fashion world-class leadership vis-a-vis enterprise e-services. Great strong leadership.
 						</p>
 					</div>
-					<div id="form-messages"></div>
-					<form id="contact-form" method="post" action="mailer.php">
-						<fieldset>
+					@*<div id="form-messages"></div>*@
+					<form asp-action="Create" id="contact-form">
+						<div>
 							<div class="row">
 								<div class="col-lg-12 mb-15">
 									<span class="wpcf7-form-control-wrap">
 										<i class="ri-user-3-line"></i>
-										<input class="from-control" type="text" id="name" name="name" placeholder="Name" required="">
+										<input asp-for="Name" name="name" class="from-control" type="text" id="name" placeholder="Name" required="required" data-error="Firstname is required.">
 									</span>
 								</div>
 								<div class="col-lg-12 mb-15">
 									<span class="wpcf7-form-control-wrap">
 										<i class="ri-mail-send-line"></i>
-										<input class="from-control" type="text" id="email" name="email" placeholder="E-mail" required="">
+										<input asp-for="Email" class="from-control" type="text" id="email" name="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
 									</span>
 								</div>
 								<div class="col-lg-12 mb-15">
 									<span class="wpcf7-form-control-wrap">
-										<i class="ri-price-tag-3-line"></i>
-										<input class="from-control" type="text" id="subject" name="subject" placeholder="Subject" required="">
+										<i class="ri-phone-line"></i>
+										<input asp-for="Phone" class="from-control" type="tel" id="subject" name="phone" placeholder="Phone" required="required" placeholder="Please enter your phone">
 									</span>
 								</div>
 								<div class="col-lg-12 mb-15">
 									<span class="wpcf7-form-control-wrap">
 										<i class="ri-edit-2-line"></i>
-										<textarea class="from-control" id="message" name="message" placeholder="Type your messags here" required=""></textarea>
+										<textarea class="from-control" id="message" name="message" placeholder="Type your messags here" required="required" data-error="Please,leave us a message."></textarea>
 									</span>
 								</div>
 							</div>
 							<div class="btn-part">
 								<div class="form-group mb-0">
-									<input class="readon submit submit-green1" type="submit" value="Send Inquiry">
+									<input asp-for="Message" class="readon submit submit-green1" type="submit" value="Send Message">
 								</div>
 							</div>
-						</fieldset>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -162,88 +162,6 @@
 	</div>
 </div>
 <!-- Cta End -->
-<div class="page-heading page__heading__img">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="header-text">
-                    <h2>Solicitudes</h2>
-                    <div class="div-dec"></div>
-                    <div class="div"><p class="div__p">Gracias por su interés en nuestro observatorio empresarial. Estamos comprometidos en proporcionar información precisa y relevante para ayudar a las empresas a tomar decisiones informadas y estratégicas.<br />Si tiene alguna pregunta, comentario o sugerencia, no dude en ponerse en contacto con nosotros utilizando el formulario que se encuentra a continuación. </p></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="col-lg-6 mx-auto p-5 form__text">
-        <form asp-action="Create">
-            <div class="controls">
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label asp-for="Name">Firstname *</label>
-                            <input asp-for="Name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label asp-for="Surname">Lastname *</label>
-                            <input asp-for="Surname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label asp-for="Email">Email *</label>
-                            <input asp-for="Email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label asp-for="Phone" for="form_phone">Phone</label>
-                            <input asp-for="Phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="form_message">Message *</label>
-                            <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 p-2">
-                        <input asp-for="Message" type="submit" class="btn btn-success btn-send" value="Send message">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <p class="text-muted"><strong>*</strong> These fields are required. </p>
-                    </div>
-                </div>
-            </div>
-
-        </form>
-
-    </div>
-</div>
-
-<div class="container">
-    <p>Coordinadora</p>
-    <p>Dr. Juan Carlos Sánchez</p>
-    <p>Correo: jaun@gmail.com</p>
-    <p>Teléfono: 123456789</p>
-    <p>Horario de atención: 8:00 a 12:00 y 2:00 a 6:00</p>
-    <p>Ubicación: Edificio 1, piso 2, oficina 2.1.1</p>
-</div>
 
 @section Scripts {
     @{
