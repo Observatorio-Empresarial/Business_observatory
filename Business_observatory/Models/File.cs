@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Business_observatory.Models;
 
@@ -20,4 +21,7 @@ public partial class File
     public int? ProjectId { get; set; }
 
     public virtual Project? Project { get; set; }
+    [NotMapped]
+    public IFormFile FileUpload { get; set; }  // Propiedad para el archivo cargado
+
 }

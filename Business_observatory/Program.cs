@@ -1,12 +1,22 @@
+using Amazon.S3;
+using Amazon.Extensions.NETCore.Setup;
 using Business_observatory.Data;
 using Business_observatory.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Amazon;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var awsOptions = builder.Configuration.GetAWSOptions();
+awsOptions.Region = RegionEndpoint.SAEast1;
+builder.Services.AddDefaultAWSOptions(awsOptions);
+builder.Services.AddAWSService<IAmazonS3>();
+
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySQL(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
