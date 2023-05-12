@@ -1,0 +1,63 @@
+﻿@model Business_observatory.Models.Project
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-text">
+                    <h2>@Html.DisplayFor(model=>model.Title)</h2>
+                    <div class="div-dec"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <hr />
+    <div class="m-5">
+        <div>
+            @Html.DisplayFor(model => model.Description)
+        </div>
+        <div>
+            @Html.DisplayFor(model => model.RegistrationDate)
+        </div>
+        @*<div>
+            @foreach (var item in Model.ApplicationUser.UserName)
+            {
+                <div>
+                    @Html.DisplayFor(modelItem => item)
+                </div>
+            }
+          </div>*@
+    </div>
+    @*<dl class="row">
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RegistrationDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RegistrationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationUser.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.Id)
+        </dd>
+    </dl>*@
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

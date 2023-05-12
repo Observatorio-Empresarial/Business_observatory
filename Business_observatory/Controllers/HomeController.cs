@@ -4,16 +4,17 @@ using System.Diagnostics;
 using System.Net.Mail;
 using System.Net.Security;
 using System.Net;
-using Business_observatory.Data;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Business_observatory.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext context;
-        public HomeController(ApplicationDbContext context)
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
         {
-            this.context = context;
+            _logger = logger;
         }
 
         public IActionResult Index()
@@ -46,11 +47,17 @@ namespace Business_observatory.Controllers
             return View();
         }
 
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
         public async Task<IActionResult> UploadToFileSystem(List<IFormFile> files)
         {
             foreach (var file in files)
             {
-                var basePath = Path.Combine(Directory.GetCurrentDirectory() + "\\wwwroot\\Files\\VID\\");
+                var basePath = Path.Combine(Directory.GetCurrentDirectory() + "\\wwwroot\\Files\\IMG\\");
                 bool basePathExists = System.IO.Directory.Exists(basePath);
                 if (!basePathExists) Directory.CreateDirectory(basePath);
                 var fileName = Path.GetFileNameWithoutExtension(file.FileName);
@@ -63,7 +70,7 @@ namespace Business_observatory.Controllers
                         await file.CopyToAsync(stream);
                     }
                 }
-                TempData["data4"] = fileName + "" + extension;
+                TempData["data"] = fileName + "" + extension;
 
             }
             TempData["Message"] = "File successfully uploaded to File System.";
@@ -71,8 +78,7 @@ namespace Business_observatory.Controllers
             return RedirectToAction("Index");
         }
 
-
-        public async Task<IActionResult> UploadToFileSystem2(List<IFormFile> files1, List<IFormFile> files2, List<IFormFile> files3)
+        public async Task<IActionResult> UploadToFileSystem2(List<IFormFile> files1, List<IFormFile> files2, List<IFormFile> files3, List<IFormFile> files4)
         {
             foreach (var file1 in files1)
             {
@@ -127,17 +133,53 @@ namespace Business_observatory.Controllers
                 }
                 TempData["data3"] = fileName + "" + extension;
             }
+
+
+            foreach (var file4 in files4)
+            {
+                var basePath = Path.Combine(Directory.GetCurrentDirectory() + "\\wwwroot\\Files\\IMG4\\");
+                bool basePathExists = System.IO.Directory.Exists(basePath);
+                if (!basePathExists) Directory.CreateDirectory(basePath);
+                var fileName = Path.GetFileNameWithoutExtension(file4.FileName);
+                var filePath = Path.Combine(basePath, file4.FileName);
+                var extension = Path.GetExtension(file4.FileName);
+                if (!System.IO.File.Exists(filePath))
+                {
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file4.CopyToAsync(stream);
+                    }
+                }
+                TempData["data4"] = fileName + "" + extension;
+            }
+
             TempData["Message"] = "File successfully uploaded to File System.";
 
             return RedirectToAction("Index");
         }
 
+        //public void sendMail()
+        //{
+        //    //Send Email-----------------------------------------------------------------------------
+        //    MailMessage correo = new MailMessage();
+        //    correo.From = new MailAddress("devinamurrioUnivalle@gmail.com", "Kyocode", System.Text.Encoding.UTF8);//Correo de salida
+        //    correo.To.Add("ald0029696@est.univalle.edu"); //Correo destino?
+        //    correo.Subject = "Datos de Login"; //Asunto
+        //    correo.Body = "Password: "; //Mensaje del correo
+        //    correo.IsBodyHtml = true;
+        //    correo.Priority = MailPriority.Normal;
+        //    SmtpClient smtp = new SmtpClient();
+        //    smtp.UseDefaultCredentials = false;
+        //    smtp.Host = "smtp.gmail.com"; //Host del servidor de correo
+        //    smtp.Port = 587; //Puerto de salida
+        //    smtp.Credentials = new NetworkCredential("devinamurrioUnivalle@gmail.com", "zpksehcoeyqqqsol");//Cuenta de correo
+        //    ServicePointManager.ServerCertificateValidationCallback = delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) { return true; };
+        //    smtp.EnableSsl = true;//True si el servidor de correo permite ssl
+        //    smtp.Send(correo);
+        //}
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
+        //Thread backgroundThread = new Thread(new ThreadStart(sendMail));
+        //// Start thread  
+        //backgroundThread.Start();
     }
 }

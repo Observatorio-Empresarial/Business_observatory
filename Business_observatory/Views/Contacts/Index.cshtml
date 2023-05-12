@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Business_observatory.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!-- Cart Section Start -->
+<div class="container-fluid" style="padding-bottom: 130px; background-color: gray">
+
+</div>
+<div class="rs-cart pt-120 pb-120 md-pt-80 md-pb-80">
+	<div class="container">
+		<div class="cart-wrap">
+			<form>
+				<table class="cart-table">
+					<thead>
+						<tr>
+							<th class="product-name">@Html.DisplayNameFor(model=>model.Name)</th>
+							<th class="product-name">@Html.DisplayNameFor(model=>model.Surname)</th>
+							<th class="product-name">@Html.DisplayNameFor(model=>model.Email)</th>
+							<th class="product-name">@Html.DisplayNameFor(model=>model.Phone)</th>
+							<th class="product-name">@Html.DisplayNameFor(model=>model.Message)</th>
+							<th class="product-name">@Html.DisplayNameFor(model=>model.Status)</th>
+							<th class="product-name"></th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td class="product-name"><a href="#">@Html.DisplayFor(modelItem=>item.Name)</a></td>
+								<td class="product-name"><a href="#">@Html.DisplayFor(modelItem=>item.Surname)</a></td>
+								<td class="product-name"><a href="#">@Html.DisplayFor(modelItem=>item.Email)</a></td>
+								<td class="product-name"><a href="#">@Html.DisplayFor(modelItem=>item.Phone)</a></td>
+								<td class="product-name"><a href="#">@Html.DisplayFor(modelItem=>item.Message)</a></td>
+								<td class="product-name">
+									@if (item.Status == "Activo")
+									{
+										<img src="~/Images/CheckIcon.png" style="width:50px; height:50px">
+									}
+									else if (item.Status == "En-Progreso")
+									{
+										<img src="~/Images/pending-clock-icon.png" style="width:50px; height:50px">
+									}
+									else if (item.Status == "Inactivo")
+									{
+										<img src="~/Images/red-x-icon.png" style="width:50px; height:50px">
+									}
+								</td>
+								<td>
+										<a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+										<a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+										<a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Cart Section End -->
+

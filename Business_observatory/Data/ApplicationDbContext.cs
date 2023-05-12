@@ -10,7 +10,24 @@ namespace Business_observatory.Data
             : base(options)
         {
         }
+        public virtual DbSet<Categoriesproject> Categoriesprojects { get; set; }
 
-        public DbSet<FileOnFileSystem> FilesOnFileSystem { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+
+        public virtual DbSet<Company> Companies { get; set; }
+
+        public virtual DbSet<Models.File> Files { get; set; }
+
+        public virtual DbSet<Project> Projects { get; set; }
+   
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Project>()
+                .HasOne(p => p.ApplicationUser)
+                .WithMany(a => a.Projects)
+                .HasForeignKey(p => p.AspNetUserId);
+        }
+        public DbSet<Business_observatory.Models.Contact>? Contact { get; set; }
     }
 }
