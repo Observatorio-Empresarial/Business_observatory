@@ -157,7 +157,7 @@ namespace Business_observatory.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("AspNetUserId")
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(127)");
 
                     b.Property<int?>("CompanyId")
                         .HasColumnType("int");
@@ -188,19 +188,24 @@ namespace Business_observatory.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(127)
+                        .HasColumnType("varchar(127)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");
 
@@ -209,6 +214,10 @@ namespace Business_observatory.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityRole");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -225,7 +234,7 @@ namespace Business_observatory.Migrations
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(127)");
 
                     b.HasKey("Id");
 
@@ -237,7 +246,8 @@ namespace Business_observatory.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(127)
+                        .HasColumnType("varchar(127)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -268,8 +278,8 @@ namespace Business_observatory.Migrations
                         .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasMaxLength(127)
+                        .HasColumnType("varchar(127)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("longtext");
@@ -287,8 +297,8 @@ namespace Business_observatory.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasMaxLength(127)
+                        .HasColumnType("varchar(127)");
 
                     b.HasKey("Id");
 
@@ -320,7 +330,7 @@ namespace Business_observatory.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(127)");
 
                     b.HasKey("Id");
 
@@ -344,7 +354,7 @@ namespace Business_observatory.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(127)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -356,10 +366,10 @@ namespace Business_observatory.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(127)");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(127)");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -371,7 +381,7 @@ namespace Business_observatory.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(127)");
 
                     b.Property<string>("LoginProvider")
                         .HasMaxLength(128)
@@ -387,6 +397,13 @@ namespace Business_observatory.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.ApplicationRole", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole");
+
+                    b.HasDiscriminator().HasValue("ApplicationRole");
                 });
 
             modelBuilder.Entity("Business_observatory.Models.ApplicationUser", b =>

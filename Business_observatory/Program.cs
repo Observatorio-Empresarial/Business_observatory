@@ -8,10 +8,10 @@ using Amazon;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var awsOptions = builder.Configuration.GetAWSOptions();
-awsOptions.Region = RegionEndpoint.SAEast1;
-builder.Services.AddDefaultAWSOptions(awsOptions);
-builder.Services.AddAWSService<IAmazonS3>();
+//var awsOptions = builder.Configuration.GetAWSOptions();
+//awsOptions.Region = RegionEndpoint.SAEast1;
+//builder.Services.AddDefaultAWSOptions(awsOptions);
+//builder.Services.AddAWSService<IAmazonS3>();
 
 
 // Add services to the container.

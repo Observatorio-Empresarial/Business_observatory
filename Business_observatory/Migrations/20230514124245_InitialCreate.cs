@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Business_observatory.Migrations
 {
     /// <inheritdoc />
-    public partial class AddApplicationUserToProject : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,9 +19,10 @@ namespace Business_observatory.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Name = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    Id = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: false),
+                    Discriminator = table.Column<string>(type: "longtext", nullable: false),
+                    Name = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
+                    NormalizedName = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "longtext", nullable: true)
                 },
                 constraints: table =>
@@ -34,10 +35,10 @@ namespace Business_observatory.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Id = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: false),
                     Discriminator = table.Column<string>(type: "longtext", nullable: false),
-                    UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    UserName = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: true),
                     Email = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "tinyint(1)", nullable: false),
@@ -91,12 +92,30 @@ namespace Business_observatory.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Contact",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "longtext", nullable: false),
+                    Surname = table.Column<string>(type: "longtext", nullable: false),
+                    Email = table.Column<string>(type: "longtext", nullable: false),
+                    Phone = table.Column<string>(type: "longtext", nullable: false),
+                    Message = table.Column<string>(type: "longtext", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contact", x => x.Id);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    RoleId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    RoleId = table.Column<string>(type: "varchar(127)", nullable: false),
                     ClaimType = table.Column<string>(type: "longtext", nullable: true),
                     ClaimValue = table.Column<string>(type: "longtext", nullable: true)
                 },
@@ -118,7 +137,7 @@ namespace Business_observatory.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    UserId = table.Column<string>(type: "varchar(127)", nullable: false),
                     ClaimType = table.Column<string>(type: "longtext", nullable: true),
                     ClaimValue = table.Column<string>(type: "longtext", nullable: true)
                 },
@@ -141,7 +160,7 @@ namespace Business_observatory.Migrations
                     LoginProvider = table.Column<string>(type: "varchar(128)", maxLength: 128, nullable: false),
                     ProviderKey = table.Column<string>(type: "varchar(128)", maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "longtext", nullable: true),
-                    UserId = table.Column<string>(type: "varchar(255)", nullable: false)
+                    UserId = table.Column<string>(type: "varchar(127)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -159,8 +178,8 @@ namespace Business_observatory.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    RoleId = table.Column<string>(type: "varchar(255)", nullable: false)
+                    UserId = table.Column<string>(type: "varchar(127)", nullable: false),
+                    RoleId = table.Column<string>(type: "varchar(127)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -184,7 +203,7 @@ namespace Business_observatory.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    UserId = table.Column<string>(type: "varchar(127)", nullable: false),
                     LoginProvider = table.Column<string>(type: "varchar(128)", maxLength: 128, nullable: false),
                     Name = table.Column<string>(type: "varchar(128)", maxLength: 128, nullable: false),
                     Value = table.Column<string>(type: "longtext", nullable: true)
@@ -212,7 +231,7 @@ namespace Business_observatory.Migrations
                     RegistrationDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     Status = table.Column<string>(type: "longtext", nullable: true),
                     CompanyId = table.Column<int>(type: "int", nullable: true),
-                    AspNetUserId = table.Column<string>(type: "varchar(255)", nullable: true)
+                    AspNetUserId = table.Column<string>(type: "varchar(127)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -362,6 +381,9 @@ namespace Business_observatory.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categoriesprojects");
+
+            migrationBuilder.DropTable(
+                name: "Contact");
 
             migrationBuilder.DropTable(
                 name: "Files");
