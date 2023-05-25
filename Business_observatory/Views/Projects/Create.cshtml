@@ -4,62 +4,98 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>Project</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Project.Title" class="control-label"></label>
-                <input asp-for="Project.Title" class="form-control" />
-                <span asp-validation-for="Project.Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Project.Description" class="control-label"></label>
-                <input asp-for="Project.Description" class="form-control" />
-                <span asp-validation-for="Project.Description" class="text-danger"></span>
-            </div>
-            <div hidden class="form-group">
-                <label asp-for="Project.RegistrationDate" class="control-label"></label>
-                <input asp-for="Project.RegistrationDate" class="form-control" />
-                <span asp-validation-for="Project.RegistrationDate" class="text-danger"></span>
-            </div>
-            <div hidden class="form-group">
-                <label asp-for="Project.Status" class="control-label"></label>
-                <input asp-for="Project.Status" class="form-control" />
-                <span asp-validation-for="Project.Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="CategoryID">Categories</label>
-                <select name="CategoryID" class="form-control">
-                    @foreach (var category in Model.Categories)
-                    {
-                        <option value="@category.Id">@category.Name</option>
-                    }
-                </select>
-            </div>
-            <div hidden class="form-group">
-                <label asp-for="Project.CompanyId" class="control-label"></label>
-                <select asp-for="Project.CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
-            </div>
-            <div hidden class="form-group">
-                <label asp-for="Project.AspNetUserId" class="control-label"></label>
-                <select asp-for="Project.AspNetUserId" class="form-control" asp-items="ViewBag.AspNetUserId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+	<!-- Checkout section start -->
+	<div id="rs-checkout" class="rs-checkout pt-120 pb-120 md-pt-80 md-pb-80">
+		<div class="container">
+			<div class="full-grid">
+				<form asp-action="Create">
+					<div class="billing-fields">
+						<div class="checkout-title">
+							<h3>Create Project</h3>
+						</div>
+						<div class="form-content-box">
+							<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label asp-for="Project.Title"></label>
+										<input asp-for="Project.Title" id="fname"  class="form-control-mod"  required="">
+									</div>
+								</div>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label asp-for="Project.Description"></label>
+										<input asp-for="Project.Description" id="lname"  class="form-control-mod"  required="">
+									</div>
+								</div>
+							</div>
+							<div hidden class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label asp-for="Project.RegistrationDate">Company name (optional)</label>
+										<input asp-for="Project.RegistrationDate" id="cname"  class="form-control-mod" >
+									</div>
+								</div>
+							</div>
+						
+							<div hidden class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label>Street address *</label>
+										<input asp-for="Project.Status" id="hnumber"  class="form-control-mod margin-bottom" required="">
+										<input asp-for="Project.Status" id="hnumber-2"  class="form-control-mod"  >
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+									<label for="CategoryID">Categories</label>
+									<select name="CategoryID" id="city" class="form-control-mod"  required="">
+										@foreach (var category in Model.Categories)
+										{
+											<option value="@category.Id">@category.Name</option>
+										}
+									</select>
+									</div>
+								</div>
+							</div>
+							
+							<div hidden class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+									<label asp-for="Project.CompanyId"></label>
+									<select asp-for="Project.CompanyId" id="pcode" asp-items="ViewBag.CompanyId" class="form-control-mod" ></select>
+									</div>
+								</div>
+							</div>
+							<div hidden class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label asp-for="Project.AspNetUserId"></label>
+									<select asp-for="Project.AspNetUserId" asp-items="ViewBag.AspNetUserId" id="number" asp-it class="form-control-mod" required=""></select>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+					</div><!-- .billing-fields -->
+					<div class="payment-method mt-40 md-mt-20">
+						<div class="bottom-area">
+							<button class="add-btn" value="Create" type="submit">Create</button>
+						</div>
+					</div>
+				</form>
+			<div>
+				<a asp-action="Index">Back to</a>
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- Checkout section end -->
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

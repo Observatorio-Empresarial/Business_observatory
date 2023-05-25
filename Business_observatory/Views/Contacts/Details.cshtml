@@ -4,7 +4,6 @@
     ViewData["Title"] = "Details";
 }
 <div class="container-fluid" style="padding-bottom: 130px; background-color: gray">
-
 </div>
 <div class="page-heading page__heading__img">
     <div class="container">
@@ -70,13 +69,13 @@
                 {
                     <img src="~/Images/red-x-icon.png" style="width:50px; height:50px">
                 }
-                
+
             </dd>
             <div>
                 <button id="button1">ACTIVE</button>
                 <button id="button2">IN-PROGRESS</button>
                 <button id="button3">INACTIVE</button>
-                
+
             </div>
         </dl>
     </div>
@@ -119,25 +118,24 @@
             </div>
         </div>
 
-    <div>
-        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-        <a asp-action="Index">Back to List</a>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+
     </div>
 
-</div>
-
     <script>
-        document.getElementById("button1").addEventListener("click", function() {
-        document.getElementById("my-input").value = "Activo";
+        document.getElementById("button1").addEventListener("click", function () {
+            document.getElementById("my-input").value = "Activo";
         });
 
-        document.getElementById("button2").addEventListener("click", function() {
-          document.getElementById("my-input").value = "En-Progreso";
+        document.getElementById("button2").addEventListener("click", function () {
+            document.getElementById("my-input").value = "En-Progreso";
         });
 
-        document.getElementById("button3").addEventListener("click", function() {
-          document.getElementById("my-input").value = "Inactivo";
+        document.getElementById("button3").addEventListener("click", function () {
+            document.getElementById("my-input").value = "Inactivo";
         });
     </script>
-
 

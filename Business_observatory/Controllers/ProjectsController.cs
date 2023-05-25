@@ -26,6 +26,20 @@ namespace Business_observatory.Controllers
             var applicationDbContext = _context.Projects.Include(p => p.ApplicationUser).Include(p => p.Company);
             return View(await applicationDbContext.ToListAsync());
         }
+        public async Task<IActionResult> IndexList()
+        {
+            var query = from cp in _context.Categoriesprojects
+                        join p in _context.Projects on cp.ProjectId equals p.Id
+                        join c in _context.Categories on cp.CategoryId equals c.Id
+                        select new CategoryProjectQuery
+                        {
+                            Id = p.Id,
+                            Title = p.Title,
+                            Description = p.Description,
+                            Name = c.Name
+                        };
+            return View(await query.ToArrayAsync()); 
+		}
 
         // GET: Projects/Details/5
         public async Task<IActionResult> Details(int? id)

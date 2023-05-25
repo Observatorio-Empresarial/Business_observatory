@@ -8,16 +8,20 @@ using Microsoft.EntityFrameworkCore;
 using Business_observatory.Data;
 using Business_observatory.Models;
 using System.Security.Claims;
+using Amazon.S3;
+using Amazon.S3.Model;
 
 namespace Business_observatory.Controllers
 {
     public class FilesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        //private readonly IAmazonS3 _amazonS3;
 
         public FilesController(ApplicationDbContext context)
         {
             _context = context;
+            //_amazonS3 = amazonS3;
         }
 
         // GET: Files
@@ -58,18 +62,48 @@ namespace Business_observatory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,RegistrationDate,Format,Route,ProjectId")] Models.File file)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,RegistrationDate,Format,Route,ProjectId")] Models.File file,[FromForm]IFormFile formFile)
         {
-            string userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            //if (formFile == null || formFile.Length == 0)
+            //{
+            //	ModelState.AddModelError("formFile", "Debe seleccionar un archivo.");
+            //	ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Name", file.ProjectId);
+            //	return View(file);
+            //}
 
+            //var putRequest = new PutObjectRequest
+            //{
+            //	BucketName = "exampleawss3",
+            //	Key = formFile.FileName,
+            //	InputStream = formFile.OpenReadStream(),
+            //	ContentType = formFile.ContentType
+            //};
+
+            //if (ModelState.IsValid)
+            //{
+            //	ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", file.ProjectId);
+            //	return View(file);
+            //}
+
+            //try
+            //{
+            //	_context.Add(file);
+            //	await _context.SaveChangesAsync();
+            //	await _amazonS3.PutObjectAsync(putRequest);
+            //	return RedirectToAction(nameof(Index));
+            //}
+            //catch (Exception ex)
+            //{
+            //	ModelState.AddModelError("", "Error al guardar el archivo: " + ex.Message);
+            //	ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Name", file.ProjectId);
+            //	return View(file);
+            //}
             if (ModelState.IsValid)
             {
-
                 _context.Add(file);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
-            ViewData["ProjectId"] = new SelectList(_context.Projects, "Id", "Id", file.ProjectId);
             return View(file);
         }
 

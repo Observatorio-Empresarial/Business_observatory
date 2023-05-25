@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Business_observatory.Models.Project>
+@{
+	ViewData["Title"] = "Projects";
+	int counter = 0;
 	var image = TempData["data"];
 	var image1 = TempData["data1"];
 	var image2 = TempData["data2"];
@@ -36,13 +38,13 @@
 						</p>
 					</div>
 					<ul class="bnr-btn wow fadeInUp">
-						<li>
+						@*<li>
 							<a class="readon consultant get-orange" href="contact-us-1.html">Get Free Consultant</a>
-						</li>
+						</li>*@
 						<li>
 							<div class="rs-videos mt--5">
 								<div class="animate-border animate-style1">
-									<a class="popup-border popup-videos" href="https://www.youtube.com/watch?v=FMvA5fyZ338">
+									<a class="popup-border popup-videos readon consultant get-orange" href="https://www.youtube.com/watch?v=FMvA5fyZ338">
 										<i class="fa fa-play"></i>
 										<span class="btn-text">Watch Demo</span>
 									</a>
@@ -133,7 +135,7 @@
 	</div>
 </div>
 <!-- Partner End -->
-<!-- Feature Start -->
+@*<!-- Feature Start -->
 <div class="rs-feature feature-style1 feature-modify1 pt-140 pb-140 md-pt-75 md-pb-80">
 	<div class="container">
 		<div class="row y-middle">
@@ -206,8 +208,8 @@
 		</div>
 	</div>
 </div>
-<!-- Feature End -->
-<!-- Services Start -->
+<!-- Feature End -->*@
+@*<!-- Services Start -->
 <div class="rs-services services-style1 bg31">
 	<div class="container custom4">
 		<div class="services-provides-wrap pt-125 pb-130 md-pt-75 md-pb-80">
@@ -328,10 +330,11 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div>*@
 <!-- Services End -->
+
 <!-- Swiper Project Section Start -->
-<div class="rs-project project-style3 pt-70 pb-140 md-pt-14 md-pb-80">
+<div class="rs-project project-style3 pt-70 pb-140 md-pt-14 md-pb-80" style="background-color: #f6f4ff">
 	<div class="container">
 		<div class="sec-title pro-sec">
 			<span class="sub-text">our projects</span>
@@ -392,7 +395,7 @@
 	</div>
 </div>
 <!-- Swiper Project Section End -->
-<!-- Skillbar Start -->
+@*<!-- Skillbar Start -->
 <div class="rs-skillbar skillbar-style1 bg32 pt-130 pb-130 md-pt-80 md-pb-60">
 	<div class="container">
 		<div class="row y-middle">
@@ -457,8 +460,8 @@
 		</div>
 	</div>
 </div>
-<!-- Skillbar End -->
-<!-- Testimonial Section End -->
+<!-- Skillbar End -->*@
+@*<!-- Testimonial Section End -->
 <div class="rs-testimonial testimonial-style1 bg33 pt-135 pb-110 md-pt-75 md-pb-80">
 	<div class="container">
 		<div class="sec-title text-center mb-50 md-mb-35">
@@ -559,9 +562,9 @@
 				<button type="submit" class="btn btn-dark" asp-controller="Home" asp-action="UploadToFileSystem2">Upload to File System</button>
 			</form>
 		</div>
-	</div>
+	</div>*@
 	<!-- Partner Start -->
-	<div class="rs-partner partner-style4 pt-80 md-pt-40">
+	@*<div class="rs-partner partner-style4 pt-80 md-pt-40">
 		<div class="container">
 			<div class="slider partner-slide-1">
 				<div class="partner-item">
@@ -624,8 +627,9 @@
 		</div>
 	</div>
 	<!-- Partner End -->
-</div>
+</div>*@
 <!-- Testimonial Section End -->
+
 <!-- Process Section Start -->
 <div class="rs-process process-style1 pt-125 pb-130 md-pt-75 md-pb-80">
 	<div class="container">
@@ -675,7 +679,63 @@
 	</div>
 </div>
 <!-- Process Section End -->
-<!-- Blog Section Start -->
+
+<div class="rs-services services-style8 services-modify7 gray-bg6 pt-135 pb-140 md-pt-75 md-pb-80">
+	<div class="container">
+		<div class="sec-title text-center mb-60">
+			<h2 class="title title12 two-blue-subnormal main-subnormal">
+				<span class="watermark">Our awesome projects</span>
+			</h2>
+		</div>
+		<div class="row">
+			@foreach (var item in Model.Reverse())
+			{
+				<div class="col-lg-4 col-md-6 mb-55">
+					<div class="services-item">
+						<div class="services-wrap" style="height:25rem;">
+							<div class="numbering">
+								@{
+									counter++;
+								}
+								@counter
+							</div>
+							<div class="services-icon">
+								<img src="assets/images/services/main-home/blue/ser-1.png" alt="">
+							</div>
+							<div class="services-content">
+								<h6 class="title"><a href="business-services.html">@Html.DisplayFor(modelItem=>item.Title)</a></h6>
+								<p class="services-txt">
+									@{
+										string descripcion = item.Description;
+										int longitudTotal = descripcion.Length;
+										int longitudVeintePorciento = (int)(longitudTotal * 0.2);
+										int ultimoEspacio = descripcion.LastIndexOf(" ", longitudVeintePorciento);
+
+										// Si no se encuentra ningún espacio en blanco, se utiliza la longitud original.
+										if (ultimoEspacio < 0)
+										{
+											ultimoEspacio = longitudVeintePorciento;
+										}
+
+										string primerosCaracteres = descripcion.Substring(0, ultimoEspacio);
+									}
+									@primerosCaracteres...
+								</p>
+								<div class="services-button ser-btn3">
+									<a href="business-services.html">
+										<span class="btn-txt">Read More</span>
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</div>
+@*<!-- Blog Section Start -->
 <div class="rs-blog blog-style1 bg34 pt-125 pb-130 md-pb-80 md-pt-75 md-pb-80">
 	<div class="container">
 		<div class="row y-middle">
@@ -770,7 +830,7 @@
 		</div>
 	</div>
 </div>
-<!-- Blog Section End -->
+<!-- Blog Section End -->*@
 <!-- Contact Section End -->
 <div class="rs-contact contact-style2 pt-130 pb-130 bg35 md-pt-80 md-pb-80">
 	<div class="container">
