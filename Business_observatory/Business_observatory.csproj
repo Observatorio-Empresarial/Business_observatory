@@ -27,4 +27,12 @@
     <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Files\IMG2\" />
+    <Folder Include="wwwroot\Files\IMG3\" />
+    <Folder Include="wwwroot\Files\IMG1\" />
+    <Folder Include="wwwroot\Files\IMG4\" />
+    <Folder Include="wwwroot\Files\IMG\" />
+  </ItemGroup>
+
 </Project>

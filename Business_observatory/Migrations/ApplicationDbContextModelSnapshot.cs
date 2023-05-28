@@ -108,6 +108,9 @@ namespace Business_observatory.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Status")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("longtext");
