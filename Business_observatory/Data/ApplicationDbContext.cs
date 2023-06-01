@@ -47,6 +47,8 @@ namespace Business_observatory.Data
                 .HasMaxLength(127);
             });
         }
+        public DbSet<Business_observatory.Models.ApplicationRole>? ApplicationRole { get; set; }
+        public DbSet<Business_observatory.Models.UserRoles>? UserRoles { get; set; }
 
     }
 }

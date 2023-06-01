@@ -25,6 +25,12 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+//builder.Services.AddIdentity<ApplicationUser,ApplicationRole>(options =>
+//{
+//    options.SignIn.RequireConfirmedAccount = true;
+//})
+//    .AddEntityFrameworkStores<ApplicationDbContext>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
