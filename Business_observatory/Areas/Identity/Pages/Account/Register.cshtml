@@ -8,14 +8,14 @@
     <div class="container">
         <div class="breadcrumbs-inner breadcrumbs-style1">
             <h1 class="page-title">
-                My Account
+                Mi Cuenta
             </h1>
-            <p class="des"> Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs.</p>
+            <p class="des"> Con "Mi cuenta", podrás gestionar de manera fácil y conveniente tu perfil, preferencias y actividades en nuestra plataforma</p>
             <ul class="breadcrumbs-area">
                 <li title="Go to Bcom">
-                    <a class="active" href="index.html">Home</a>
+                    <a class="active" href="https://www.univalle.edu/">Univalle</a>
                 </li>
-                <li>My Account</li>
+                <li>Mi Cuenta</li>
             </ul>
         </div>
     </div>
@@ -31,33 +31,29 @@
                 <div class="rs-login">
                     <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                         <div class="form-group">
-                            <label>Email address<span>*</span></label>
+                            <label>Email<span>*</span></label>
                             <input asp-for="Input.Email" id="gname"  class="form-control-mod" type="text" required="">
-                            <label>Password <span>*</span></label>
+                            <label>contraña <span>*</span></label>
                             <input asp-for="Input.Password" id="tname" class="form-control-mod" type="password" required="">
-                            <label>Confirm Password <span>*</span></label>
+                            <label>confirmar contraseña <span>*</span></label>
                             <input asp-for="Input.ConfirmPassword" id="tname" class="form-control-mod" type="password" required="">
                         </div>
-                        <p>A password will be sent to your email address.</p>
+                        <p></p>
                         <p>
-                            Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="#">privacy policy.</a>
                         </p>
-                        <button  class="add-btn" type="submit">Register</button>
+                        <button  class="add-btn" type="submit">Registrar</button>
                     </form>
                 </div>
                 <div class="">
                     <section>
-                        <h3>Use another service to register.</h3>
+                        <h3></h3>
                         <hr />
                         @{
                             if ((Model.ExternalLogins?.Count ?? 0) == 0)
                             {
                                 <div>
                                     <p>
-                                        There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
-                                            article
-                                            about setting up this ASP.NET application to support logging in via external services
-                                        </a>.
+                                        
                                     </p>
                                 </div>
                             }

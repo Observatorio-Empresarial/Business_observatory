@@ -44,8 +44,10 @@ namespace Business_observatory.Controllers
             if (!ModelState.IsValid)
             {
                 using var transaction = _context.Database.BeginTransaction();
+
                 try
                 {
+                    applicationUser.Id = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                     _context.Add(applicationUser);
                     await _context.SaveChangesAsync();
                     var userRole = new IdentityUserRole<string>()

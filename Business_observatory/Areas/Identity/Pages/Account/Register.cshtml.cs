@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
@@ -124,6 +125,7 @@ namespace Business_observatory.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    sendEmail(Input.Email);
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
@@ -180,5 +182,26 @@ namespace Business_observatory.Areas.Identity.Pages.Account
             }
             return (IUserEmailStore<IdentityUser>)_userStore;
         }
+
+        public void sendEmail(string email)
+        {
+            string usuarioEmail = "observatorioempresarial02@gmail.com";
+            string passwordEmail = "yqwnpspvjzzlsyfa";
+
+            var asunto = "Bienvenido al Observatorio Empresarial";
+            var mensaje = "Usuario :" + email;
+
+
+
+            MailMessage mail = new MailMessage(new MailAddress(usuarioEmail), new MailAddress("zaratedarwin03@gmail.com"));
+            mail.Subject = asunto;
+            mail.Body = mensaje;
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential(usuarioEmail, passwordEmail);
+            SmtpServer.EnableSsl = true;
+            SmtpServer.Send(mail);
+        }
+
     }
 }

@@ -10,14 +10,14 @@
     <div class="container">
         <div class="breadcrumbs-inner breadcrumbs-style1">
             <h1 class="page-title">
-                My Account
+                Mi cuenta
             </h1>
-            <p class="des"> Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs.</p>
+            <p class="des">  Con "Mi cuenta", podrás gestionar de manera fácil y conveniente tu perfil, preferencias y actividades en nuestra plataforma.</p>
             <ul class="breadcrumbs-area">
                 <li title="Go to Bcom">
-                    <a class="active" href="index.html">Home</a>
+                    <a class="active" href="https://www.univalle.edu/">Univalle</a>
                 </li>
-                <li>My Account</li>
+                <li>Mi cuenta</li>
             </ul>
         </div>
     </div>
@@ -32,9 +32,9 @@
                 <div class="rs-login">
                     <form id="account" method="post">
                         <div class="form-group mb-30">
-                            <label>Username or email address<span>*</span></label>
+                            <label>Nombre de usuario o dirección de correo electrónico<span>*</span></label>
                             <input asp-for="Input.Email" id="fname"  class="form-control-mod" type="text" required="">
-                            <label>Password <span>*</span></label>
+                            <label>Contraseña <span>*</span></label>
                             <input asp-for="Input.Password" id="tname"  class="form-control-mod" type="text" required="">
                         </div>
                         <button class="add-btn" type="submit">Log In</button>
@@ -48,13 +48,13 @@
                         </label>
                         <div>
                             <p>
-                                <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                                <a id="forgot-password" asp-page="./ForgotPassword">¿Olvidaste tu contraseña?</a>
                             </p>
                             <p>
-                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">¿Olvidaste tu contraseña?</a>
                             </p>
                             <p>
-                                <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                                <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Reenviar correo electrónico de confirmación</a>
                             </p>
                         </div>
                     </form>

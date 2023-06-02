@@ -72,87 +72,44 @@
 								<div class="rs-menu-area">
 									<div class="main-menu">
 										<nav class="rs-menu hidden-md">
-											@if (User.IsInRole("Administrador")==true)
-											{
-												<ul class="nav-menu">
-													<li>
-														<a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-													</li>
-													<li>
-														<a href="about-us.html">Nosotros</a>
-													</li>
-													<li>
-														<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
-													</li>
-													<li class="menu-item-has-children">
-														<a href="#">Administracion</a>
-														<ul class="sub-menu">
-															<li><a asp-area="" asp-controller="Contacts" asp-action="Index"> Help Request List</a></li>
-															<li><a asp-area="" asp-controller="Projects" asp-action="indexList"> Project List</a></li>
-															<li><a asp-area="" asp-controller="Contact" asp-action="Create"> Users List</a></li>
-														</ul>
-													</li>
+											<ul class="nav-menu">
+												<li>
+													<a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+												</li>
+												<li>
+													<a asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
+												</li>												
+												<li>
+													<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
+												</li>
+												<li>
+													<a asp-area="" asp-controller="Home" asp-action="QrView">Pago Qr</a>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#">Administracion</a>
+													<ul class="sub-menu">
+														<li><a asp-area="" asp-controller="Contacts" asp-action="Index">Lista de solicitudes de ayuda</a></li>
+														<li><a asp-area="" asp-controller="Projects" asp-action="indexList">Lista de proyectos</a></li>
+@*														<li><a asp-area="" asp-controller="Contact" asp-action="Create"> Lista de usuarios</a></li>
+*@													</ul>
+												</li>
+												
+												<li >
+													<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
+												</li>											
 
-													<li>
-														<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
-													</li>
-
-													<li class="last-item menu-item-has-children">
-														<a href="#">Cuenta</a>
-														<ul class="sub-menu">
-															@if (SignInManager.IsSignedIn(User))
-															{
-																<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-																	<button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
-																</form>
-															}
-															else
-															{
-																<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
-
-																<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-															}
-														</ul>
-													</li>
-
-													@if (SignInManager.IsSignedIn(User))
-													{
-														<li class="nav-item">
-															<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
-														</li>
-													}
-
-
-												</ul>  <!-- //.nav-menu -->
-											}
-											else
-											{
-												<ul class="nav-menu">
-													<li>
-														<a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-													</li>
-													<li>
-														<a href="about-us.html">Nosotros</a>
-													</li>
-													<li>
-														<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
-													</li>
-													<li>
-														<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
-													</li>
-
-													<li class="last-item menu-item-has-children">
-														<a href="#">Cuenta</a>
-														<ul class="sub-menu">
-															@if (SignInManager.IsSignedIn(User))
-															{
-																<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-																	<button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
-																</form>
-															}
-															else
-															{
-																<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
+												<li class="last-item menu-item-has-children">
+													<a href="#">Cuenta</a>
+													<ul class="sub-menu">
+														@if (SignInManager.IsSignedIn(User))
+														{
+															<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+																<button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
+															</form>
+														}
+														else
+														{
+															<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
 
 																<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
 															}
@@ -348,50 +305,41 @@
 						<div class="footer-logo">
 							<a href="index.html"><img src="assets/images/orange-black.png" alt=""></a>
 						</div>
-						<p class="description">Fermentum odio eu feugiat pretiums nibh. Dolor sit consectetur adipiscini over the aenean bcom here.</p>
+						<p class="description">Descubre nuestra presencia en las principales redes sociales, donde nos mantenemos conectados con nuestra comunidad y compartimos contenido relevante.</p>
 						<ul class="footer-social">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+							<li><a href="https://www.facebook.com/UnivalleBolivia"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/univallebolivia?lang=es"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://www.linkedin.com/company/univalle/?originalSubdomain=bo"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="https://www.instagram.com/univalle_bolivia/?hl=es"><i class="fa fa-instagram"></i></a></li>
 						</ul>
 					</div>
 					<div class="col-lg-9">
 						<div class="row">
 							<div class="col-lg-3 pl-60 md-pl-15">
-								<h5 class="footer-title">Company</h5>
+								<h5 class="footer-title">Compañía</h5>
 								<ul class="site-map">
-									<li><a href="about-us.html">About Us</a></li>
-									<li><a href="services-1.html">Services</a></li>
-									<li><a href="faq.html">FAQ</a></li>
-									<li><a href="blog-standard.html">Blog Standard</a></li>
-									<li><a href="contact-1.html">Contact Us</a></li>
+									<li><a href="https://www.univalle.edu/">Sobre nosotros</a></li>
+									<li><a href="https://www.univalle.edu/">Servicios</a></li>
+									<li><a href="https://www.univalle.edu/">FAQ</a></li>
+									<li><a href="https://www.univalle.edu/">Blog estandar</a></li>
+									<li><a href="https://www.univalle.edu/">Contacta con nosotros</a></li>
 								</ul>
 							</div>
 							<div class="col-lg-3">
 								<h5 class="footer-title">Solutions</h5>
 								<ul class="site-map">
-									<li><a href="advanced-analytic.html">Advanced Analytic</a></li>
-									<li><a href="business-services.html">Business Services</a></li>
-									<li><a href="consulting-services.html">Consulting Services</a></li>
-									<li><a href="consumer-product.html">Consumer Product</a></li>
-									<li><a href="financial-services.html">Financial Services</a></li>
+									<li><a href="https://www.univalle.edu/">Analítica avanzada</a></li>
+									<li><a href="https://www.univalle.edu/">Servicios de negocios</a></li>
+									<li><a href="https://www.univalle.edu/">Servicios de consultoría</a></li>
+									<li><a href="https://www.univalle.edu/">Producto de consumo</a></li>
+									<li><a href="https://www.univalle.edu/">Servicios financieros</a></li>
 								</ul>
 							</div>
-							<div class="col-lg-6 pl-30 md-pl-15 md-mt-30">
+							@*<div class="col-lg-6 pl-30 md-pl-15 md-mt-30">
 								<div class="newsletter-wrap">
-									<h2 class="title">Newsletter</h2>
-									<div class="description">
-										<p>You will get weekly update on Email</p>
-									</div>
-									<div class="-newsletter-form">
-										<div class="form-inner">
-											<input id="news_email" type="email" name="email" placeholder="Email Address" required="">
-											<input class="submit_nl" type="submit" value="Subscribe">
-										</div>
-									</div>
+									<img class="hovers-logos rs-grid-img" src="~/Images/UnivalleLOGO.png" title="" alt="">
 								</div>
-							</div>
+							</div>*@
 						</div>
 					</div>
 				</div>
@@ -403,10 +351,9 @@
 					<div class="row y-middle">
 						<div class="col-lg-6 md-mb-10 text-lg-end text-center order-last">
 							<ul class="copy-right-menu">
-								<li><a href="about-us.html">About</a></li>
-								<li><a href="faq.html">FAQ</a></li>
-								<li><a href="blog-standard.html">Blog Standard</a></li>
-								<li><a href="contact-1.html">Contact</a></li>
+								<li><a href="https://www.univalle.edu/">univalle</a></li>
+								<li><a href="https://www.univalle.edu/">SIU</a></li>
+								<li><a href="https://www.univalle.edu/">Contact</a></li>
 							</ul>
 						</div>
 						<div class="col-lg-6">

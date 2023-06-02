@@ -36,12 +36,19 @@ namespace Business_observatory.Controllers
         {
             return View();
         }
+        public IActionResult Nosotros()
+        {
+            return View();
+        }
 
         public IActionResult HelpRequest()
         {
             return View();
         }
-
+        public IActionResult QrView()
+        {
+            return View();
+        }
         public IActionResult HelpManage()
         {
             return View();

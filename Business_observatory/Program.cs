@@ -65,4 +65,33 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
+//using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+//{
+//    var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+
+//    if (!roleManager.RoleExistsAsync("Admin").Result)
+//    {
+//        var role = new IdentityRole("Admin");
+//        roleManager.CreateAsync(role).Wait();
+//    }
+
+//    if (!roleManager.RoleExistsAsync("Usuario").Result)
+//    {
+//        var role = new IdentityRole("Usuario");
+//        roleManager.CreateAsync(role).Wait();
+//    }
+
+//    if (!roleManager.RoleExistsAsync("Empresa").Result)
+//    {
+//        var role = new IdentityRole("Empresa");
+//        roleManager.CreateAsync(role).Wait();
+//    }
+
+//    if (!roleManager.RoleExistsAsync("Encargado").Result)
+//    {
+//        var role = new IdentityRole("Encargado");
+//        roleManager.CreateAsync(role).Wait();
+//    }
+//}
+
 app.Run();
