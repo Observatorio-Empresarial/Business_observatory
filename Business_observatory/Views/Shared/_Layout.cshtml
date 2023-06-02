@@ -71,19 +71,23 @@
 										<nav class="rs-menu hidden-md">
 											<ul class="nav-menu">
 												<li>
-													<a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+													<a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 												</li>
 												<li>
+<<<<<<< Updated upstream
+													<a href="about-us.html">About Us</a>
+=======
 													<a asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
+>>>>>>> Stashed changes
 												</li>												
 												<li>
-													<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
+													<a asp-area="" asp-controller="Projects" asp-action="Index">Projects</a>
 												</li>
 												<li>
 													<a asp-area="" asp-controller="Home" asp-action="QrView">Pago Qr</a>
 												</li>
 												<li class="menu-item-has-children">
-													<a href="#">Administracion</a>
+													<a href="#">Manage</a>
 													<ul class="sub-menu">
 														<li><a asp-area="" asp-controller="Contacts" asp-action="Index">Lista de solicitudes de ayuda</a></li>
 														<li><a asp-area="" asp-controller="Projects" asp-action="indexList">Lista de proyectos</a></li>
@@ -92,11 +96,11 @@
 												</li>
 												
 												<li >
-													<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
+													<a asp-area="" asp-controller="Contacts" asp-action="Create">Contacts</a>
 												</li>											
 
 												<li class="last-item menu-item-has-children">
-													<a href="#">Cuenta</a>
+													<a href="#">Account</a>
 													<ul class="sub-menu">
 														@if (SignInManager.IsSignedIn(User))
 														{
@@ -106,7 +110,7 @@
 														}
 														else
 														{
-															<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
+															<li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
 
 															<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
 														}

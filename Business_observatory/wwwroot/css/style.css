@@ -6073,8 +6073,7 @@ body .search-modal .close:hover {
 }
 .rs-breadcrumbs.img4 {
   background-position: center !important;
-  /*background: url(../images/breadcrumbs/inr-4.jpg);*/
-  background: url(../Images/breadcrumbs/inr-4.jpg);
+  background: url(assets/images/breadcrumbs/inr-4.jpg);
 }
 /* ------------------------------------
 	09. Banner Section CSS
