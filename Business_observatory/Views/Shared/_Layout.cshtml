@@ -71,16 +71,16 @@
 										<nav class="rs-menu hidden-md">
 											<ul class="nav-menu">
 												<li>
-													<a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+													<a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
 												</li>
 												<li>
-													<a href="about-us.html">About Us</a>
+													<a href="about-us.html">Nosotros</a>
 												</li>												
 												<li>
-													<a asp-area="" asp-controller="Projects" asp-action="Index">Projects</a>
+													<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
 												</li>
 												<li class="menu-item-has-children">
-													<a href="#">Manage</a>
+													<a href="#">Administracion</a>
 													<ul class="sub-menu">
 														<li><a asp-area="" asp-controller="Contacts" asp-action="Index"> Help Request List</a></li>
 														<li><a asp-area="" asp-controller="Projects" asp-action="indexList"> Project List</a></li>
@@ -89,11 +89,11 @@
 												</li>
 												
 												<li >
-													<a asp-area="" asp-controller="Contacts" asp-action="Create">Contacts</a>
+													<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
 												</li>											
 
 												<li class="last-item menu-item-has-children">
-													<a href="#">Account</a>
+													<a href="#">Cuenta</a>
 													<ul class="sub-menu">
 														@if (SignInManager.IsSignedIn(User))
 														{
@@ -103,7 +103,7 @@
 														}
 														else
 														{
-															<li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+															<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
 
 															<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
 														}
