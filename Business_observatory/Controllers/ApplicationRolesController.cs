@@ -22,20 +22,20 @@ namespace Business_observatory.Controllers
         // GET: ApplicationRoles
         public async Task<IActionResult> Index()
         {
-            return _context.ApplicationRole != null ? 
-                        View(await _context.ApplicationRole.ToListAsync()) :
+            return _context.ApplicationRoles != null ? 
+                        View(await _context.ApplicationRoles.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.ApplicationRole'  is null.");
         }
 
         // GET: ApplicationRoles/Details/5
         public async Task<IActionResult> Details(string id)
         {
-            if (id == null || _context.ApplicationRole == null)
+            if (id == null || _context.ApplicationRoles == null)
             {
                 return NotFound();
             }
 
-            var applicationRole = await _context.ApplicationRole
+            var applicationRole = await _context.ApplicationRoles
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (applicationRole == null)
             {
@@ -70,12 +70,12 @@ namespace Business_observatory.Controllers
         // GET: ApplicationRoles/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null || _context.ApplicationRole == null)
+            if (id == null || _context.ApplicationRoles == null)
             {
                 return NotFound();
             }
 
-            var applicationRole = await _context.ApplicationRole.FindAsync(id);
+            var applicationRole = await _context.ApplicationRoles.FindAsync(id);
             if (applicationRole == null)
             {
                 return NotFound();
@@ -121,12 +121,12 @@ namespace Business_observatory.Controllers
         // GET: ApplicationRoles/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null || _context.ApplicationRole == null)
+            if (id == null || _context.ApplicationRoles == null)
             {
                 return NotFound();
             }
 
-            var applicationRole = await _context.ApplicationRole
+            var applicationRole = await _context.ApplicationRoles
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (applicationRole == null)
             {
@@ -141,14 +141,14 @@ namespace Business_observatory.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            if (_context.ApplicationRole == null)
+            if (_context.ApplicationRoles == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.ApplicationRole'  is null.");
             }
-            var applicationRole = await _context.ApplicationRole.FindAsync(id);
+            var applicationRole = await _context.ApplicationRoles.FindAsync(id);
             if (applicationRole != null)
             {
-                _context.ApplicationRole.Remove(applicationRole);
+                _context.ApplicationRoles.Remove(applicationRole);
             }
             
             await _context.SaveChangesAsync();
@@ -157,7 +157,7 @@ namespace Business_observatory.Controllers
 
         private bool ApplicationRoleExists(string id)
         {
-          return (_context.ApplicationRole?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.ApplicationRoles?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

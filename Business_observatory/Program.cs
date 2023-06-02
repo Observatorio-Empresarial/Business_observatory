@@ -31,6 +31,13 @@ builder.Services.AddControllersWithViews();
 //})
 //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Services.AddAuthorization(options => 
+{
+    options.AddPolicy("Administrador", policy => policy.RequireRole("Administrador"));   
+    options.AddPolicy("Empresa", policy => policy.RequireRole("Empresa"));   
+    options.AddPolicy("Usuario", policy => policy.RequireRole("Usuario"));   
+    options.AddPolicy("Encargado", policy => policy.RequireRole("Encargado"));   
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
