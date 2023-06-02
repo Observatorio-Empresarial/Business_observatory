@@ -19,9 +19,9 @@ namespace Business_observatory.Controllers
         {
             _context = context;
         }
-        [Authorize("Administrador,Encargado")]
-        // GET: Contacts
-        public async Task<IActionResult> Index()
+		[Authorize("Administrador,Encargado")]
+		// GET: Contacts
+		public async Task<IActionResult> Index()
         {
             return _context.Contact != null ?
                 View(await _context.Contact.ToListAsync()) :
@@ -45,13 +45,13 @@ namespace Business_observatory.Controllers
 
             return View(contact);
         }
-        [Authorize("Administrador,Encargado")]
+
         // GET: Contacts/Create
         public IActionResult Create()
         {
             return View();
         }
-        [Authorize("Administrador,Encargado")]
+
         // POST: Contacts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
