@@ -47,11 +47,9 @@ namespace Business_observatory.Data
                 .HasMaxLength(127);
             });
         }
-<<<<<<< Updated upstream
-=======
         public DbSet<Business_observatory.Models.ApplicationRole>? ApplicationRole { get; set; }
-
->>>>>>> Stashed changes
+        public DbSet<Business_observatory.Models.ApplicationUser>? ApplicationUser { get; set; }
+        public DbSet<IdentityUser>? IdentityUser { get; set; }
 
     }
 }

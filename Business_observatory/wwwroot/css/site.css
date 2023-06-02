@@ -7203,17 +7203,19 @@ body .search-modal {
     .rs-breadcrumbs.img2 {
         background-position: center !important;
 /*        background: url(assets/images/breadcrumbs/inr-2.jpg);
-*/        background: url(../images/breadcrumbs/inr-2.jpg);
+*/        background: url(../images/ImagesUnivalle/ImagePrincipal.jpg);
     }
 
     .rs-breadcrumbs.img3 {
         background-position: center !important;
-        background: url(../images/breadcrumbs/inr-3.jpg);
+        background-size: cover;
+        background: url(../images/ImagesUnivalle/ImagePrincipal.jpg);
     }
 
     .rs-breadcrumbs.img4 {
         background-position: center !important;
-        background: url(assets/images/breadcrumbs/inr-4.jpg);
+        background: url(..images/breadcrumbs/inr-4.jpg); 
+        background-size:cover;
     }
 /* ------------------------------------
 	09. Banner Section CSS
@@ -7306,7 +7308,7 @@ body .search-modal {
 
 .rs-banner.banner-style2 {
     /*background-image: url(assets/images/banner/banner-bg2.jpg);*/
-    background-image: url(../images/banner/banner-bg2.jpg);
+    background-image: url(../images/ImagesUnivalle/ImagePrincipal.jpg);
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: cover;

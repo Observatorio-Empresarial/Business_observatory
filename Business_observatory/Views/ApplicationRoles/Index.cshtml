@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Business_observatory.Models.ApplicationRole>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!-- Breadcrumbs Start -->
+<div class="rs-breadcrumbs img2">
+    <div class="container">
+        <div class="breadcrumbs-inner breadcrumbs-style1">
+            <h1 class="page-title">
+                Contact Us 3
+            </h1>
+            <p class="des"> Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs.</p>
+            <ul class="breadcrumbs-area">
+                <li title="Go to Bcom">
+                    <a class="active" href="index.html">Home</a>
+                </li>
+                <li>Contact Us 3</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NormalizedName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConcurrencyStamp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NormalizedName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConcurrencyStamp)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
