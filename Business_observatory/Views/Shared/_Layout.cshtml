@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using Business_observatory.Models
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- meta tag -->
@@ -69,56 +72,104 @@
 								<div class="rs-menu-area">
 									<div class="main-menu">
 										<nav class="rs-menu hidden-md">
-											<ul class="nav-menu">
-												<li>
-													<a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-												</li>
-												<li>
-													<a href="about-us.html">Nosotros</a>
-												</li>												
-												<li>
-													<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
-												</li>
-												<li class="menu-item-has-children">
-													<a href="#">Administracion</a>
-													<ul class="sub-menu">
-														<li><a asp-area="" asp-controller="Contacts" asp-action="Index"> Help Request List</a></li>
-														<li><a asp-area="" asp-controller="Projects" asp-action="indexList"> Project List</a></li>
-														<li><a asp-area="" asp-controller="Contact" asp-action="Create"> Users List</a></li>
-													</ul>
-												</li>
-												
-												<li >
-													<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
-												</li>											
-
-												<li class="last-item menu-item-has-children">
-													<a href="#">Cuenta</a>
-													<ul class="sub-menu">
-														@if (SignInManager.IsSignedIn(User))
-														{
-															<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-																<button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
-															</form>
-														}
-														else
-														{
-															<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
-
-															<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-														}
-													</ul>
-												</li>
-
-												@if (SignInManager.IsSignedIn(User))
-												{
-													<li class="nav-item">
-														<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
+											@if (User.IsInRole("Administrador")==true)
+											{
+												<ul class="nav-menu">
+													<li>
+														<a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
 													</li>
-												}
-												
-												
-											</ul>  <!-- //.nav-menu -->
+													<li>
+														<a href="about-us.html">Nosotros</a>
+													</li>
+													<li>
+														<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
+													</li>
+													<li class="menu-item-has-children">
+														<a href="#">Administracion</a>
+														<ul class="sub-menu">
+															<li><a asp-area="" asp-controller="Contacts" asp-action="Index"> Help Request List</a></li>
+															<li><a asp-area="" asp-controller="Projects" asp-action="indexList"> Project List</a></li>
+															<li><a asp-area="" asp-controller="Contact" asp-action="Create"> Users List</a></li>
+														</ul>
+													</li>
+
+													<li>
+														<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
+													</li>
+
+													<li class="last-item menu-item-has-children">
+														<a href="#">Cuenta</a>
+														<ul class="sub-menu">
+															@if (SignInManager.IsSignedIn(User))
+															{
+																<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+																	<button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
+																</form>
+															}
+															else
+															{
+																<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
+
+																<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+															}
+														</ul>
+													</li>
+
+													@if (SignInManager.IsSignedIn(User))
+													{
+														<li class="nav-item">
+															<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
+														</li>
+													}
+
+
+												</ul>  <!-- //.nav-menu -->
+											}
+											else
+											{
+												<ul class="nav-menu">
+													<li>
+														<a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+													</li>
+													<li>
+														<a href="about-us.html">Nosotros</a>
+													</li>
+													<li>
+														<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
+													</li>
+													<li>
+														<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
+													</li>
+
+													<li class="last-item menu-item-has-children">
+														<a href="#">Cuenta</a>
+														<ul class="sub-menu">
+															@if (SignInManager.IsSignedIn(User))
+															{
+																<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+																	<button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
+																</form>
+															}
+															else
+															{
+																<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
+
+																<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+															}
+														</ul>
+													</li>
+
+													@if (SignInManager.IsSignedIn(User))
+													{
+														<li class="nav-item">
+															<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
+														</li>
+													}
+
+
+												</ul>  <!-- //.nav-menu -->
+											}
+
 										</nav>
 									</div> <!-- //.main-menu -->
 								</div>

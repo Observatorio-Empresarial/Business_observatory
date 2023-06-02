@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Business_observatory.Data;
 using Business_observatory.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Business_observatory.Controllers
 {
@@ -26,6 +27,7 @@ namespace Business_observatory.Controllers
             var applicationDbContext = _context.Projects.Include(p => p.ApplicationUser).Include(p => p.Company);
             return View(await applicationDbContext.ToListAsync());
         }
+        [Authorize(Roles = "Administrador,Encargado")]
         public async Task<IActionResult> IndexList()
         {
             var query = from cp in _context.Categoriesprojects
@@ -40,9 +42,9 @@ namespace Business_observatory.Controllers
                         };
             return View(await query.ToArrayAsync()); 
 		}
-
-        // GET: Projects/Details/5
-        public async Task<IActionResult> Details(int? id)
+		[Authorize(Roles ="Administrador,Encargado")]
+		// GET: Projects/Details/5
+		public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Projects == null)
             {
@@ -60,9 +62,9 @@ namespace Business_observatory.Controllers
 
             return View(project);
         }
-
-        // GET: Projects/Create
-        public async Task<IActionResult> Create()
+		[Authorize(Roles ="Administrador,Encargado")]
+		// GET: Projects/Create
+		public async Task<IActionResult> Create()
         {
             var model = new ProjectCreate()
             {
@@ -73,11 +75,11 @@ namespace Business_observatory.Controllers
             ViewData["CompanyId"] = new SelectList(_context.Companies, "Id", "Id");
             return View(model);
         }
-
-        // POST: Projects/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+		[Authorize(Roles = "Administrador,Encargado")]
+		// POST: Projects/Create
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Description,RegistrationDate,Status,CompanyId,AspNetUserId")] Project project,int CategoryID)
         {
@@ -113,9 +115,9 @@ namespace Business_observatory.Controllers
             ViewData["CompanyId"] = new SelectList(_context.Companies, "Id", "Id", project.CompanyId);
             return View(project);
         }
-
-        // GET: Projects/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+		[Authorize(Roles = "Administrador,Encargado")]
+		// GET: Projects/Edit/5
+		public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Projects == null)
             {
@@ -131,11 +133,11 @@ namespace Business_observatory.Controllers
             ViewData["CompanyId"] = new SelectList(_context.Companies, "Id", "Id", project.CompanyId);
             return View(project);
         }
-
-        // POST: Projects/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+		[Authorize(Roles = "Administrador,Encargado")]
+		// POST: Projects/Edit/5
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,RegistrationDate,Status,CompanyId,AspNetUserId")] Project project)
         {
@@ -168,9 +170,9 @@ namespace Business_observatory.Controllers
             ViewData["CompanyId"] = new SelectList(_context.Companies, "Id", "Id", project.CompanyId);
             return View(project);
         }
-
-        // GET: Projects/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+		[Authorize(Roles = "Administrador,Encargado")]
+		// GET: Projects/Delete/5
+		public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Projects == null)
             {
@@ -188,9 +190,9 @@ namespace Business_observatory.Controllers
 
             return View(project);
         }
-
-        // POST: Projects/Delete/5
-        [HttpPost, ActionName("Delete")]
+		[Authorize(Roles = "Administrador,Encargado")]
+		// POST: Projects/Delete/5
+		[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

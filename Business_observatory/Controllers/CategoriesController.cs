@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Business_observatory.Data;
 using Business_observatory.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Business_observatory.Controllers
 {
@@ -18,7 +19,7 @@ namespace Business_observatory.Controllers
         {
             _context = context;
         }
-
+        [Authorize("Administrador")]
         // GET: Categories
         public async Task<IActionResult> Index()
         {
@@ -26,7 +27,7 @@ namespace Business_observatory.Controllers
                           View(await _context.Categories.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Categories'  is null.");
         }
-
+        [Authorize("Administrador")]
         // GET: Categories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -44,13 +45,13 @@ namespace Business_observatory.Controllers
 
             return View(category);
         }
-
+        [Authorize("Administrador")]
         // GET: Categories/Create
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize("Administrador")]
         // POST: Categories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -66,7 +67,7 @@ namespace Business_observatory.Controllers
             }
             return View(category);
         }
-
+        [Authorize("Administrador")]
         // GET: Categories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -82,7 +83,7 @@ namespace Business_observatory.Controllers
             }
             return View(category);
         }
-
+        [Authorize("Administrador")]
         // POST: Categories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -117,7 +118,7 @@ namespace Business_observatory.Controllers
             }
             return View(category);
         }
-
+        [Authorize("Administrador")]
         // GET: Categories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -135,7 +136,7 @@ namespace Business_observatory.Controllers
 
             return View(category);
         }
-
+        [Authorize("Administrador")]
         // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
