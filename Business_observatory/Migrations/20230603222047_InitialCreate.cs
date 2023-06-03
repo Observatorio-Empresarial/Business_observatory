@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace Business_observatory.Migrations
 {
     /// <inheritdoc />
-    public partial class AddApplicationUserToProject : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,9 +19,10 @@ namespace Business_observatory.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
-                    Name = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    Id = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: false),
+                    Discriminator = table.Column<string>(type: "longtext", nullable: false),
+                    Name = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
+                    NormalizedName = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "longtext", nullable: true)
                 },
                 constraints: table =>
@@ -34,10 +35,10 @@ namespace Business_observatory.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Id = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: false),
                     Discriminator = table.Column<string>(type: "longtext", nullable: false),
-                    UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
+                    UserName = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: true),
                     Email = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "tinyint(1)", nullable: false),
@@ -58,35 +59,38 @@ namespace Business_observatory.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Categorias",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "longtext", nullable: false)
+                    Nombre = table.Column<string>(type: "longtext", nullable: true),
+                    Descripcion = table.Column<string>(type: "longtext", nullable: true),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime(6)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_Categorias", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Companies",
+                name: "Contactos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "longtext", nullable: false),
-                    Nit = table.Column<string>(type: "longtext", nullable: true),
-                    EconomicSector = table.Column<string>(type: "longtext", nullable: true),
-                    Address = table.Column<string>(type: "longtext", nullable: true),
-                    Phone = table.Column<string>(type: "longtext", nullable: true),
-                    Email = table.Column<string>(type: "longtext", nullable: false)
+                    Nombre = table.Column<string>(type: "longtext", nullable: true),
+                    Apellido = table.Column<string>(type: "longtext", nullable: true),
+                    Email = table.Column<string>(type: "longtext", nullable: true),
+                    Telefono = table.Column<string>(type: "longtext", nullable: true),
+                    Message = table.Column<string>(type: "longtext", nullable: true),
+                    Estado = table.Column<string>(type: "longtext", nullable: true),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime(6)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Companies", x => x.Id);
+                    table.PrimaryKey("PK_Contactos", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -96,7 +100,7 @@ namespace Business_observatory.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    RoleId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    RoleId = table.Column<string>(type: "varchar(127)", nullable: false),
                     ClaimType = table.Column<string>(type: "longtext", nullable: true),
                     ClaimValue = table.Column<string>(type: "longtext", nullable: true)
                 },
@@ -118,7 +122,7 @@ namespace Business_observatory.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    UserId = table.Column<string>(type: "varchar(127)", nullable: false),
                     ClaimType = table.Column<string>(type: "longtext", nullable: true),
                     ClaimValue = table.Column<string>(type: "longtext", nullable: true)
                 },
@@ -141,7 +145,7 @@ namespace Business_observatory.Migrations
                     LoginProvider = table.Column<string>(type: "varchar(128)", maxLength: 128, nullable: false),
                     ProviderKey = table.Column<string>(type: "varchar(128)", maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "longtext", nullable: true),
-                    UserId = table.Column<string>(type: "varchar(255)", nullable: false)
+                    UserId = table.Column<string>(type: "varchar(127)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -159,8 +163,8 @@ namespace Business_observatory.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
-                    RoleId = table.Column<string>(type: "varchar(255)", nullable: false)
+                    UserId = table.Column<string>(type: "varchar(127)", nullable: false),
+                    RoleId = table.Column<string>(type: "varchar(127)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -184,7 +188,7 @@ namespace Business_observatory.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "varchar(255)", nullable: false),
+                    UserId = table.Column<string>(type: "varchar(127)", nullable: false),
                     LoginProvider = table.Column<string>(type: "varchar(128)", maxLength: 128, nullable: false),
                     Name = table.Column<string>(type: "varchar(128)", maxLength: 128, nullable: false),
                     Value = table.Column<string>(type: "longtext", nullable: true)
@@ -202,82 +206,85 @@ namespace Business_observatory.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Projects",
+                name: "Proyectos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(type: "longtext", nullable: false),
-                    Description = table.Column<string>(type: "longtext", nullable: false),
-                    RegistrationDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    Status = table.Column<string>(type: "longtext", nullable: true),
-                    CompanyId = table.Column<int>(type: "int", nullable: true),
-                    AspNetUserId = table.Column<string>(type: "varchar(255)", nullable: true)
+                    Nombre = table.Column<string>(type: "longtext", nullable: true),
+                    Descripcion = table.Column<string>(type: "longtext", nullable: true),
+                    FechaInicio = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    FechaFinalizacion = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    Responsable = table.Column<string>(type: "longtext", nullable: true),
+                    Empresa = table.Column<string>(type: "longtext", nullable: true),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    AspNetUserId = table.Column<string>(type: "varchar(127)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Projects", x => x.Id);
+                    table.PrimaryKey("PK_Proyectos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Projects_AspNetUsers_AspNetUserId",
+                        name: "FK_Proyectos_AspNetUsers_AspNetUserId",
                         column: x => x.AspNetUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Projects_Companies_CompanyId",
-                        column: x => x.CompanyId,
-                        principalTable: "Companies",
-                        principalColumn: "Id");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Categoriesprojects",
+                name: "Archivos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    ProjectId = table.Column<int>(type: "int", nullable: true),
-                    CategoryId = table.Column<int>(type: "int", nullable: true)
+                    Nombre = table.Column<string>(type: "longtext", nullable: true),
+                    Descripcion = table.Column<string>(type: "longtext", nullable: true),
+                    Tipo = table.Column<string>(type: "longtext", nullable: true),
+                    Extension = table.Column<string>(type: "longtext", nullable: true),
+                    FechaSubida = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    ProyectosId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categoriesprojects", x => x.Id);
+                    table.PrimaryKey("PK_Archivos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Categoriesprojects_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Categoriesprojects_Projects_ProjectId",
-                        column: x => x.ProjectId,
-                        principalTable: "Projects",
-                        principalColumn: "Id");
+                        name: "FK_Archivos_Proyectos_ProyectosId",
+                        column: x => x.ProyectosId,
+                        principalTable: "Proyectos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Files",
+                name: "CategoriaProyecto",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "longtext", nullable: false),
-                    Description = table.Column<string>(type: "longtext", nullable: false),
-                    RegistrationDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    Format = table.Column<string>(type: "longtext", nullable: true),
-                    Route = table.Column<string>(type: "longtext", nullable: true),
-                    ProjectId = table.Column<int>(type: "int", nullable: true)
+                    CategoriasId = table.Column<int>(type: "int", nullable: false),
+                    ProyectosId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Files", x => x.Id);
+                    table.PrimaryKey("PK_CategoriaProyecto", x => new { x.CategoriasId, x.ProyectosId });
                     table.ForeignKey(
-                        name: "FK_Files_Projects_ProjectId",
-                        column: x => x.ProjectId,
-                        principalTable: "Projects",
-                        principalColumn: "Id");
+                        name: "FK_CategoriaProyecto_Categorias_CategoriasId",
+                        column: x => x.CategoriasId,
+                        principalTable: "Categorias",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CategoriaProyecto_Proyectos_ProyectosId",
+                        column: x => x.ProyectosId,
+                        principalTable: "Proyectos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Archivos_ProyectosId",
+                table: "Archivos",
+                column: "ProyectosId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -317,34 +324,22 @@ namespace Business_observatory.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categoriesprojects_CategoryId",
-                table: "Categoriesprojects",
-                column: "CategoryId");
+                name: "IX_CategoriaProyecto_ProyectosId",
+                table: "CategoriaProyecto",
+                column: "ProyectosId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categoriesprojects_ProjectId",
-                table: "Categoriesprojects",
-                column: "ProjectId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Files_ProjectId",
-                table: "Files",
-                column: "ProjectId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Projects_AspNetUserId",
-                table: "Projects",
+                name: "IX_Proyectos_AspNetUserId",
+                table: "Proyectos",
                 column: "AspNetUserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Projects_CompanyId",
-                table: "Projects",
-                column: "CompanyId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Archivos");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -361,25 +356,22 @@ namespace Business_observatory.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Categoriesprojects");
+                name: "CategoriaProyecto");
 
             migrationBuilder.DropTable(
-                name: "Files");
+                name: "Contactos");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Categorias");
 
             migrationBuilder.DropTable(
-                name: "Projects");
+                name: "Proyectos");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Companies");
         }
     }
 }

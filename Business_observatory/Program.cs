@@ -1,10 +1,8 @@
-using Amazon.S3;
-using Amazon.Extensions.NETCore.Setup;
+
 using Business_observatory.Data;
 using Business_observatory.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Amazon;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -19,141 +19,90 @@ namespace Business_observatory.Migrations
                 .HasAnnotation("ProductVersion", "7.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Business_observatory.Models.Categoriesproject", b =>
+            modelBuilder.Entity("Business_observatory.Models.Archivo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("Categoriesprojects");
-                });
-
-            modelBuilder.Entity("Business_observatory.Models.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
+                    b.Property<string>("Descripcion")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("Business_observatory.Models.Company", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Address")
+                    b.Property<string>("Extension")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("EconomicSector")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Nit")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Companies");
-                });
-
-            modelBuilder.Entity("Business_observatory.Models.Contact", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Contact");
-                });
-
-            modelBuilder.Entity("Business_observatory.Models.File", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Format")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("RegistrationDate")
+                    b.Property<DateTime?>("FechaSubida")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Route")
+                    b.Property<string>("Nombre")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("ProyectosId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tipo")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjectId");
+                    b.HasIndex("ProyectosId");
 
-                    b.ToTable("Files");
+                    b.ToTable("Archivos");
                 });
 
-            modelBuilder.Entity("Business_observatory.Models.Project", b =>
+            modelBuilder.Entity("Business_observatory.Models.Categoria", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("FechaCreacion")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categorias");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Contacto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Apellido")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("FechaCreacion")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Contactos");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Proyecto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -162,30 +111,47 @@ namespace Business_observatory.Migrations
                     b.Property<string>("AspNetUserId")
                         .HasColumnType("varchar(127)");
 
-                    b.Property<int?>("CompanyId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
+                    b.Property<string>("Descripcion")
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime?>("RegistrationDate")
+                    b.Property<string>("Empresa")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("FechaCreacion")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Status")
+                    b.Property<DateTime?>("FechaFinalizacion")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("FechaInicio")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Nombre")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
+                    b.Property<string>("Responsable")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AspNetUserId");
 
-                    b.HasIndex("CompanyId");
+                    b.ToTable("Proyectos");
+                });
 
-                    b.ToTable("Projects");
+            modelBuilder.Entity("CategoriaProyecto", b =>
+                {
+                    b.Property<int>("CategoriasId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProyectosId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CategoriasId", "ProyectosId");
+
+                    b.HasIndex("ProyectosId");
+
+                    b.ToTable("CategoriaProyecto");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -416,43 +382,39 @@ namespace Business_observatory.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
-            modelBuilder.Entity("Business_observatory.Models.Categoriesproject", b =>
+            modelBuilder.Entity("Business_observatory.Models.Archivo", b =>
                 {
-                    b.HasOne("Business_observatory.Models.Category", "Category")
-                        .WithMany("Categoriesprojects")
-                        .HasForeignKey("CategoryId");
+                    b.HasOne("Business_observatory.Models.Proyecto", "Proyectos")
+                        .WithMany("Archivos")
+                        .HasForeignKey("ProyectosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("Business_observatory.Models.Project", "Project")
-                        .WithMany("Categoriesprojects")
-                        .HasForeignKey("ProjectId");
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Project");
+                    b.Navigation("Proyectos");
                 });
 
-            modelBuilder.Entity("Business_observatory.Models.File", b =>
-                {
-                    b.HasOne("Business_observatory.Models.Project", "Project")
-                        .WithMany("Files")
-                        .HasForeignKey("ProjectId");
-
-                    b.Navigation("Project");
-                });
-
-            modelBuilder.Entity("Business_observatory.Models.Project", b =>
+            modelBuilder.Entity("Business_observatory.Models.Proyecto", b =>
                 {
                     b.HasOne("Business_observatory.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("Projects")
+                        .WithMany("Proyectos")
                         .HasForeignKey("AspNetUserId");
 
-                    b.HasOne("Business_observatory.Models.Company", "Company")
-                        .WithMany("Projects")
-                        .HasForeignKey("CompanyId");
-
                     b.Navigation("ApplicationUser");
+                });
 
-                    b.Navigation("Company");
+            modelBuilder.Entity("CategoriaProyecto", b =>
+                {
+                    b.HasOne("Business_observatory.Models.Categoria", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriasId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Business_observatory.Models.Proyecto", null)
+                        .WithMany()
+                        .HasForeignKey("ProyectosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -506,26 +468,14 @@ namespace Business_observatory.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Business_observatory.Models.Category", b =>
+            modelBuilder.Entity("Business_observatory.Models.Proyecto", b =>
                 {
-                    b.Navigation("Categoriesprojects");
-                });
-
-            modelBuilder.Entity("Business_observatory.Models.Company", b =>
-                {
-                    b.Navigation("Projects");
-                });
-
-            modelBuilder.Entity("Business_observatory.Models.Project", b =>
-                {
-                    b.Navigation("Categoriesprojects");
-
-                    b.Navigation("Files");
+                    b.Navigation("Archivos");
                 });
 
             modelBuilder.Entity("Business_observatory.Models.ApplicationUser", b =>
                 {
-                    b.Navigation("Projects");
+                    b.Navigation("Proyectos");
                 });
 #pragma warning restore 612, 618
         }
