@@ -8,15 +8,15 @@
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
-    <link href="~/css/backend/boostrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/backend/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/css/backend/assets/css/plugins.css" rel="stylesheet" type="text/css" />
 
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <link href="~/css/backend/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/backend/assets/css/main.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/backend/plugins/charts/c3charts/c3.min.js" rel="stylesheet" type="text/css" />
-
+    <link href="~/css/backend/assets/css/support-chat.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/backend/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/backend/plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
+    <link href="~/css/backend/assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 </head>
 <body class="default-sidebar">
@@ -3598,44 +3598,40 @@
                                     </div>
                                 </div>
 
-                                @RenderBody()
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            @RenderBody()
         </div>
     </aside>
     <!--  END CONTROL SIDEBAR  -->
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-
-    <script src="~/css/backend/assets/js/libs/jquery-3.1.1.min.js"></script>
-    <script src="~/css/backend/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="~/css/backend/bootstrap/js/popper.min.js"></script>
-    <script src="~/css/backend/bootstrap/js/bootstrap.min.js"></script>
-    <script src="~/css/backend/assets/js/app.js"></script>
+    <script type="text/javascript" src="~/css/backend/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="~/css/backend/bootstrap/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/css/backend/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/css/backend/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="~/css/backend/assets/js/app.js"></script>
 
     <script>
         $(document).ready(function () {
             App.init();
         });
     </script>
-
-    <script src="~/css/backend/assets/js/custom.js"></script>
+    <script type="text/javascript" src="~/css/backend/assets/js/custom.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-
-    <script src="~/css/backend/plugins/charts/sparklines/jquery.sparkline.min.jss"></script>
-    <script src="~/css/backend/plugins/charts/d3charts/d3.v3.min.js"></script>
-    <script src="~/css/backend/plugins/charts/c3charts/c3.min.js"></script>
+    <script src="~/css/backend/plugins/charts/chartist/chartist.js"></script>
+    <script src="~/css/backend/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="~/css/backend/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
     <script src="~/css/backend/plugins/calendar/pignose/moment.latest.min.js"></script>
     <script src="~/css/backend/plugins/calendar/pignose/pignose.calendar.js"></script>
-    <script src="~/css/backend/plugins/dropzone/dropzone.min.js"></script>
     <script src="~/css/backend/plugins/progressbar/progressbar.min.js"></script>
-    <script src="~/css/backend/assets/js/accounting-dashboard/accounting-custom.js"></script>
-
+    <script src="~/css/backend/assets/js/default-dashboard/default-custom.js"></script>
+    <script src="~/css/backend/assets/js/support-chat.js"></script>
     <!-- END PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
