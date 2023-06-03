@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -20,7 +23,6 @@
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 </head>
 <body class="default-sidebar">
-
     <!-- Tab Mobile View Header -->
     <header class="tabMobileView header navbar fixed-top d-lg-none">
         <div class="nav-toggle">
@@ -347,7 +349,7 @@
                         </a>
                         <ul class="collapse submenu list-unstyled show" id="dashboard" data-parent="#accordionExample">
                             <li class="active">
-                                <a href="index.html"> <i class="flaticon-computer-4"></i> Default </a>
+                                <a asp-action="" asp-controller="Home" asp-area="" ><i class="flaticon-computer-4"></i> Home </a>
                             </li>
                             <li>
                                 <a href="accounting_dashboard.html"> <i class="flaticon-chart-line"></i> Accounting </a>
