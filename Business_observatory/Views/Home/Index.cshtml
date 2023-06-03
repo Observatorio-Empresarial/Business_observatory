@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Business_observatory.Models.Project>
+@{
     ViewData["Title"] = "Home Page";
    
     Layout = "~/Themes/FrontendLayout.cshtml";
@@ -6,7 +7,176 @@
 
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+										// Si no se encuentra ningún espacio en blanco, se utiliza la longitud original.
+										if (ultimoEspacio < 0)
+										{
+											ultimoEspacio = longitudVeintePorciento;
+										}
+
+										string primerosCaracteres = descripcion.Substring(0, ultimoEspacio);
+									}
+									@primerosCaracteres...
+								</p>
+								<div class="services-button ser-btn3">
+									<a href="">
+										<span class="btn-txt">Leer más</span>
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
 </div>
+@*<!-- Blog Section Start -->
+<div class="rs-blog blog-style1 bg34 pt-125 pb-130 md-pb-80 md-pt-75 md-pb-80">
+	<div class="container">
+		<div class="row y-middle">
+			<div class="col-lg-6">
+				<div class="sec-title mb-50">
+					<span class="sub-text">blog & news</span>
+					<h2 class="title">
+						Our Least Blog
+					</h2>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="blog-button mt--30 md-mb-50 blog-btn3 text-right md-left">
+					<a href="blog-details.html">
+						<span class="btn-txt">View all post</span>
+						<i class="ri-arrow-right-line"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 md-mb-30">
+				<div class="blog-item">
+					<div class="image-wrap">
+						<a href="blog-single.html"><img src="assets/images/blog/style2/bl1.jpg" alt=""></a>
+					</div>
+					<div class="blog-content">
+						<ul class="blog-meta">
+							<li class="categories"><i class="ri-calendar-line"></i>March 20,2023</li>
+							<li class="admin"><i class="ri-user-line"></i><a href="blog-single.html">Bcom</a></li>
+						</ul>
+						<h5 class="blog-title"><a href="blog-single.html">Earn good money and make you very successful creative</a></h5>
+						<div class="blog-button">
+							<a href="blog-single.html">
+								<span class="btn-txt">Read More</span>
+								<i class="ri-arrow-right-line"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="blog-horizontal">
+					<div class="blog-meta mb-30">
+						<div class="blog-item-wrap">
+							<div class="image-wrap">
+								<a href="blog-single.html"><img src="assets/images/blog/style2/bl2.jpg" alt=""></a>
+							</div>
+							<div class="blog-content">
+								<ul class="blog-meta">
+									<li class="categories"><i class="ri-calendar-line"></i>March 20,2023</li>
+									<li class="admin"><i class="ri-user-line"></i><a href="blog-single.html">Bcom</a></li>
+								</ul>
+								<h5 class="blog-title"><a href="blog-single.html">Do it right is the ultimate winning strategy for consultant</a></h5>
+								<p class="blog-desc">
+									Vestibulum lectus mauris ultrices eros in. Cursus sit amet dictum sit amet.
+								</p>
+								<div class="blog-button">
+									<a href="blog-single.html">
+										<span class="btn-txt">Read More</span>
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="blog-meta">
+						<div class="blog-item-wrap">
+							<div class="image-wrap">
+								<a href="blog-single.html"><img src="assets/images/blog/style2/bl3.jpg" alt=""></a>
+							</div>
+							<div class="blog-content">
+								<ul class="blog-meta">
+									<li class="categories"><i class="ri-calendar-line"></i>March 20,2023</li>
+									<li class="admin"><i class="ri-user-line"></i><a href="blog-single.html">Bcom</a></li>
+								</ul>
+								<h5 class="blog-title"><a href="blog-single.html">Ultrices dui sapien eget mi. Enim nulla aliquet porttitor lacus</a></h5>
+								<p class="blog-desc">
+									Vestibulum lectus mauris ultrices eros in. Cursus sit amet dictum sit amet.
+								</p>
+								<div class="blog-button">
+									<a href="blog-single.html">
+										<span class="btn-txt">Read More</span>
+										<i class="ri-arrow-right-line"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Blog Section End -->*@
+<!-- Contact Section End -->
+<div class="rs-contact contact-style2 pt-130 pb-130 bg35 md-pt-80 md-pb-80">
+	<div class="container">
+		<div class="row no-gutters">
+			<div class="col-lg-7">
+				<div class="touch-wrap">
+					<div class="sec-title sec-modify1 mb-40">
+						<span class="sub-text">Ponerse en Contacto</span>
+						<h2 class="title pb-25">
+							contactáse con nuestro call center de UNIVALLE
+						</h2>
+						<p class="desc desc2">
+							 Estamos encantados de ofrecerte la oportunidad de contactar con nuestro eficiente y amable equipo de atención al cliente a través de nuestro moderno centro de llamadas.
+						</p>
+					</div>
+					<ul class="contact-button">
+						<li>
+							<a class="readon contact-icon" href="#">
+								<span class="btn-txt">Contacta con nosotros</span>
+								<i class="ri-arrow-right-line"></i>
+							</a>
+						</li>
+						<li>
+							<a class="readon consultant phone-number orange-light" href="contact-us-1.html">
+								<span class="btn-icon">
+									<i class="fa fa-phone"></i>
+								</span>
+								<span class="btn-text">(00) 123 456 789</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-5">
+				<div class="">
+					<div class="sec-title mb-30">
+						<h5 class="title title2 white-color">
+						</h5>
+					</div>
+					<div id="form-messages"></div>
+					<form id="contact-form" method="post" action="mailer.php">
+						<fieldset>
+							<center>
+								<img class="hovers-logos rs-grid-img" src="~/Images/callCenter.png" title="" alt="">
+							</center>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Contact Section End -->

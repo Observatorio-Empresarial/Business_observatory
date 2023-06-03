@@ -1,0 +1,175 @@
+﻿@model Business_observatory.Models.Contact
+
+@{
+    ViewData["Title"] = "Create";
+}
+<!-- Breadcrumbs Start -->
+<div class="rs-breadcrumbs img2">
+	<div class="container">
+		<div class="breadcrumbs-inner breadcrumbs-style1">
+			<h1 class="page-title">
+				Contacta con nosotros
+			</h1>
+			<p class="des">¿Tienes alguna pregunta, consulta o simplemente deseas ponerte en contacto con nosotros? Estamos aquí para ayudarte. Utiliza los siguientes medios para contactarnos y estaremos encantados de atenderte.</p>
+			<ul class="breadcrumbs-area">
+				<li title="Go to Bcom">
+					<a class="active" href="https://www.univalle.edu/">Univalle</a>
+				</li>
+				<li>Contacta con nosotros</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Contact Section Start -->
+<div class="rs-contact contact-style6 pt-140 md-pt-80">
+	<div class="container custom12">
+		<div class="row y-middle">
+			<div class="col-lg-7 pr-150 md-pr-15 md-mb-50">
+				<div class="sec-title mb-30">
+					<h2 class="title pb-14">
+						¡Contáctanos!<br>Estamos aquí para ayudarte!
+					</h2>
+					<p class="desc desc9">
+						¡Gracias por visitar nuestra página web de Observatorio Empresarial de Univalle! Si tienes alguna pregunta, consulta o necesitas más información sobre nuestra Observatorio, ¡no dudes en contactarnos! Nuestro equipo está listo para ayudarte y brindarte la asistencia que necesitas.
+					</p>
+				</div>
+				<div class="address-boxs mb-30">
+					<div class="address-icon">
+						<i class="ri-map-pin-fill"></i>
+					</div>
+					<div class="address-text">
+						<div class="text">
+							<span class="label">Ubicacion</span>
+							<span class="des">
+								Universidad Privada del Valle, BOL
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="address-boxs mb-30">
+					<div class="address-icon">
+						<i class="ri-mail-fill"></i>
+					</div>
+					<div class="address-text">
+						<div class="text">
+							<span class="label">E-mail</span>
+							<span class="des">
+								univalle@gmail.com
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="address-boxs">
+					<div class="address-icon">
+						<i class="fa fa-phone"></i>
+					</div>
+					<div class="address-text">
+						<div class="text">
+							<span class="label">llámanos</span>
+							<span class="des">
+								(00) 123 456 789 00
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5">
+				<div class="contact-wrap">
+					<div class="sec-title mb-35">
+						<h3 class="title pb-14 title3 white-color">
+							Necesitas ayuda?
+						</h3>
+						<p class="desc desc2">
+                            Contactanos desde este formulario ingresando todos los doatos que se pide y con tu mensaje, te responderemos lo mas pronto posible.
+						</p>
+					</div>
+					@*<div id="form-messages"></div>*@
+					<form asp-action="Create" id="contact-form">
+						<div>
+							<div class="row">
+								<div class="col-lg-12 mb-15">
+									<span class="wpcf7-form-control-wrap">
+										<i class="ri-user-3-line"></i>
+										<input asp-for="Name" name="name" class="from-control" type="text" id="name" placeholder="Nombre" required="required" data-error="Firstname is required.">
+									</span>
+								</div>
+								<div class="col-lg-12 mb-15">
+									<span class="wpcf7-form-control-wrap">
+										<i class="ri-user-3-line"></i>
+										<input asp-for="Surname" name="surname" class="from-control" id="name" type="text" placeholder="Apellido" required="required" data-error="Last Name is required.">
+									</span>
+								</div>
+								<div class="col-lg-12 mb-15">
+									<span class="wpcf7-form-control-wrap">
+										<i class="ri-mail-send-line"></i>
+										<input asp-for="Email" class="from-control" type="text" id="email" name="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
+									</span>
+								</div>
+								<div class="col-lg-12 mb-15">
+									<span class="wpcf7-form-control-wrap">
+										<i class="ri-phone-line"></i>
+										<input asp-for="Phone" class="from-control" type="tel" id="subject" name="phone" placeholder="Celular" required="required" placeholder="Please enter your phone">
+									</span>
+								</div>
+								<div class="col-lg-12 mb-15">
+									<span class="wpcf7-form-control-wrap">
+										<i class="ri-edit-2-line"></i>
+										<textarea class="from-control" id="message" name="message" placeholder="Escriba sus mensajes aquí" required="required" data-error="Please,leave us a message."></textarea>
+									</span>
+								</div>
+							</div>
+							<div class="btn-part">
+								<div class="form-group mb-0">
+									<input asp-for="Message" class="readon submit submit-green1" type="submit" value="Send Message">
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="map-canvas pt-130 md-pt-80">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.3643432819586!2d-66.16123552385844!3d-17.394294164383957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e373f68577d203%3A0x91952444175b21fa!2sUnivalle%20Ayacucho!5e0!3m2!1ses!2sbo!4v1685302610684!5m2!1ses!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
+</div>
+<!-- Contact Section End -->
+<!-- Cta Start -->
+<div class="rs-cta cta-main-home cta-style7 pt-45 pb-45">
+	<div class="container custom10">
+		<div class="row y-middle">
+			<div class="col-lg-7 md-mb-30">
+				<div class="sec-title">
+					<h3 class="title title13">
+						Comencemos algo! <span class="primary-color">Excelente!</span>
+					</h3>
+				</div>
+			</div>
+			<div class="col-lg-5">
+				<div class="rs-contact-box">
+					<div class="address-item">
+						<div class="address-icon">
+							<i class="fa fa-phone"></i>
+						</div>
+						<div class="address-text">
+							<div class="text">
+								<span class="label">Llámenos 24/7</span>
+								<a href="">(00) 123 456 789</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="animate-wrap">
+		</div>
+	</div>
+</div>
+<!-- Cta End -->
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

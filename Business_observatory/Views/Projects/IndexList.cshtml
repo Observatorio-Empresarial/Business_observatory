@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Business_observatory.Models.CategoryProjectQuery>
+@{
+    ViewData["Title"] = "List Project";
+}
+<!-- Cart Section Start -->
+<div class="rs-cart pt-120 pb-120 md-pt-80 md-pb-80">
+	<div class="container">
+		<div class="cart-wrap">
+			<form>
+				<table class="cart-table">
+					<thead>
+						<tr>
+							<th class="product-name">@Html.DisplayNameFor(model=>model.Title)</th>
+							<th class="product-name">@Html.DisplayNameFor(model=>model.Description)</th>
+							<th class="product-name">Category</th>
+							<th class="product-name"></th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+								<td class="product-name">@Html.DisplayFor(modelItem=>item.Title)</td>
+								<td class="product-name">@Html.DisplayFor(modelItem=>item.Description)</td>
+								<td class="product-name">@Html.DisplayFor(modelItem=>item.Name)</td>
+								<td>
+									<a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+									<a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+									<a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Cart Section End -->

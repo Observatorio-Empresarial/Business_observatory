@@ -1,0 +1,101 @@
+﻿@model Business_observatory.Models.ProjectCreate
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+	<!-- Checkout section start -->
+	<div id="rs-checkout" class="rs-checkout pt-120 pb-120 md-pt-80 md-pb-80">
+		<div class="container">
+			<div class="full-grid">
+				<form asp-action="Create">
+					<div class="billing-fields">
+						<div class="checkout-title">
+							<h3>Create Project</h3>
+						</div>
+						<div class="form-content-box">
+							<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label asp-for="Project.Title"></label>
+										<input asp-for="Project.Title" id="fname"  class="form-control-mod"  required="">
+									</div>
+								</div>
+							<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label asp-for="Project.Description"></label>
+										<input asp-for="Project.Description" id="lname"  class="form-control-mod"  required="">
+									</div>
+								</div>
+							</div>
+							<div hidden class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label asp-for="Project.RegistrationDate">Company name (optional)</label>
+										<input asp-for="Project.RegistrationDate" id="cname"  class="form-control-mod" >
+									</div>
+								</div>
+							</div>
+						
+							<div hidden class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label>Street address *</label>
+										<input asp-for="Project.Status" id="hnumber"  class="form-control-mod margin-bottom" required="">
+										<input asp-for="Project.Status" id="hnumber-2"  class="form-control-mod"  >
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+									<label for="CategoryID">Categories</label>
+									<select name="CategoryID" id="city" class="form-control-mod"  required="">
+										@foreach (var category in Model.Categories)
+										{
+											<option value="@category.Id">@category.Name</option>
+										}
+									</select>
+									</div>
+								</div>
+							</div>
+							
+							<div hidden class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+									<label asp-for="Project.CompanyId"></label>
+									<select asp-for="Project.CompanyId" id="pcode" asp-items="ViewBag.CompanyId" class="form-control-mod" ></select>
+									</div>
+								</div>
+							</div>
+							<div hidden class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<label asp-for="Project.AspNetUserId"></label>
+									<select asp-for="Project.AspNetUserId" asp-items="ViewBag.AspNetUserId" id="number" asp-it class="form-control-mod" required=""></select>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+					</div><!-- .billing-fields -->
+					<div class="payment-method mt-40 md-mt-20">
+						<div class="bottom-area">
+							<button class="add-btn" value="Create" type="submit">Create</button>
+						</div>
+					</div>
+				</form>
+			<div>
+				<a asp-action="Index">Back to</a>
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- Checkout section end -->
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

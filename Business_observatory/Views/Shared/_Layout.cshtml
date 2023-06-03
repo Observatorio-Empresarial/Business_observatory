@@ -1,50 +1,405 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using Business_observatory.Models
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- meta tag -->
+    <meta charset="utf-8">
     <title>@ViewData["Title"] - Business_observatory</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Business_observatory.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Business_observatory</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <meta name="description" content="">
+    <!-- responsive tag -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <!-- Bootstrap v4.4.1 css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <!-- font-awesome css -->
+    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css">
+    <!-- Remixicon css -->
+    <link rel="stylesheet" type="text/css" href="~/css/remixicon.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/flaticon.css">
+    <!-- animate css -->
+    <link rel="stylesheet" type="text/css" href="~/css/animate.css">
+    <!-- slick css -->
+    <link rel="stylesheet" type="text/css" href="~/css/slick.css">
+    <!-- swiper css -->
+    <link rel="stylesheet" type="text/css" href="~/css/swiper.min.css">
+    <!-- off canvas css -->
+    <link rel="stylesheet" type="text/css" href="~/css/off-canvas.css">
+    <!-- magnific popup css -->
+    <link rel="stylesheet" type="text/css" href="~/css/magnific-popup.css">
+    <!-- Main Menu css -->
+    <link rel="stylesheet" href="~/css/rsmenu-main.css">
+    <!-- spacing css -->
+    <link rel="stylesheet" type="text/css" href="~/css/rs-spacing.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="~/css/site.css"> <!-- This stylesheet dynamically changed from style.less -->
+    <!-- responsive css -->
+    <link rel="stylesheet" type="text/css" href="~/css/responsive.css">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Business_observatory - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+@*    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+*@  <link rel="stylesheet" href="~/Business_observatory.styles.css" asp-append-version="true" />
+	@using Microsoft.AspNetCore.Identity
+	@inject SignInManager<IdentityUser> SignInManager
+	@inject UserManager<IdentityUser> UserManager
+</head>
+<body class="defult-home">
+    <div class="offwrap"></div>
+	<div class="main-content">
+
+		<!--Full width header Start-->
+		<div class="full-width-header">
+			<!--Header Start-->
+			<header id="rs-header" class="rs-header header-style1 header-modify3 header-transparent">
+				<!-- Menu Start -->
+				<div class="menu-area menu-sticky">
+					<div class="container box-layout">
+						<div class="row-table">
+							<div class="col-cell header-logo">
+								<div class="logo-area">
+									<a href="index.html">
+										<img class="normal-logo" src="~/images/logo_principal.svg" alt="logo">
+										<img class="sticky-logo" src="~/images/logo_principal.svg" alt="logo">
+									</a>
+								</div>
+							</div>
+							<div class="col-cell">
+								<div class="rs-menu-area">
+									<div class="main-menu">
+										<nav class="rs-menu hidden-md">
+											<ul class="nav-menu">
+												<li>
+													<a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+												</li>
+												<li>
+													<a asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
+												</li>												
+												<li>
+													<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
+												</li>
+												<li>
+													<a asp-area="" asp-controller="Home" asp-action="QrView">Pago Qr</a>
+												</li>
+												<li class="menu-item-has-children">
+													<a href="#">Administracion</a>
+													<ul class="sub-menu">
+														<li><a asp-area="" asp-controller="Contacts" asp-action="Index">Lista de solicitudes de ayuda</a></li>
+														<li><a asp-area="" asp-controller="Projects" asp-action="indexList">Lista de proyectos</a></li>
+@*														<li><a asp-area="" asp-controller="Contact" asp-action="Create"> Lista de usuarios</a></li>
+*@													</ul>
+												</li>
+												
+												<li >
+													<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
+												</li>											
+
+												<li class="last-item menu-item-has-children">
+													<a href="#">Cuenta</a>
+													<ul class="sub-menu">
+														@if (SignInManager.IsSignedIn(User))
+														{
+															<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+																<button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
+															</form>
+														}
+														else
+														{
+															<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
+
+																<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+															}
+														</ul>
+													</li>
+
+													@if (SignInManager.IsSignedIn(User))
+													{
+														<li class="nav-item">
+															<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
+														</li>
+													}
+
+
+												</ul>  <!-- //.nav-menu -->
+											}
+
+										</nav>
+									</div> <!-- //.main-menu -->
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<!-- Menu End -->
+				<!-- Canvas Mobile Menu start -->
+				<nav class="right_menu_togle mobile-navbar-menu" id="mobile-navbar-menu">
+					<div class="close-btn">
+						<a id="nav-close2" class="nav-close">
+							<div class="line">
+								<span class="line1"></span>
+								<span class="line2"></span>
+							</div>
+						</a>
+					</div>
+					<ul class="nav-menu">
+						<li class="menu-item-has-children current-menu-item">
+							<a href="index.html">Home</a>
+							<ul class="sub-menu">
+								<li class="menu-item-has-children current-menu-item">
+									<a href="#">Multipages</a>
+									<ul class="sub-menu">
+										<li><a href="index.html">Consulting Business</a> </li>
+										<li><a href="index-2.html">Corporate Business</a> </li>
+										<li><a href="index-3.html">Business Consulting 1</a> </li>
+										<li><a href="index-4.html">Business Consutling 2</a> </li>
+										<li><a href="index-5.html">Insurance Business</a> </li>
+										<li class="active"><a href="index-6.html">Marketing Consultant</a> </li>
+										<li><a href="index-7.html">Fintech</a> </li>
+										<li><a href="index-8.html">Digital Business</a> </li>
+										<li><a href="index-9.html">Personal Advisor</a> </li>
+										<li><a href="index-10.html">Finance Consulting</a> </li>
+									</ul>
+								</li>
+								<li class="menu-item-has-children">
+									<a href="#">Onepages</a>
+									<ul class="sub-menu">
+										<li><a href="onepage-1.html">Onepage Consulting</a> </li>
+										<li><a href="onepage-2.html">Onepage Corporate</a> </li>
+										<li><a href="onepage-3.html">Onepage Consulting 1</a> </li>
+										<li><a href="onepage-4.html">Onepage Consutling 2</a> </li>
+										<li><a href="onepage-5.html">Onepage Insurance</a> </li>
+										<li><a href="onepage-6.html">Onepage Marketing</a> </li>
+										<li><a href="onepage-7.html">Onepage Fintech</a> </li>
+										<li><a href="onepage-8.html">Onepage Digital</a> </li>
+										<li><a href="onepage-9.html">Onepage Personal</a> </li>
+										<li><a href="onepage-10.html">Onepage Finance</a> </li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="about-us.html">About Us</a>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#">Pages</a>
+							<ul class="sub-menu">
+								<li><a href="team.html">Team</a></li>
+								<li class="last-item menu-item-has-children">
+									<a href="#">Portfolio</a>
+									<ul class="sub-menu">
+										<li><a href="portfolio-01.html">Portfolio 01</a></li>
+										<li><a href="portfolio-02.html">Portfolio 02</a></li>
+										<li><a href="portfolio-03.html">Portfolio 03</a></li>
+										<li><a href="portfolio-filter.html">Portfolio Filter</a></li>
+										<li><a href="portfolio-single.html">Portfolio Single</a></li>
+									</ul>
+								</li>
+								<li class="last-item menu-item-has-children">
+									<a href="#">Pricing Plan</a>
+									<ul class="sub-menu">
+										<li><a href="pricing-plan-01.html">Pricing Plan 01</a></li>
+										<li><a href="pricing-plan-02.html">Pricing Plan 02</a></li>
+										<li><a href="pricing-plan-02.html">Pricing Plan 03</a></li>
+									</ul>
+								</li>
+								<li><a href="faq.html">Faqs</a></li>
+								<li><a href="partners.html">Partners</a></li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#">Services</a>
+							<ul class="sub-menu">
+								<li><a href="services-style-1.html">Service style 1</a></li>
+								<li><a href="services-style-2.html">Services style 2</a></li>
+								<li><a href="services-style-3.html">Services style 3</a></li>
+								<li><a href="services-style-4.html">Services style 4</a></li>
+								<li><a href="services-style-5.html">Services style 5</a></li>
+								<li><a href="services-style-6.html">Services style 6</a></li>
+								<li><a href="services-style-7.html">Services style 7</a></li>
+								<li class="last-item menu-item-has-children">
+									<a href="#">Service Tab Styles</a>
+									<ul class="sub-menu">
+										<li><a href="advance-tab-service-01.html">Advance Tab  Service 01</a></li>
+										<li><a href="advance-tab-service-01.html">Advance Tab  Service 02</a></li>
+									</ul>
+								</li>
+								<li class="last-item menu-item-has-children">
+									<a href="#">Service Details</a>
+									<ul class="sub-menu">
+										<li><a href="consulting-services.html">Consulting Services</a></li>
+										<li><a href="advanced-analytic.html">Advanced Analytic</a></li>
+										<li><a href="business-services.html">Business Services</a></li>
+										<li><a href="consumer-product.html">Consumer Product</a></li>
+										<li><a href="financial-advisory.html">Financial Advisory</a></li>
+										<li><a href="investment-advisory.html">Investment Advisory</a></li>
+										<li><a href="quality-resourcing.html">Quality Resourcing</a></li>
+										<li><a href="security-services.html">Security Services</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="menu-item-has-children">
+							<a href="#">Blog</a>
+							<ul class="sub-menu">
+								<li><a href="blog-standard.html">Blog Standard</a></li>
+								<li><a href="blog-grid-style-1.html">Blog Grid Style 1</a></li>
+								<li><a href="blog-grid-style-2.html">Blog Grid Style 2</a></li>
+								<li><a href="blog-slider-style.html">Blog Slider Style</a></li>
+								<li><a href="blog-single.html">blog-single</a></li>
+							</ul>
+						</li>
+						<li class="last-item menu-item-has-children">
+							<a href="#">Shop</a>
+							<ul class="sub-menu">
+								<li><a href="shop.html">Shop</a></li>
+								<li><a href="shop-single.html">Shop Single</a></li>
+								<li><a href="cart.html">Cart</a></li>
+								<li><a href="checkout.html">Checkout</a></li>
+								<li><a href="my-account.html">My Account</a></li>
+							</ul>
+						</li>
+						<li class="last-item menu-item-has-children">
+							<a href="#">Contact</a>
+							<ul class="sub-menu">
+								<li><a href="contact-us-1.html">Contact Us 1</a></li>
+								<li><a href="contact-us-2.html">Contact Us 2</a></li>
+								<li><a href="contact-us-3.html">Contact Us 3</a></li>
+							</ul>
+						</li>
+					</ul> <!-- //.nav-menu -->
+					<!-- //.nav-menu -->
+					<!-- //.nav-menu -->
+					<div class="canvas-contact">
+						<ul>
+							<li class="btn-signin">
+								<a class="signin-button" href="contact-1.html">
+									<span class="sign-text"><i class="ri-user-3-line"></i> Sign In </span>
+								</a>
+							</li>
+							<li class="btn-quote">
+								<a href="contact-1.html"><span class="btn-text"><i class="ri-download-line"></i> Download</span></a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<!-- Canvas Menu end -->
+			</header>
+			<!--Header End-->
+		</div>
+		<!--Full width header End-->
+	</div>
+	<div>
+            @RenderBody()
+    </div>
+	<footer id="rs-footer" class="rs-footer footer-main-home footer-modify1 footer-orange-style1">
+		<div class="footer-overlay"></div>
+		<div class="container custom8">
+			<div class="footer-top">
+				<div class="row">
+					<div class="col-lg-3 md-mb-30">
+						<div class="footer-logo">
+							<a href="index.html"><img src="assets/images/orange-black.png" alt=""></a>
+						</div>
+						<p class="description">Descubre nuestra presencia en las principales redes sociales, donde nos mantenemos conectados con nuestra comunidad y compartimos contenido relevante.</p>
+						<ul class="footer-social">
+							<li><a href="https://www.facebook.com/UnivalleBolivia"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/univallebolivia?lang=es"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://www.linkedin.com/company/univalle/?originalSubdomain=bo"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="https://www.instagram.com/univalle_bolivia/?hl=es"><i class="fa fa-instagram"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-lg-9">
+						<div class="row">
+							<div class="col-lg-3 pl-60 md-pl-15">
+								<h5 class="footer-title">Compañía</h5>
+								<ul class="site-map">
+									<li><a href="https://www.univalle.edu/">Sobre nosotros</a></li>
+									<li><a href="https://www.univalle.edu/">Servicios</a></li>
+									<li><a href="https://www.univalle.edu/">FAQ</a></li>
+									<li><a href="https://www.univalle.edu/">Blog estandar</a></li>
+									<li><a href="https://www.univalle.edu/">Contacta con nosotros</a></li>
+								</ul>
+							</div>
+							<div class="col-lg-3">
+								<h5 class="footer-title">Solutions</h5>
+								<ul class="site-map">
+									<li><a href="https://www.univalle.edu/">Analítica avanzada</a></li>
+									<li><a href="https://www.univalle.edu/">Servicios de negocios</a></li>
+									<li><a href="https://www.univalle.edu/">Servicios de consultoría</a></li>
+									<li><a href="https://www.univalle.edu/">Producto de consumo</a></li>
+									<li><a href="https://www.univalle.edu/">Servicios financieros</a></li>
+								</ul>
+							</div>
+							@*<div class="col-lg-6 pl-30 md-pl-15 md-mt-30">
+								<div class="newsletter-wrap">
+									<img class="hovers-logos rs-grid-img" src="~/Images/UnivalleLOGO.png" title="" alt="">
+								</div>
+							</div>*@
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="bottom-border">
+					<div class="row y-middle">
+						<div class="col-lg-6 md-mb-10 text-lg-end text-center order-last">
+							<ul class="copy-right-menu">
+								<li><a href="https://www.univalle.edu/">univalle</a></li>
+								<li><a href="https://www.univalle.edu/">SIU</a></li>
+								<li><a href="https://www.univalle.edu/">Contact</a></li>
+							</ul>
+						</div>
+						<div class="col-lg-6">
+							<div class="copyright text-lg-start text-center">
+								<p>© 2023 Bcom.  Designed By <a href="https://rstheme.com" target="blank">RSTheme</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+   @* <script src="~/lib/jquery/dist/jquery.min.js"></script>*@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+	<!-- Search Modal End -->
+	<!-- modernizr js -->
+	<script src="~/js/modernizr.min.js"></script>
+	<!-- jquery latest version -->
+	<script src="~/js/jquery.min.js"></script>
+	<!-- Bootstrap v4.4.1 js -->
+	<script src="~/js/bootstrap.min.js"></script>
+	<!-- op nav js -->
+	<script src="~/js/jquery.nav.js"></script>
+	<!-- wow js -->
+	<script src="~/js/wow.min.js"></script>
+	<!-- Skill bar js -->
+	<script src="~/js/skill.bars.jquery.js"></script>
+	<!-- imagesloaded js -->
+	<script src="~/js/imagesloaded.pkgd.min.js"></script>
+	<!-- Slick js -->
+	<script src="~/js/slick.min.js"></script>
+	<!-- swiper js -->
+	<script src="~/js/swiper.min.js"></script>
+	<!-- waypoints.min js -->
+	<script src="~/js/waypoints.min.js"></script>
+	<!-- magnific popup js -->
+	<script src="~/js/jquery.magnific-popup.min.js"></script>
+	<!-- counterup.min js -->
+	<script src="~/js/jquery.counterup.min.js"></script>
+	<!-- contact form js -->
+	<script src="~/js/contact.form.js"></script>
+	<!-- main js -->
+	<script src="~/js/main.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
