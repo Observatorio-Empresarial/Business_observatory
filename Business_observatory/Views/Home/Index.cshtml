@@ -2,5 +2,55 @@
     ViewData["Title"] = "Home Page";
    
     /*Layout = "~/Views/Shared/FrontendLayout.cshtml";*/
-    Layout = "~/Views/Shared/BackendLayout.cshtml";
+    //Layout = "~/Views/Shared/BackendLayout.cshtml";
+
 }
+<!-- Banner Start -->
+<div class="rs-banner banner-style2" style="background-image: ~/Files">
+	<div class="container">
+		<div class="row y-middle">
+			<div class="col-lg-5">
+				<div class="bnr-images">
+
+				</div>
+				@if (ViewBag.Message != null)
+				{
+					<div class="alert alert-success alert-dismissible" style="margin-top:20px">
+						@ViewBag.Message
+					</div>
+				}
+				<form method="post" enctype="multipart/form-data">
+					<input type="file" name="files" multiple required style="color: gray" />
+					<button type="submit" class="btn btn-dark" asp-controller="Home" asp-action="UploadToFileSystem">Subir al sistema de archivos</button>
+				</form>
+			</div>
+			<div class="col-lg-7">
+				<div class="content-wrap">
+					<span class="sub-title wow fadeInDown">Somos el mejor</span>
+					<h1 class="title wow fadeInRight pb-25">Observatorio Empresarial: Mirando hacia el futuro desde el Observatorio Empresarial</h1>
+					<div class="description wow fadeInRight2">
+						<p>
+							Binevenido al Observatorio Empresarial, tu fuente confiable de información y análisis en el mundo de los negocios. Nos enorgullece presentarte un espacio dedicado a la observación, estudio y comprensión de las tendencias y dinámicas empresariales.
+						</p>
+					</div>
+					<ul class="bnr-btn wow fadeInUp">
+						@*<li>
+						<a class="readon consultant get-orange" href="contact-us-1.html">Get Free Consultant</a>
+						</li>*@
+						<li>
+							<div class="rs-videos mt--5">
+								<div class="animate-border animate-style1">
+									<a class="popup-border popup-videos readon consultant get-orange" href="https://www.youtube.com/watch?v=3J1O-vOa71s">
+										<i class="fa fa-play"></i>
+										<span class="btn-text">Ver Video</span>
+									</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Banner End -->

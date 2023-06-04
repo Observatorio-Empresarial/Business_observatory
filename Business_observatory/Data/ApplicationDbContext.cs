@@ -45,5 +45,6 @@ namespace Business_observatory.Data
 			});
 		}
 		public DbSet<Business_observatory.Models.ApplicationRole>? ApplicationRole { get; set; }
+		public DbSet<Business_observatory.Models.ApplicationUser>? ApplicationUser { get; set; }
 	}
 }

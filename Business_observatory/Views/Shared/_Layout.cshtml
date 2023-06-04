@@ -1,57 +1,58 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Identity.EntityFrameworkCore
 @using Business_observatory.Models
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- meta tag -->
-    <meta charset="utf-8">
-    <title>@ViewData["Title"] - Business_observatory</title>
-    <meta name="description" content="">
-    <!-- responsive tag -->
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon -->
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
-    <!-- Bootstrap v4.4.1 css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <!-- font-awesome css -->
-    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css">
-    <!-- Remixicon css -->
-    <link rel="stylesheet" type="text/css" href="~/css/remixicon.css">
-    <!-- flaticon css -->
-    <link rel="stylesheet" type="text/css" href="assets/fonts/flaticon.css">
-    <!-- animate css -->
-    <link rel="stylesheet" type="text/css" href="~/css/animate.css">
-    <!-- slick css -->
-    <link rel="stylesheet" type="text/css" href="~/css/slick.css">
-    <!-- swiper css -->
-    <link rel="stylesheet" type="text/css" href="~/css/swiper.min.css">
-    <!-- off canvas css -->
-    <link rel="stylesheet" type="text/css" href="~/css/off-canvas.css">
-    <!-- magnific popup css -->
-    <link rel="stylesheet" type="text/css" href="~/css/magnific-popup.css">
-    <!-- Main Menu css -->
-    <link rel="stylesheet" href="~/css/rsmenu-main.css">
-    <!-- spacing css -->
-    <link rel="stylesheet" type="text/css" href="~/css/rs-spacing.css">
-    <!-- style css -->
-    <link rel="stylesheet" type="text/css" href="~/css/site.css"> <!-- This stylesheet dynamically changed from style.less -->
-    <!-- responsive css -->
-    <link rel="stylesheet" type="text/css" href="~/css/responsive.css">
+	<!-- meta tag -->
+	<meta charset="utf-8">
+	<title>@ViewData["Title"] - Business_observatory</title>
+	<meta name="description" content="">
+	<!-- responsive tag -->
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- favicon -->
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+	<!-- Bootstrap v4.4.1 css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<!-- font-awesome css -->
+	<link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css">
+	<!-- Remixicon css -->
+	<link rel="stylesheet" type="text/css" href="~/css/remixicon.css">
+	<!-- flaticon css -->
+	<link rel="stylesheet" type="text/css" href="assets/fonts/flaticon.css">
+	<!-- animate css -->
+	<link rel="stylesheet" type="text/css" href="~/css/animate.css">
+	<!-- slick css -->
+	<link rel="stylesheet" type="text/css" href="~/css/slick.css">
+	<!-- swiper css -->
+	<link rel="stylesheet" type="text/css" href="~/css/swiper.min.css">
+	<!-- off canvas css -->
+	<link rel="stylesheet" type="text/css" href="~/css/off-canvas.css">
+	<!-- magnific popup css -->
+	<link rel="stylesheet" type="text/css" href="~/css/magnific-popup.css">
+	<!-- Main Menu css -->
+	<link rel="stylesheet" href="~/css/rsmenu-main.css">
+	<!-- spacing css -->
+	<link rel="stylesheet" type="text/css" href="~/css/rs-spacing.css">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" href="~/css/site.css"> <!-- This stylesheet dynamically changed from style.less -->
+	<!-- responsive css -->
+	<link rel="stylesheet" type="text/css" href="~/css/responsive.css">
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-@*    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-*@  <link rel="stylesheet" href="~/Business_observatory.styles.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	@*    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	*@
+	<link rel="stylesheet" href="~/Business_observatory.styles.css" asp-append-version="true" />
 	@using Microsoft.AspNetCore.Identity
 	@inject SignInManager<IdentityUser> SignInManager
 	@inject UserManager<IdentityUser> UserManager
 </head>
 <body class="defult-home">
-    <div class="offwrap"></div>
+	<div class="offwrap"></div>
 	<div class="main-content">
+
 		<!--Full width header Start-->
 		<div class="full-width-header">
 			<!--Header Start-->
@@ -78,7 +79,7 @@
 												</li>
 												<li>
 													<a asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
-												</li>												
+												</li>
 												<li>
 													<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
 												</li>
@@ -90,13 +91,14 @@
 													<ul class="sub-menu">
 														<li><a asp-area="" asp-controller="Contacts" asp-action="Index">Lista de solicitudes de ayuda</a></li>
 														<li><a asp-area="" asp-controller="Projects" asp-action="indexList">Lista de proyectos</a></li>
-@*														<li><a asp-area="" asp-controller="Contact" asp-action="Create"> Lista de usuarios</a></li>
-*@													</ul>
+														@*														<li><a asp-area="" asp-controller="Contact" asp-action="Create"> Lista de usuarios</a></li>
+														*@
+													</ul>
 												</li>
-												
-												<li >
+
+												<li>
 													<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
-												</li>											
+												</li>
 
 												<li class="last-item menu-item-has-children">
 													<a href="#">Cuenta</a>
@@ -111,27 +113,27 @@
 														{
 															<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
 
-																<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-															}
-														</ul>
+															<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+														}
+													</ul>
+												</li>
+
+												@if (SignInManager.IsSignedIn(User))
+												{
+													<li class="nav-item">
+														<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
 													</li>
-
-													@if (SignInManager.IsSignedIn(User))
-													{
-														<li class="nav-item">
-															<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
-														</li>
-													}
+												}
 
 
-												</ul>  <!-- //.nav-menu -->
+											</ul>  <!-- //.nav-menu -->
 											}
 
 										</nav>
 									</div> <!-- //.main-menu -->
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 				</div>
@@ -294,8 +296,8 @@
 		<!--Full width header End-->
 	</div>
 	<div>
-            @RenderBody()
-    </div>
+		@RenderBody()
+	</div>
 	<footer id="rs-footer" class="rs-footer footer-main-home footer-modify1 footer-orange-style1">
 		<div class="footer-overlay"></div>
 		<div class="container custom8">
@@ -336,9 +338,9 @@
 								</ul>
 							</div>
 							@*<div class="col-lg-6 pl-30 md-pl-15 md-mt-30">
-								<div class="newsletter-wrap">
-									<img class="hovers-logos rs-grid-img" src="~/Images/UnivalleLOGO.png" title="" alt="">
-								</div>
+							<div class="newsletter-wrap">
+							<img class="hovers-logos rs-grid-img" src="~/Images/UnivalleLOGO.png" title="" alt="">
+							</div>
 							</div>*@
 						</div>
 					</div>
@@ -366,9 +368,9 @@
 			</div>
 		</div>
 	</footer>
-   @* <script src="~/lib/jquery/dist/jquery.min.js"></script>*@
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+	@* <script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
 
 	<!-- Search Modal End -->
 	<!-- modernizr js -->
@@ -400,6 +402,6 @@
 	<!-- main js -->
 	<script src="~/js/main.js"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
