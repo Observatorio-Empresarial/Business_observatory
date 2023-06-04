@@ -310,7 +310,6 @@
     <!--  END NAVBAR  -->
     <!--  BEGIN MAIN CONTAINER  -->
     <div class="main-container" id="container">
-
         <div class="overlay"></div>
         <div class="cs-overlay"></div>
 
@@ -352,10 +351,10 @@
                                 <a asp-action="" asp-controller="Home" asp-area="" ><i class="flaticon-computer-4"></i> Home </a>
                             </li>
                             <li>
-                                <a href="accounting_dashboard.html"> <i class="flaticon-chart-line"></i> Accounting </a>
+                                <a asp-action="" asp-controller="Proyectoes" asp-area="Index"> <i class="flaticon-chart-line"></i> Proyectos </a>
                             </li>
                             <li>
-                                <a href="analytics_dashboard.html"> <i class="flaticon-computer-2"></i> Analytics </a>
+                                <a asp-action="" asp-controller="Categorias" asp-area="Index"> <i class="flaticon-computer-2"></i> Categorias </a>
                             </li>
                             <li>
                                 <a href="car_dashboard.html"> <i class="flaticon-car"></i> Car </a>
@@ -1446,7 +1445,7 @@
                         <h3>Dashboard</h3>
                     </div>
                 </div>
-
+                @RenderBody()
                 <div class="row layout-spacing ">
 
                     <div class="col-xl-3 mb-xl-0 col-lg-6 mb-4 col-md-6 col-sm-6">
@@ -3606,7 +3605,6 @@
                     </div>
                 </div>
             </div>
-            @RenderBody()
         </div>
     </aside>
     <!--  END CONTROL SIDEBAR  -->

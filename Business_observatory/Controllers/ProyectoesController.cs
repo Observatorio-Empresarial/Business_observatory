@@ -49,6 +49,7 @@ namespace Business_observatory.Controllers
         public IActionResult Create()
         {
             ViewData["AspNetUserId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
+            ViewData["CategoriasId"] = new SelectList(_context.Set<Categoria>(), "Id", "Nombre");
             return View();
         }
 
@@ -57,15 +58,21 @@ namespace Business_observatory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,FechaInicio,FechaFinalizacion,Responsable,Empresa,FechaCreacion,AspNetUserId")] Proyecto proyecto)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,FechaInicio,FechaFinalizacion,Responsable,Empresa,FechaCreacion,AspNetUserId")] Proyecto proyecto,int categoriaId)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(proyecto);
                 await _context.SaveChangesAsync();
+
+                string query= $"INSERT INTO categoriaproyecto (ProyectosId, CategoriasId) VALUES ({proyecto.Id}, {categoriaId})";
+                await _context.Database.ExecuteSqlRawAsync(query);
+                
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AspNetUserId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id", proyecto.AspNetUserId);
+            ViewData["CategoriasId"] = new SelectList(_context.Set<Categoria>(), "Id", "Nombre");
+
             return View(proyecto);
         }
 
