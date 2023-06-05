@@ -47,7 +47,7 @@ namespace Business_observatory.Migrations
 
                     b.HasIndex("ProyectosId");
 
-                    b.ToTable("Archivos");
+                    b.ToTable("Archivos", (string)null);
                 });
 
             modelBuilder.Entity("Business_observatory.Models.Categoria", b =>
@@ -67,7 +67,7 @@ namespace Business_observatory.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categorias");
+                    b.ToTable("Categorias", (string)null);
                 });
 
             modelBuilder.Entity("Business_observatory.Models.Contacto", b =>
@@ -99,7 +99,7 @@ namespace Business_observatory.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contactos");
+                    b.ToTable("Contactos", (string)null);
                 });
 
             modelBuilder.Entity("Business_observatory.Models.Proyecto", b =>
@@ -136,7 +136,7 @@ namespace Business_observatory.Migrations
 
                     b.HasIndex("AspNetUserId");
 
-                    b.ToTable("Proyectos");
+                    b.ToTable("Proyectos", (string)null);
                 });
 
             modelBuilder.Entity("CategoriaProyecto", b =>
@@ -151,7 +151,7 @@ namespace Business_observatory.Migrations
 
                     b.HasIndex("ProyectosId");
 
-                    b.ToTable("CategoriaProyecto");
+                    b.ToTable("CategoriaProyecto", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -378,22 +378,6 @@ namespace Business_observatory.Migrations
             modelBuilder.Entity("Business_observatory.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("Apellido")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Ciudad")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Compania")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Provincia")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });

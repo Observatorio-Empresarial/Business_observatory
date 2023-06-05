@@ -6250,8 +6250,9 @@ body .search-modal .close:hover {
   left: 186px;
   position: absolute;
 }
+/*------------------------------------------------AQUI--------------------------------------------------------------------*/
 .rs-banner.banner-style4 {
-  background-image: url(assets/images/banner/style3/banner-bg5.png);
+  background-image: url(../../Images/ImagesUnivalle/ImagePrincipal.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

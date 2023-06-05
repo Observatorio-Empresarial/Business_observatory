@@ -34,17 +34,17 @@ namespace Business_observatory.Data
 				entity.Property(e => e.NormalizedName)
 				.HasMaxLength(50);
 			});
-			modelBuilder.Entity<ApplicationUser>(entity =>
+			modelBuilder.Entity<Models.ApplicationUser>((Action<Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Models.ApplicationUser>>)(entity =>
 			{
-				entity.Property(e => e.Id)
+				entity.Property<string>(e => (string)e.Id)
 				.HasMaxLength(127);
-				entity.Property(e => e.UserName)
+				entity.Property<string>(e => (string)e.UserName)
 				.HasMaxLength(127);
-				entity.Property(e => e.NormalizedUserName)
+				entity.Property<string>(e => (string)e.NormalizedUserName)
 				.HasMaxLength(127);
-			});
+			}));
 		}
 		public DbSet<Business_observatory.Models.ApplicationRole>? ApplicationRole { get; set; }
-		public DbSet<Business_observatory.Models.ApplicationUser>? ApplicationUser { get; set; }
+		public DbSet<ApplicationUser>? ApplicationUser { get; set; }
 	}
 }
