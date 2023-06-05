@@ -10,40 +10,47 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
+                @*<label asp-for="Nombre" class="control-label"></label>*@
+                <input asp-for="Nombre" class="form-control" style="display: none;" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
+                @*<label asp-for="Descripcion" class="control-label"></label>*@
+                <input asp-for="Descripcion" class="form-control" style="display: none;" />
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Tipo" class="control-label"></label>
-                <input asp-for="Tipo" class="form-control" />
+                @*<label asp-for="Tipo" class="control-label"></label>*@
+                <input asp-for="Tipo" class="form-control" style="display: none;" />
                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Extension" class="control-label"></label>
-                <input asp-for="Extension" class="form-control" />
+                @*<label asp-for="Extension" class="control-label"></label>*@
+                <input asp-for="Extension" class="form-control" style="display: none;" />
                 <span asp-validation-for="Extension" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FechaSubida" class="control-label"></label>
-                <input asp-for="FechaSubida" class="form-control" />
+                @*<label asp-for="FechaSubida" class="control-label"></label>*@
+                <input asp-for="FechaSubida" class="form-control" style="display: none;" />
                 <span asp-validation-for="FechaSubida" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProyectosId" class="control-label"></label>
-                <select asp-for="ProyectosId" class ="form-control" asp-items="ViewBag.ProyectosId"></select>
+                @*<label asp-for="ProyectosId" class="control-label"></label>*@
+                <select asp-for="ProyectosId" class="form-control" asp-items="ViewBag.ProyectosId" style="display: none;"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                @*<input type="submit" value="Create" class="btn btn-primary" />*@
             </div>
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="files" multiple required style="color: white" />
+                <input type="text" autocomplete="off" placeholder="Enter File Description" name="description" required />
+                <label asp-for="ProyectosId" class="control-label"></label>
+                <select asp-for="ProyectosId" class="form-control" asp-items="ViewBag.ProyectosId" name="txtNombre"></select>
+                <button class="btn btn-dark" type="submit" asp-controller="Archivoes" asp-action="UploadToDatabase">Subir Archivo</button>
+            </form>
         </form>
     </div>
 </div>

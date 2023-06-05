@@ -1,7 +1,6 @@
 ﻿@model Business_observatory.Models.Proyecto
 
 @{
-    Layout = "~/Views/Shared/BackendLayout.cshtml";
     ViewData["Title"] = "Create";
 }
 
@@ -43,23 +42,14 @@
                 <input asp-for="Empresa" class="form-control" />
                 <span asp-validation-for="Empresa" class="text-danger"></span>
             </div>
-            <div hidden class="form-group">
+            <div class="form-group">
                 <label asp-for="FechaCreacion" class="control-label"></label>
                 <input asp-for="FechaCreacion" class="form-control" />
                 <span asp-validation-for="FechaCreacion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AspNetUserId" class="control-label"></label>
-                <select asp-for="AspNetUserId" class="form-control" asp-items="ViewBag.AspNetUserId"></select>
-            </div>
-            <div>
-                <label for="categoriaId" class="control-label">Categorias</label>
-                <select name="categoriaId" id="city" class="selectpicker" required="">
-                    @foreach (var categoria in (SelectList)ViewData["CategoriasId"])
-                    {
-                        <option value="@categoria.Value">@categoria.Text</option>
-                    }
-                </select>
+                <select asp-for="AspNetUserId" class ="form-control" asp-items="ViewBag.AspNetUserId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -73,7 +63,5 @@
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

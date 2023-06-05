@@ -52,9 +52,85 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FechaCreacion)
         </dd>
+        <dd class="col-sm-10">
+            @if (Model.Estado == "Activo")
+            {
+                <img src="~/Images/CheckIcon.png" style="width:50px; height:50px">
+            }
+            else if (Model.Estado == "En Progreso")
+            {
+                <img src="~/Images/pending-clock-icon.png" style="width:50px; height:50px">
+            }
+            else if (Model.Estado == "Inactivo")
+            {
+                <img src="~/Images/red-x-icon.png" style="width:50px; height:50px">
+            }
+
+        </dd>
+        <div>
+            <button id="button1">Activo</button>
+            <button id="button2">En Progreso</button>
+            <button id="button3">Inactivo</button>
+        </div>
     </dl>
 </div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input asp-for="Nombre" type="hidden" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Apellido" type="hidden" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Email" type="hidden" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Telefono" type="hidden" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Message" type="hidden" class="form-control" />
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" type="text" id="my-input" class="form-control" readonly />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="FechaCreacion" type="hidden" class="form-control" />
+                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+<script>
+    document.getElementById("button1").addEventListener("click", function () {
+        document.getElementById("my-input").value = "Activo";
+    });
+
+    document.getElementById("button2").addEventListener("click", function () {
+        document.getElementById("my-input").value = "En Progreso";
+    });
+
+    document.getElementById("button3").addEventListener("click", function () {
+        document.getElementById("my-input").value = "Inactivo";
+    });
+</script>
+

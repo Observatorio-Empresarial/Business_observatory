@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -21,6 +20,7 @@
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 </head>
 <body class="default-sidebar">
+
     <!-- Tab Mobile View Header -->
     <header class="tabMobileView header navbar fixed-top d-lg-none">
         <div class="nav-toggle">
@@ -308,6 +308,7 @@
     <!--  END NAVBAR  -->
     <!--  BEGIN MAIN CONTAINER  -->
     <div class="main-container" id="container">
+
         <div class="overlay"></div>
         <div class="cs-overlay"></div>
 
@@ -346,19 +347,25 @@
                         </a>
                         <ul class="collapse submenu list-unstyled show" id="dashboard" data-parent="#accordionExample">
                             <li class="active">
-                                <a asp-action="" asp-controller="Home" asp-area="" ><i class="flaticon-computer-4"></i> Home </a>
+                                <a href="index.html"> <i class="flaticon-computer-4"></i> Default </a>
                             </li>
                             <li>
-                                <a asp-action="" asp-controller="Proyectoes" asp-area="Index"> <i class="flaticon-chart-line"></i> Proyectos </a>
+                                <a href="accounting_dashboard.html"> <i class="flaticon-chart-line"></i> Accounting </a>
                             </li>
                             <li>
-                                <a asp-action="" asp-controller="Categorias" asp-area="Index"> <i class="flaticon-computer-2"></i> Categorias </a>
+                                <a href="analytics_dashboard.html"> <i class="flaticon-computer-2"></i> Analytics </a>
                             </li>
                             <li>
-                                <a asp-action="" asp-controller="ApplicationRoles" asp-area="Index"> <i class="flaticon-car"></i> Roles </a>
+                                <a href="car_dashboard.html"> <i class="flaticon-car"></i> Car </a>
                             </li>
                             <li>
-                                <a asp-action="" asp-controller="ApplicationUsers" asp-area="Index"> <i class="flaticon-computer-8"></i> Users </a>
+                                <a href="classic_dashboard.html"> <i class="flaticon-computer-8"></i> Classic </a>
+                            </li>
+                            <li>
+                                <a href="stock_market_dashboard.html"> <i class="flaticon-up-chart"></i> Stock Market </a>
+                            </li>
+                            <li>
+                                <a href="cryptocurrency_dashboard.html"> <i class="flaticon-bitcoin-circle"></i> Cryptocurrency </a>
                             </li>
                         </ul>
                     </li>
@@ -1437,7 +1444,7 @@
                         <h3>Dashboard</h3>
                     </div>
                 </div>
-                @RenderBody()
+
                 <div class="row layout-spacing ">
 
                     <div class="col-xl-3 mb-xl-0 col-lg-6 mb-4 col-md-6 col-sm-6">
@@ -3597,6 +3604,7 @@
                     </div>
                 </div>
             </div>
+            @RenderBody()
         </div>
     </aside>
     <!--  END CONTROL SIDEBAR  -->
