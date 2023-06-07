@@ -51,6 +51,78 @@
 			<!--Header Start-->
 			<header id="rs-header" class="rs-header header-style1 header-modify7 header-transparent">
 				<!-- Menu Start -->
+				<div class="menu-area menu-sticky">
+					<div class="container box-layout">
+						<div class="row-table">
+							<div class="col-cell header-logo">
+								<div class="logo-area">
+									<a href="index.html">
+										<img class="normal-logo" src="assets/images/logo-blue2.png" alt="logo">
+										<img class="sticky-logo" src="assets/images/logo-blue2.png" alt="logo">
+									</a>
+								</div>
+							</div>
+							<div class="col-cell">
+								<div class="rs-menu-area">
+									<div class="main-menu">
+										<nav class="rs-menu hidden-md">
+											<ul class="nav-menu">
+												<li class="menu-item-has-children current-menu-item">
+													<a href="https://localhost:7005/">Inicio</a>
+												</li>
+												<li>
+													<a href="https://localhost:7005/Home/Nosotros">Nosotros</a>
+												</li>	
+												<li class="menu-item-has-children">
+													<a href="https://localhost:7005/Home/Proyectos">Proyectos</a>
+												</li>
+												<li class="last-item menu-item-has-children">
+													<a href="https://localhost:7005/Home/Contactenos">Contactenos</a>
+													@*<ul class="sub-menu">
+														<li><a href="shop.html">Shop</a></li>
+														<li><a href="shop-single.html">Shop Single</a></li>
+														<li><a href="cart.html">Cart</a></li>
+														<li><a href="checkout.html">Checkout</a></li>
+														<li><a href="my-account.html">My Account</a></li>
+													</ul>*@
+												</li>
+												<li class="last-item menu-item-has-children">
+													<a href="">Cuenta</a>
+													<ul class="sub-menu">
+													@if (SignInManager.IsSignedIn(User))
+													{
+														<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+															<button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
+														</form>
+													}
+													else
+													{
+														<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
+
+														<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+													}
+												</ul>
+											</li>
+
+											@if (SignInManager.IsSignedIn(User))
+											{
+												<li class="nav-item">
+													<a class="nav-link text-dark" asp-area="Identity"  asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
+												</li>
+											}
+													
+														@*<li><a href="">Login</a></li>
+											<li><a href="/Account/Register">Registrar</a></li>*@
+@*														<li><a href="contact-us-3.html">Contact Us 3</a></li>
+*@											
+											</ul>   <!-- //.nav-menu -->
+										</nav>
+									</div> <!-- //.main-menu -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<!-- Menu End -->
 				<!-- Canvas Mobile Menu start -->
 				<nav class="right_menu_togle mobile-navbar-menu" id="mobile-navbar-menu">

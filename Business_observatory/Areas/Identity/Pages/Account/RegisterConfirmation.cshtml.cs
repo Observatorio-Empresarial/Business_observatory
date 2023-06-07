@@ -50,7 +50,7 @@ namespace Business_observatory.Areas.Identity.Pages.Account
             {
                 return RedirectToPage("/Index");
             }
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl = returnUrl ?? Url.Content("~/Home");
 
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
