@@ -10,7 +10,8 @@
 *
 * -----------------------------------------------------------------------------
 * 
-**//* TABLE OF CONTENT
+**/
+/* TABLE OF CONTENT
 ---------------------------------------------------------
 01. General CSS
 02. Global Class CSS
@@ -33,6 +34,7 @@
 19. Faq Section CSS
 20. Team Section CSS
 21. Process Section CSS
+       
 22. Partner Section CSS
 23. Pricing Section CSS
 24. Project Section CSS
@@ -163,7 +165,7 @@ h6 {
   background: #f9f9f9;
 }
 .gray-bg5 {
-  background: #f4f4f4;
+    background: #592F4B;
 }
 .gray-bg6 {
   background: #f5faff;
@@ -236,7 +238,7 @@ h6 {
   background-color: #FBFBFB;
 }
 .gray-bg29 {
-  background-color: #f3f8ff;
+    background-color: #FFFFFF82;
 }
 .gray-bg30 {
   background-color: #F1F7FF8C;
@@ -276,7 +278,7 @@ h6 {
   z-index: 11;
 }
 a {
-  color: #126ee8;
+  color: #3e3e3e;
   transition: all 0.3s ease;
   text-decoration: none !important;
   outline: none !important;
@@ -294,6 +296,18 @@ ul {
 }
 .clear {
   clear: both;
+}
+.sec-title .title2 {
+    position: relative;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 60px;
+    color: #3e3e3e;
+    margin: 0;
+}
+.sec-title .sub-text.sub-text22 {
+    padding-left: 0px;
+    color: #3e3e3e;
 }
 ::-moz-selection {
   background: #126ee8;
@@ -806,7 +820,7 @@ ul.check-lists .list-item .list-text {
   font-size: 22px;
   line-height: 32px;
   font-weight: 500;
-  color: #080d41;
+  color: #fff;
   padding-left: 5px;
 }
 ul.check-lists .list-item:last-child {
@@ -916,7 +930,7 @@ ul.check-lists.check-list10 .list-item {
   padding-bottom: calc(9px);
 }
 ul.check-lists.check-list10 .list-item .icon-list-icon i:before {
-  color: #0092f2;
+  color: #FBFBFB;
 }
 ul.check-lists.check-list10 .list-item .list-text {
   font-size: 18px;
@@ -1840,7 +1854,7 @@ blockquote:before {
   transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 }
 .readon.consultant.get-yellow:hover {
-  background-color: #ffc107de;
+  background-color: #414644;
 }
 .readon.consultant.get-yellow:hover:before {
   left: 0%;
@@ -1929,28 +1943,28 @@ blockquote:before {
   background-color: #ff6600;
   border-radius: 65px 65px 65px 65px;
 }
-.readon.consultant.discover {
-  padding: 20px 42px;
-  background-color: #0092f2;
-  color: #ffffff;
-  border-radius: 180px 180px 180px 180px;
-}
+    .readon.consultant.discover {
+        padding: 20px 42px;
+        background-color: #414644;
+        color: #ffffff;
+        border-radius: 180px 180px 180px 180px;
+    }
 .readon.consultant.discover.learn-more {
   padding: 19px 42px;
 }
-.readon.consultant.discover:before {
-  display: block;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  height: 100%;
-  width: 0px;
-  z-index: -1;
-  content: "";
-  color: #000 !important;
-  background-color: #0092f299;
-  transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-}
+    .readon.consultant.discover:before {
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 100%;
+        width: 0px;
+        z-index: -1;
+        content: "";
+        color: #000 !important;
+        background-color: #414644;
+        transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+    }
 .readon.consultant.discover:hover {
   background-color: #0092f299;
 }
@@ -3139,10 +3153,10 @@ blockquote:before {
   top: 12px;
   left: 0;
 }
-.sec-title .sub-text.sub-text2 {
-  padding-left: 0px;
-  color: #0092f2;
-}
+    .sec-title .sub-text.sub-text2 {
+        padding-left: 0px;
+        color: #fff;
+    }
 .sec-title .sub-text.sub-text2:after {
   display: none;
 }
@@ -3175,12 +3189,16 @@ blockquote:before {
   font-size: 18px;
   color: #F97123;
 }
+    .sec-title .desc.desc88 {
+        font-size: 18px;
+        color: #3e3e3e;
+    }
 .sec-title .title {
   position: relative;
   font-size: 50px;
   font-weight: 700;
   line-height: 60px;
-  color: #080d41;
+  color: black;
   margin: 0;
 }
 .sec-title .title.title2 {
@@ -3364,7 +3382,7 @@ blockquote:before {
   color: #ffffff;
 }
 .sec-title .title.title13 span {
-  color: #126ee8;
+  color: black;
 }
 .sec-title .title.title13.blue-title1 span {
   color: #3a15fb;
@@ -3452,7 +3470,7 @@ blockquote:before {
 }
 .sec-title .desc.desc8 {
   font-size: 18px;
-  color: #656567;
+  color: #fff;
 }
 .sec-title .desc.desc9 {
   font-size: 18px;
@@ -4187,7 +4205,7 @@ blockquote:before {
   border-radius: 5px 5px 5px 5px;
   max-width: 1296px;
   margin: 0 auto;
-  background-color: #080D41;
+  background-color: #fff;
   padding-left: 30px;
   padding-right: 30px;
   margin-bottom: -33px;
@@ -4497,9 +4515,9 @@ blockquote:before {
 .full-width-header .rs-header.header-style1.header-modify7 .menu-area .main-menu .rs-menu ul.nav-menu li a {
   color: #fff;
 }
-.full-width-header .rs-header.header-style1.header-modify7 .menu-area.sticky {
-  background: #164a96 !important;
-}
+    .full-width-header .rs-header.header-style1.header-modify7 .menu-area.sticky {
+        background: #592F4B !important;
+    }
 .full-width-header .rs-header.header-style1.header-modify7 .expand-btn-inner ul .btn-normal a {
   position: relative;
   overflow: hidden;
@@ -5321,9 +5339,9 @@ body .search-modal .close:hover {
   margin-right: 0;
 }
 .rs-about.about-style3.about-modify3 .feature-provide {
-  background-color: #f1f7ff;
-  padding: 130px 100px 130px 320px;
-  border-radius: 40px 0px 0px 40px;
+    background-color: #592F4B;
+    padding: 130px 100px 130px 320px;
+    border-radius: 40px 0px 0px 40px;
 }
 .rs-about.about-style3.about-modify3 .feature-woman {
   background-image: url(assets/images/about/about-h9.jpg);
@@ -6069,7 +6087,7 @@ body .search-modal .close:hover {
 }
 .rs-breadcrumbs.img3 {
   background-position: center !important;
-  background: url(assets/images/breadcrumbs/inr-3.jpg);
+  background: url(../../Images/ImagesUnivalle/ImagePrincipal.jpg);
 }
 .rs-breadcrumbs.img4 {
   background-position: center !important;
@@ -6151,11 +6169,11 @@ body .search-modal .close:hover {
   bottom: 14%;
 }
 .rs-banner.banner-style2 {
-  background-image: url(assets/images/banner/banner-bg2.jpg);
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 180px 0px 130px 0px;
+    background-image: url(/Images/BNBqr.png);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 180px 0px 130px 0px;
 }
 .rs-banner.banner-style2 .content-wrap {
   padding-left: 40px;
@@ -6208,11 +6226,11 @@ body .search-modal .close:hover {
   margin: 0px 0px 0px -142px;
 }
 .rs-banner.banner-style3 {
-  background-image: url(assets/images/banner/style2/banner-bg4.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding: 260px 0px 320px 0px;
+    background-image: url(/Images/BNBqr.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 260px 0px 320px 0px;
 }
 .rs-banner.banner-style3 .content-wrap .title {
   font-size: 83px;
@@ -6252,10 +6270,10 @@ body .search-modal .close:hover {
 }
 /*------------------------------------------------AQUI--------------------------------------------------------------------*/
 .rs-banner.banner-style4 {
-  background-image: url(../../Images/ImagesUnivalle/ImagePrincipal.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+    background-image: url(../../Images/ImagesUnivalle/ImagePrincipal.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 .rs-banner.banner-style4 .content-wrap {
   max-width: 930px;
@@ -6267,7 +6285,7 @@ body .search-modal .close:hover {
   font-size: 16px;
   line-height: 26px;
   font-weight: 600;
-  color: #0092F2;
+  color: #fff;
   display: block;
   text-transform: uppercase;
   margin: 0 0 25px;
@@ -6322,11 +6340,14 @@ body .search-modal .close:hover {
 .rs-banner.banner-style4 .banner-images .image-wrap.right-img img {
   max-width: 580px;
 }
-.rs-banner.banner-style4 .banner-images .arrow-shape {
-  position: absolute;
-  left: 20%;
-  bottom: 238px;
-}
+    .rs-banner.banner-style4 .banner-images .arrow-shape {
+        position: absolute;
+        left: 20%;
+        bottom: 238px;
+        /*para que la imagen sea transparente*/
+        z-index: -1;
+        
+    }
 .rs-banner.banner-style5 {
   position: relative;
   z-index: 11;
@@ -7204,8 +7225,8 @@ body .search-modal .close:hover {
   max-width: 476px;
 }
 .rs-cta.cta-style7 {
-  position: relative;
-  background-color: #00204A;
+    position: relative;
+    background-color: #758090e6;
 }
 .rs-cta.cta-style7 .animate-wrap {
   position: absolute;
@@ -7216,18 +7237,18 @@ body .search-modal .close:hover {
 .rs-cta.cta-style7 .animate-wrap img {
   max-width: 73px;
 }
-.rs-cta.cta-style7:before {
-  content: "";
-  background: #1a73e9;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  width: 41.5%;
-  z-index: 0;
-  transform: skew(-30deg);
-  right: -44px;
-}
+    .rs-cta.cta-style7:before {
+        content: "";
+        background: #592F4B;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 41.5%;
+        z-index: 0;
+        transform: skew(-30deg);
+        right: -44px;
+    }
 .rs-cta.cta-style7.cta-modify1 {
   background-color: #1E0A26;
 }
@@ -7235,7 +7256,7 @@ body .search-modal .close:hover {
   background: #3a15fb;
 }
 .rs-cta.cta-style8 .background-video-wrap .background-overlay {
-  background-color: #164A97;
+    background-color: #592F4B;
 }
 /* ------------------------------------
 	12. Newsletter Section CSS
@@ -7307,19 +7328,19 @@ body .search-modal .close:hover {
   font-size: 35px;
   line-height: 45px;
   font-weight: 600;
-  color: #126ee8;
+  color: black;
 }
 .rs-counter.counter-style1 .rs-counter-list .count-text .title {
   font-size: 16px;
   font-weight: 400;
   line-height: 18px;
-  color: #3e3e3e;
+  color: #fff;
   margin: 7px 0 0 0;
   display: block;
 }
 .rs-counter.counter-style1.counter-modify1 .rs-counter-list .count-text .count-number .prefix,
 .rs-counter.counter-style1.counter-modify1 .rs-counter-list .count-text .count-number .rs-count {
-  color: #0092f2;
+  color: #fff;
 }
 .rs-counter.counter-style1.counter-modify2 {
   position: relative;
@@ -7512,7 +7533,7 @@ body .search-modal .close:hover {
   font-size: 50px;
   line-height: 60px;
   font-weight: 700;
-  color: #1a73e9;
+  color: black;
 }
 .rs-counter.counter-style1.counter-modify11 .rs-counter-list .count-text .title {
   font-size: 18px;
@@ -7782,11 +7803,11 @@ body .search-modal .close:hover {
   background-position: center;
   background-size: cover;
 }
-.rs-skillbar.skillbar-style1.skillbar-modify3 .path-success {
-  border-radius: 0px 40px 40px 0px;
-  padding: 130px 150px 120px 100px;
-  background-color: #F1F7FF;
-}
+    .rs-skillbar.skillbar-style1.skillbar-modify3 .path-success {
+        border-radius: 0px 40px 40px 0px;
+        padding: 130px 150px 120px 100px;
+        background-color: #592F4B;
+    }
 .rs-skillbar.skillbar-style1.skillbar-modify3 .path-success .feature-border {
   position: relative;
 }
@@ -7799,10 +7820,10 @@ body .search-modal .close:hover {
   bottom: 29px;
   position: absolute;
 }
-.rs-skillbar.skillbar-style1.skillbar-modify3 .cl-skill-bar .skillbar .skillbar-bar {
-  background: #0092f2;
-  border-radius: 50px 50px 50px 50px;
-}
+    .rs-skillbar.skillbar-style1.skillbar-modify3 .cl-skill-bar .skillbar .skillbar-bar {
+        background: #868383;
+        border-radius: 50px 50px 50px 50px;
+    }
 .rs-skillbar.skillbar-style1.skillbar-modify3 .cl-skill-bar .skillbar {
   background-color: #DCD7FA;
   border-radius: 50px 50px 50px 50px;
@@ -8740,8 +8761,8 @@ body .search-modal .close:hover {
   opacity: 0.79;
 }
 .rs-contact.contact-style8 .contact-wrap {
-  padding: 70px 40px 70px 40px;
-  background-color: #164A97;
+    padding: 70px 40px 70px 40px;
+    background-color: #758090e6;
 }
 .rs-contact.contact-style8 .contact-wrap .from-control {
   font-size: 16px;
@@ -8896,7 +8917,7 @@ body .search-modal .close:hover {
   top: 50%;
   z-index: 9;
   text-align: center;
-  background: #126ee8;
+  background: #3e3e3e;
 }
 .rs-videos.video-style1 .video-item .overly-border a i {
   font-size: 30px;
@@ -10328,7 +10349,7 @@ body .search-modal .close:hover {
   height: 48px;
   font-size: 20px;
   font-weight: 600;
-  color: #0092f2;
+  color: #3e3e3e;
   background: unset;
   box-shadow: unset;
 }
@@ -11217,7 +11238,7 @@ body .search-modal .close:hover {
   transform: translateY(100%);
 }
 .rs-partner.partner-style3.partner-modify6 {
-  background-color: #14458D;
+    background-color: #592F4B;
 }
 .rs-partner.partner-style3.partner-modify6 .partner-item .logo-img a .mains-logos {
   filter: unset;
