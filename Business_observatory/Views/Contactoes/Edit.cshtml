@@ -1,63 +1,119 @@
 ﻿@model Business_observatory.Models.Contacto
 
 @{
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
 
-<h4>Contacto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+<!--  BEGIN CONTENT PART  -->
+<div id="content" class="main-content">
+    <div class="container">
+        <div class="page-header">
+            <div class="page-title">
+                <h3>Editar Contacto</h3>
             </div>
-            <div class="form-group">
-                <label asp-for="Apellido" class="control-label"></label>
-                <input asp-for="Apellido" class="form-control" />
-                <span asp-validation-for="Apellido" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-14 col-lg-14 col-md-14 col-sm-14 col-14 layout-spacing">
+                <div class="statbox widget box box-shadow">
+                    <div class="widget-header">
+                        <div class="row">
+                            <div class="col-xl-14 col-md-14 col-sm-14 col-14">
+                                <h4>Contacto</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content widget-content-area add-category">
+                        <div class="row">
+                            <div class="mx-xl-auto col-xl-10 col-md-12">
+                                <div class="card card-default">
+                                    <div class="card-heading"><h2 class="card-title"><span>Editar contacto</span></h2></div>
+                                    <div class="card-body">
+                                        <div class="card-body">
+                                            <form class="form-horizontal" asp-action="Edit">
+                                                <input type="hidden" asp-for="Id" />
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label asp-for="Nombre" class="col-md-4">Nombre :</label>
+                                                        <div class="col-md-8">
+                                                            <input asp-for="Nombre" class="form-control" class="form-control" name="Nombre:" type="text">
+                                                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label asp-for="Apellido" class="col-md-4">Apellido :</label>
+                                                        <div class="col-md-8">
+                                                            <input asp-for="Apellido" class="form-control" class="form-control" name="Apellido" type="text">
+                                                            <span asp-validation-for="Apellido" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label asp-for="Email" class="col-md-4">Email :</label>
+                                                        <div class="col-md-8">
+                                                            <input asp-for="Email" class="form-control" class="form-control" name="Email" type="text">
+                                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label asp-for="Telefono" class="col-md-4">Telefono :</label>
+                                                        <div class="col-md-8">
+                                                            <input asp-for="Telefono" class="form-control" class="form-control" name="Telefono" type="text">
+                                                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label asp-for="Message" class="col-md-4">Mensaje:</label>
+                                                        <div class="col-md-8">
+                                                            <input asp-for="Message" class="form-control" class="form-control" name="Message" type="text">
+                                                            <span asp-validation-for="Message" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label asp-for="Estado" class="col-md-4"> Estado :</label>
+                                                        <div class="col-md-8">
+                                                            <input asp-for="Estado" class="form-control" />
+                                                            <span asp-validation-for="Estado" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <div class="row">
+                                                        <label asp-for="FechaCreacion" class="col-md-4">Fecha de Creacion :</label>
+                                                        <div class="col-md-8">
+                                                            <input asp-for="FechaCreacion" class="form-control" />
+                                                            <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="align-center">
+                                                    <input value="Save" class="btn mt-5 mb-4" type="submit">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Message" class="control-label"></label>
-                <input asp-for="Message" class="form-control" />
-                <span asp-validation-for="Message" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaCreacion" class="control-label"></label>
-                <input asp-for="FechaCreacion" class="form-control" />
-                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<!--  END CONTENT PART  -->
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
