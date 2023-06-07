@@ -23,7 +23,7 @@ public partial class Proyecto
 	public string? AspNetUserId { get; set; } = null!;
 	public virtual ApplicationUser? ApplicationUser { get; set; }
 
-	public virtual ICollection<Archivo> Archivos { get; set; } = new List<Archivo>();
+	public virtual ICollection<Archivo>? Archivos { get; set; } = new List<Archivo>();
 
-    public virtual ICollection<Categoria> Categorias { get; set; } = new List<Categoria>();
+    public virtual ICollection<Categoria>? Categorias { get; set; } = new List<Categoria>();
 }

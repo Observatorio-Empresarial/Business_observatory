@@ -62,75 +62,11 @@
 					<div class="container box-layout">
 						<div class="row-table">
 							<div class="col-cell header-logo">
-								<div class="logo-area">
-									<a href="index.html">
-										<img class="normal-logo" src="~/images/logo_principal.svg" alt="logo">
-										<img class="sticky-logo" src="~/images/logo_principal.svg" alt="logo">
-									</a>
-								</div>
+							
 							</div>
 							<div class="col-cell">
 								<div class="rs-menu-area">
-									<div class="main-menu">
-										<nav class="rs-menu hidden-md">
-											<ul class="nav-menu">
-												<li>
-													<a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-												</li>
-												<li>
-													<a asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
-												</li>
-												<li>
-													<a asp-area="" asp-controller="Projects" asp-action="Index">Proyectos</a>
-												</li>
-												<li>
-													<a asp-area="" asp-controller="Home" asp-action="QrView">Pago Qr</a>
-												</li>
-												<li class="menu-item-has-children">
-													<a href="#">Administracion</a>
-													<ul class="sub-menu">
-														<li><a asp-area="" asp-controller="Contacts" asp-action="Index">Lista de solicitudes de ayuda</a></li>
-														<li><a asp-area="" asp-controller="Projects" asp-action="indexList">Lista de proyectos</a></li>
-														@*														<li><a asp-area="" asp-controller="Contact" asp-action="Create"> Lista de usuarios</a></li>
-														*@
-													</ul>
-												</li>
-
-												<li>
-													<a asp-area="" asp-controller="Contacts" asp-action="Create">Contactenos</a>
-												</li>
-
-												<li class="last-item menu-item-has-children">
-													<a href="#">Cuenta</a>
-													<ul class="sub-menu">
-														@if (SignInManager.IsSignedIn(User))
-														{
-															<form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-																<button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
-															</form>
-														}
-														else
-														{
-															<li><a asp-area="Identity" asp-page="/Account/Register">Registro</a></li>
-
-															<li> <a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-														}
-													</ul>
-												</li>
-
-												@if (SignInManager.IsSignedIn(User))
-												{
-													<li class="nav-item">
-														<a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
-													</li>
-												}
-
-
-											</ul>  <!-- //.nav-menu -->
-											}
-
-										</nav>
-									</div> <!-- //.main-menu -->
+								
 								</div>
 							</div>
 

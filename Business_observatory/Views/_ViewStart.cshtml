@@ -7,11 +7,11 @@
 @{
     if (SignInManager.IsSignedIn(User))
     {
-        Layout = "~/Views/Shared/BackendLayout.cshtml";
+        Layout = "BackendLayout";
     }
     else
     {
-        Layout = "~/Views/Shared/FrontendLayout.cshtml";
+        Layout = "FrontendLayout";
     }
 
 }
