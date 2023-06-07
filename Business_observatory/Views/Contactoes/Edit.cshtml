@@ -83,7 +83,7 @@
                                                     <div class="row">
                                                         <label asp-for="Estado" class="col-md-4"> Estado :</label>
                                                         <div class="col-md-8">
-                                                            <input asp-for="Estado" class="form-control" />
+                                                            <input asp-for="Estado" class="form-control" readonly id="my-input" />
                                                             <span asp-validation-for="Estado" class="text-danger"></span>
                                                         </div>
                                                     </div>
@@ -101,6 +101,12 @@
                                                     <input value="Save" class="btn mt-5 mb-4" type="submit">
                                                 </div>
                                             </form>
+                                            <label>Cambiar el estado</label>
+                                            <div>
+                                                <button id="button1">Activo</button>
+                                                <button id="button2">En Progreso</button>
+                                                <button id="button3">Inactivo</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -113,6 +119,19 @@
 
     </div>
 </div>
+<script>
+    document.getElementById("button1").addEventListener("click", function () {
+        document.getElementById("my-input").value = "Activo";
+    });
+
+    document.getElementById("button2").addEventListener("click", function () {
+        document.getElementById("my-input").value = "En Progreso";
+    });
+
+    document.getElementById("button3").addEventListener("click", function () {
+        document.getElementById("my-input").value = "Inactivo";
+    });
+</script>
 <!--  END CONTENT PART  -->
 
 @section Scripts {

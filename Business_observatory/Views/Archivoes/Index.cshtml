@@ -69,9 +69,12 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a asp-action="Delete" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                                        <a asp-controller="Archivoes" asp-action="DeleteFileFromDatabase" asp-route-id="@item.Id">
                                                             <i class="flaticon-delete-5"></i>
                                                         </a>
+                                                    </li>
+                                                    <li>
+                                                        <a type="button" class="btn btn-dark" asp-controller="Archivoes" asp-action="DownloadFileFromDatabase" asp-route-id="@item.Id">Descargar</a>
                                                     </li>
                                                 </ul>
                                             </td>

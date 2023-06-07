@@ -26,6 +26,30 @@ namespace Business_observatory.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> Index2()
+        {
+            var applicationDbContext = _context.Archivos.Include(a => a.Proyectos);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> DownloadFileFromDatabase(int id)
+        {
+
+            var file = await _context.FilesOnDatabase.Where(x => x.Id == id).FirstOrDefaultAsync();
+            if (file == null) return null;
+            return File(file.Data, file.Tipo, file.Nombre + file.Extension);
+        }
+
+        public async Task<IActionResult> DeleteFileFromDatabase(int id)
+        {
+
+            var file = await _context.FilesOnDatabase.Where(x => x.Id == id).FirstOrDefaultAsync();
+            _context.FilesOnDatabase.Remove(file);
+            _context.SaveChanges();
+            TempData["Message"] = $"Removed {file.Nombre + file.Extension} successfully from Database.";
+            return RedirectToAction("Index");
+        }
+
         // GET: Archivoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -163,6 +187,34 @@ namespace Business_observatory.Controllers
         private bool ArchivoExists(int id)
         {
           return (_context.Archivos?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UploadToDatabase(List<IFormFile> files, string description)
+        {
+            foreach (var file in files)
+            {
+                string proyectoId = Request.Form["txtNombre"];
+                var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+                var extension = Path.GetExtension(file.FileName);
+                var fileModel = new FileOnDatabaseModel
+                {
+                    FechaSubida = DateTime.UtcNow,
+                    Tipo = file.ContentType,
+                    Extension = extension,
+                    Nombre = fileName,
+                    Descripcion = description,
+                    ProyectosId = int.Parse(proyectoId),
+                };
+                using (var dataStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(dataStream);
+                    fileModel.Data = dataStream.ToArray();
+                }
+                _context.FilesOnDatabase.Add(fileModel);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
     }
 }
