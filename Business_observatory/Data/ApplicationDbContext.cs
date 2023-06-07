@@ -46,5 +46,7 @@ namespace Business_observatory.Data
 		}
 		public DbSet<Business_observatory.Models.ApplicationRole>? ApplicationRole { get; set; }
 		public DbSet<ApplicationUser>? ApplicationUser { get; set; }
-	}
+
+        public DbSet<FileOnDatabaseModel> FilesOnDatabase { get; set; }
+    }
 }

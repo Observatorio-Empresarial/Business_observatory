@@ -20,4 +20,5 @@ public partial class Archivo
     public int ProyectosId { get; set; }
 
     public virtual Proyecto Proyectos { get; set; } = null!;
+    public List<FileOnDatabaseModel> FilesOnDatabase { get; set; }
 }
