@@ -53,8 +53,6 @@
 36. Preloader CSS
 37. Animation Part CSS
 
-
---------------------------------------------------------*/
 /* -----------------------------------
 	01. General CSS
 -------------------------------------*/
@@ -596,17 +594,17 @@ ul {
   background-size: cover;
 }
 .offwrap {
-  cursor: url(assets/images/close.png), auto;
-  width: 100%;
-  left: 100%;
-  transition: all 0.8s ease-out 0s;
-  position: fixed;
-  background: #fff;
-  height: 100vh;
-  top: 0;
-  bottom: 0;
-  opacity: .8;
-  z-index: 999;
+    cursor: url(assets/images/close.png), auto;
+    width: 100%;
+    left: 100%;
+    transition: all 0.8s ease-out 0s;
+    position: fixed;
+    background: #fff;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    opacity: .8;
+    z-index: 999;
 }
 .copyright p {
   font-size: 15px;

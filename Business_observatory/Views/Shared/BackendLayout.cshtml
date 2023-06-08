@@ -211,14 +211,9 @@
                 @RenderBody()
             </div>
         </div>
-               
         <!--  END CONTENT PART  -->
-
     </div>
-    <!-- END MAIN CONTAINER -->
-    <!--  BEGIN CHAT  -->
-    
-    <!--  END CHAT  -->
+
     <!--  BEGIN FOOTER  -->
     <footer class="footer-section theme-footer">
 
@@ -274,6 +269,13 @@
     <script src="~/css/backend/assets/js/default-dashboard/default-custom.js"></script>
     <script src="~/css/backend/assets/js/support-chat.js"></script>
     <!-- END PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script>
+        //First upload
+        var firstUpload = new FileUploadWithPreview('myFirstImage')
+        //Second upload
+        var secondUpload = new FileUploadWithPreview('mySecondImage')
+    </script>
+    <script src="~/css/backend/plugins/file-upload/file-upload-with-preview.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

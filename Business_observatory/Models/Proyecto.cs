@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Business_observatory.Models;
 
@@ -10,8 +11,10 @@ public partial class Proyecto
     public string? Nombre { get; set; }
 
     public string? Descripcion { get; set; }
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 
     public DateTime? FechaInicio { get; set; }
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 
     public DateTime? FechaFinalizacion { get; set; }
 

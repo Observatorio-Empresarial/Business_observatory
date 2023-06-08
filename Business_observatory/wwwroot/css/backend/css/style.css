@@ -1,3 +1,19 @@
+
+.extension-column {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    /* Ajusta el valor de '768px' según tus necesidades de diseño */
+    .tablesaw_columns_titles th:nth-child(4),
+    .tablesaw_columns td:nth-child(4) {
+        display: none;
+    }
+}
+
+
+
+
 h6 {
     color: #1a73e9;
     font-weight: 600;
