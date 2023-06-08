@@ -10,6 +10,8 @@
 	<meta charset="utf-8">
 	<title></title>
 	<meta name="description" content="">
+	<link rel="icon" type="image/x-icon" href="~/Images/ImagesUnivalle/favicon.ico">
+
 	<!-- responsive tag -->
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,8 +59,8 @@
 							<div class="col-cell header-logo">
 								<div class="logo-area">
 									<a href="index.html">
-										<img class="normal-logo" src="assets/images/logo-blue2.png" alt="logo">
-										<img class="sticky-logo" src="assets/images/logo-blue2.png" alt="logo">
+									<img class="normal-logo" style="width:120px;height:120px;" src="~/Images/ImagesUnivalle/elige04-1536x618.png" alt="logo">
+									<img class="sticky-logo" style="width:120px;height:120px;" src="~/Images/ImagesUnivalle/elige04-1536x618.png" alt="logo">
 									</a>
 								</div>
 							</div>
@@ -67,27 +69,23 @@
 									<div class="main-menu">
 										<nav class="rs-menu hidden-md">
 											<ul class="nav-menu">
-												<li class="menu-item-has-children current-menu-item">
-													<a href="https://localhost:7005/">Inicio</a>
+												<li>
+												<a href="#">Inicio</a>
 												</li>
 												<li>
-													<a href="https://localhost:7005/Home/Nosotros">Nosotros</a>
+													<a href="#About">Nosotros</a>
 												</li>	
-												<li class="menu-item-has-children">
-													<a href="https://localhost:7005/Archivoes/Index2">Proyectos</a>
+												<li >
+													<a href="#Proyectos">Proyectos</a>
+												</li>
+											<li>
+												<a href="#Servicios">Servicios</a>
+											</li>
+												<li>
+													<a href="#Contactenos">Contactenos</a>
 												</li>
 												<li class="last-item menu-item-has-children">
-													<a href="https://localhost:7005/Home/Contactenos">Contactenos</a>
-													@*<ul class="sub-menu">
-														<li><a href="shop.html">Shop</a></li>
-														<li><a href="shop-single.html">Shop Single</a></li>
-														<li><a href="cart.html">Cart</a></li>
-														<li><a href="checkout.html">Checkout</a></li>
-														<li><a href="my-account.html">My Account</a></li>
-													</ul>*@
-												</li>
-												<li class="last-item menu-item-has-children">
-													<a href="">Cuenta</a>
+													<a>Cuenta</a>
 													<ul class="sub-menu">
 													@if (SignInManager.IsSignedIn(User))
 													{
@@ -450,5 +448,7 @@
 	<script src="~/css/frontend/js/contact.form.js"></script>
 	<!-- main js -->
 	<script src="~/css/frontend/js/main.js"></script>
+
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
