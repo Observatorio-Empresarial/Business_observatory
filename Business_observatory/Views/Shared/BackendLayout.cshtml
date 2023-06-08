@@ -1,4 +1,6 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using Business_observatory.Models
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +15,12 @@
     <link href="~/css/backend/assets/css/plugins.css" rel="stylesheet" type="text/css" />
 
     <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="~/css/backend/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/backend/plugins/dropzone/basic.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/backend/plugins/file-upload/file-upload-with-preview.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="~/css/backend/assets/css/support-chat.css" rel="stylesheet" type="text/css" />
     <link href="~/css/backend/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
@@ -56,16 +64,8 @@
             </li>
         </ul>
 
-
-        <ul class="navbar-nav flex-row mr-lg-auto ml-lg-0  ml-auto">
-            
-  
-        </ul>
-
-
         <ul class="navbar-nav flex-row ml-lg-auto">
 
-           
             <li class="nav-item dropdown user-profile-dropdown ml-lg-0 mr-lg-2 ml-3 order-lg-0 order-1">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="flaticon-user-12"></span>
@@ -104,42 +104,38 @@
                 <ul class="navbar-nav theme-brand flex-row  d-none d-lg-flex">
                     <li class="nav-item d-flex">
                         <a href="index.html" class="navbar-brand">
-                            <img src="assets/img/logo-3.png" class="img-fluid" alt="logo">
+                            <img src="~/Images/ImagesUnivalle/MicrosoftTeams-image__5_-removebg-preview.png" class="img-fluid" alt="logo">
                         </a>
                         <p class="border-underline"></p>
                     </li>
                     <li class="nav-item theme-text">
-                        <a href="index.html" class="nav-link"> Equation </a>
+                        <a href="index.html" class="nav-link">ADMIN</a>
                     </li>
                 </ul>
 
 
                 <ul class="list-unstyled menu-categories" id="accordionExample">
-                    
+
                     <li class="menu">
-                        <a href="#ecommerce" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
-                                <i class="flaticon-cart-2"></i>
+                                <i class="flaticon-copy"></i>
                                 <span>Archivos</span>
                             </div>
                             <div>
                                 <i class="flaticon-right-arrow"></i>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled" id="ecommerce" data-parent="#accordionExample">
+                        <ul class="collapse submenu list-unstyled" id="pages" data-parent="#accordionExample">
                             <li>
                                 <a asp-action="Index" asp-controller="Archivoes">Lista de Archivos</a>
                             </li>
                             <li>
                                 <a asp-action="Create" asp-controller="Archivoes">Crear Archivo</a>
-                            </li>                        
+                            </li>
+
                         </ul>
                     </li>
-                   
-
-                   
-
-                    
                     <li class="menu">
                         <a href="#pages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
@@ -218,7 +214,7 @@
                
         <!--  END CONTENT PART  -->
 
-    
+    </div>
     <!-- END MAIN CONTAINER -->
     <!--  BEGIN CHAT  -->
     
