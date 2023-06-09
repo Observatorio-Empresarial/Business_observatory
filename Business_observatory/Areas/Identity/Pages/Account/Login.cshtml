@@ -5,6 +5,7 @@
     ViewData["Title"] = "Log in";
     Layout = "~/Views/Shared/FrontendLayout.cshtml";
 }
+
 <!-- Faq Start -->
 <div class="rs-faq faq-style1 faq-modify5 pt-130 pb-130 md-pt-80 md-pb-80" id="Contactenos">
 	<div class="container">
@@ -12,52 +13,39 @@
 			<div class="col-lg-7">
 				<div class="content-wrap">
 					<div class="sec-title mb-40">
-						<span class="sub-text sub-text2">Faq</span>
+						<span class="sub-text sub-text2"></span>
 						<h2 class="title pb-25">
-							We Create Something for Your Future
+							Acceso
 						</h2>
 						<p class="desc">
-							Malesuada bibendum arcu vitae elementum. Semper eget duis at tellus at urna condimentum. Aliquam malesuada elementum .
+							Aqui ves y recibes mas informacion de lo que nosotros hacemos con Nuestro Observatorio Empresarial
 						</p>
 					</div>
 					<div class="faq-content">
 						<div id="accordion" class="accordion">
 							<div class="card">
 								<div class="card-header">
-									<a class="card-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">Can i get my order sooner?</a>
-								</div>
-								<div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
-									<div class="card-body">
-										Malesuada bibendum arcu vitae elementum. Semper eget duis at tellus at urna condimentum. Aliquam malesuada bibendum arcu vitae elementum.
-									</div>
-								</div>
-							</div>
-							<div class="card">
-								<div class="card-header">
-									<a class="card-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">These cases are perfectly simple</a>
+									<a class="card-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">Mas Informacion sobre Observatorio Empresarial</a>
 								</div>
 								<div id="collapseTwo" class="collapse" data-bs-parent="#accordion" style="">
 									<div class="card-body">
-										Malesuada bibendum arcu vitae elementum. Semper eget duis at tellus at urna condimentum. Aliquam malesuada bibendum arcu vitae elementum.
+										El Observatorio Empresarial es un centro especializado en la vigilancia y análisis de tendencias y cambios en el mundo de los negocios. Proporcionamos información actualizada y asesoramiento estratégico a las empresas para tomar decisiones informadas en un entorno empresarial dinámico.
 									</div>
 								</div>
 							</div>
 							<div class="card">
 								<div class="card-header">
-									<a class="card-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false">How can get support?</a>
+									<a class="card-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false">A que Nos Dedicamos Como Observatorio?</a>
 								</div>
 								<div id="collapseThree" class="collapse" data-bs-parent="#accordion" style="">
 									<div class="card-body">
-										Malesuada bibendum arcu vitae elementum. Semper eget duis at tellus at urna condimentum. Aliquam malesuada bibendum arcu vitae elementum.
+										El Observatorio Empresarial es un centro especializado en la vigilancia y análisis de tendencias y cambios en el mundo de los negocios. Proporcionamos información actualizada y asesoramiento estratégico a las empresas para tomar decisiones informadas en un entorno empresarial dinámico.
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="faq-button faq-btn1 mt-45">
-						Need Help?
-						<a href="#">Contact Us<i class="ri-arrow-right-up-line"></i></a>
-					</div>
+
 				</div>
 			</div>
 			<div class="col-lg-5">
@@ -66,34 +54,32 @@
 					<div class="contact-wrap">
 						<div class="sec-title mb-30">
 							<h2 class="title white-color">
-								Get in touch
+								Acceso
 							</h2>
 						</div>
 						<div id="form-messages"></div>
-						<form id="contact-form" method="post" action="mailer.php">
+						<form id="account" method="post">
 							<fieldset>
 								<div class="row">
 									<div class="col-sm-12 mb-20">
-										<input class="from-control" type="text" id="name" name="name" placeholder="Name" required="">
+										<input asp-for="Input.Email" id="fname" class="from-control" type="text" required="" placeholder="Email">
 									</div>
 									<div class="col-sm-12 mb-20">
-										<input class="from-control" type="text" id="email" name="email" placeholder="Email" required="">
-									</div>
-									<div class="col-sm-12 mb-20">
-										<input class="from-control" type="text" id="phone" name="phone" placeholder="Phone" required="">
-									</div>
-									<div class="col-sm-12 mb-20">
-										<input class="from-control" type="text" id="Query" name="Query" placeholder="Query" required="">
-									</div>
-									<div class="col-sm-12 mb-35">
-										<textarea class="from-control" id="message" name="message" placeholder="Write Your Message Here" required=""></textarea>
+										<input asp-for="Input.Password" id="tname" class="from-control" type="password" required="" placeholder="Password">
 									</div>
 								</div>
 								<div class="btn-part">
-									<div class="form-group mb-0">
-										<input class="readon submit submit-purple2" type="submit" value="Submit Now">
-									</div>
+									<button class="readon submit submit-purple2" type="submit">Ingresar</button>
+									<label>
+										<div class="checkbox">
+											<label asp-for="Input.RememberMe" class="form-label">
+												<input class="woocommerce-form__input woocommerce-form__input-checkbox" type="checkbox" id="rememberme" asp-for="Input.RememberMe" />
+												@Html.DisplayNameFor(m => m.Input.RememberMe)
+											</label>
+										</div>
+									</label>
 								</div>
+
 							</fieldset>
 						</form>
 					</div>
@@ -104,47 +90,6 @@
 	</div>
 </div>
 <!-- Faq End -->
-<!-- My Account Section Start -->
-<div class="rs-my-account pt-120 pb-120 md-pt-80 md-pb-80">
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-lg-6 md-mb-50">
-                <h2 class="title pb-30 md-pb-15">Login</h2>
-                <div class="rs-login">
-                    <form id="account" method="post">
-                        <div class="form-group mb-30">
-                            <label>Nombre de usuario o dirección de correo electrónico<span>*</span></label>
-                            <input asp-for="Input.Email" id="fname"  class="form-control-mod" type="text" required="">
-                            <label>Contraseña <span>*</span></label>
-                            <input asp-for="Input.Password" id="tname"  class="form-control-mod" type="password" required="">
-                        </div>
-                        <button class="add-btn" type="submit">Log In</button>
-                        <label>
-                            <div class="checkbox">
-                                <label asp-for="Input.RememberMe" class="form-label">
-                                    <input class="woocommerce-form__input woocommerce-form__input-checkbox" type="checkbox" id="rememberme" asp-for="Input.RememberMe" />
-                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
-                                </label>
-                            </div>
-                        </label>
-                        <div>
-                            <p>
-                                <a id="forgot-password" asp-page="./ForgotPassword">¿Olvidaste tu contraseña?</a>
-                            </p>
-                            <p>
-                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">¿Olvidaste tu contraseña?</a>
-                            </p>
-                            <p>
-                                <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Reenviar correo electrónico de confirmación</a>
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

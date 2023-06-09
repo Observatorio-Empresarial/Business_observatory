@@ -60,9 +60,10 @@ namespace Business_observatory.Controllers
         {
             if (ModelState.IsValid)
             {
+                contacto.Estado = "Pendiente";
                 _context.Add(contacto);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             return View(contacto);
         }

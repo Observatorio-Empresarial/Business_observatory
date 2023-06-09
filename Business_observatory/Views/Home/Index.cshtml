@@ -1,4 +1,6 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿
+@model Business_observatory.Models.Contacto
+@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Identity.EntityFrameworkCore
 @using Business_observatory.Models
 @inject SignInManager<IdentityUser> SignInManager
@@ -738,28 +740,33 @@
 								</h2>
 							</div>
 							<div id="form-messages"></div>
-							<form id="contact-form" method="post" action="mailer.php">
+							<form asp-action="Create" asp-controller="Contactoes">
 								<fieldset>
 									<div class="row">
 										<div class="col-sm-12 mb-20">
-											<input class="from-control" type="text" id="name" name="name" placeholder="Name" required="">
+											<input asp-for="Nombre" class="from-control" type="text" name="Nombre" placeholder="Nombre" required="">
+											<span asp-validation-for="Nombre" class="text-danger"></span>
 										</div>
 										<div class="col-sm-12 mb-20">
-											<input class="from-control" type="text" id="email" name="email" placeholder="Email" required="">
+											<input asp-for="Apellido" class="from-control" type="text" name="Apellido" placeholder="Apellido" required="">
+											<span asp-validation-for="Apellido" class="text-danger"></span>
 										</div>
 										<div class="col-sm-12 mb-20">
-											<input class="from-control" type="text" id="phone" name="phone" placeholder="Phone" required="">
+											<input asp-for="Email" class="from-control" type="text" name="Email" placeholder="Email" required="">
+											<span asp-validation-for="Email" class="text-danger"></span>
 										</div>
 										<div class="col-sm-12 mb-20">
-											<input class="from-control" type="text" id="Query" name="Query" placeholder="Query" required="">
+											<input asp-for="Telefono" class="from-control" type="text" name="Telefono" placeholder="Telefono" required="">
+											<span asp-validation-for="Telefono" class="text-danger"></span>
 										</div>
 										<div class="col-sm-12 mb-35">
-											<textarea class="from-control" id="message" name="message" placeholder="Write Your Message Here" required=""></textarea>
+											<textarea asp-for="Message" class="from-control" name="Message" placeholder="Escribe tu mensaje aqui" required=""></textarea>
+											<span asp-validation-for="Message" class="text-danger"></span>
 										</div>
 									</div>
 									<div class="btn-part">
 										<div class="form-group mb-0">
-											<input class="readon submit submit-purple2" type="submit" value="Submit Now">
+											<input class="readon submit submit-purple2" type="submit" value="Enviar Ahora">
 										</div>
 									</div>
 								</fieldset>
