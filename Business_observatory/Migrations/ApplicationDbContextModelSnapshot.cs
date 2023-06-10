@@ -28,10 +28,6 @@ namespace Business_observatory.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Extension")
                         .HasColumnType("longtext");
 
@@ -52,10 +48,6 @@ namespace Business_observatory.Migrations
                     b.HasIndex("ProyectosId");
 
                     b.ToTable("Archivos");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Archivo");
-
-                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Business_observatory.Models.Categoria", b =>
@@ -348,11 +340,19 @@ namespace Business_observatory.Migrations
                     b.Property<string>("RoleId")
                         .HasColumnType("varchar(127)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUserRole<string>");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -376,25 +376,12 @@ namespace Business_observatory.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Business_observatory.Models.FileOnDatabaseModel", b =>
-                {
-                    b.HasBaseType("Business_observatory.Models.Archivo");
-
-                    b.Property<int?>("ArchivoId")
-                        .HasColumnType("int");
-
-                    b.Property<byte[]>("Data")
-                        .IsRequired()
-                        .HasColumnType("longblob");
-
-                    b.HasIndex("ArchivoId");
-
-                    b.HasDiscriminator().HasValue("FileOnDatabaseModel");
-                });
-
             modelBuilder.Entity("Business_observatory.Models.ApplicationRole", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole");
+
+                    b.Property<string>("RoleName")
+                        .HasColumnType("longtext");
 
                     b.HasDiscriminator().HasValue("ApplicationRole");
                 });
@@ -404,6 +391,13 @@ namespace Business_observatory.Migrations
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.ApplicationUserRole", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUserRole<string>");
+
+                    b.HasDiscriminator().HasValue("ApplicationUserRole");
                 });
 
             modelBuilder.Entity("Business_observatory.Models.Archivo", b =>
@@ -492,16 +486,23 @@ namespace Business_observatory.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Business_observatory.Models.FileOnDatabaseModel", b =>
+            modelBuilder.Entity("Business_observatory.Models.ApplicationUserRole", b =>
                 {
-                    b.HasOne("Business_observatory.Models.Archivo", null)
-                        .WithMany("FilesOnDatabase")
-                        .HasForeignKey("ArchivoId");
-                });
+                    b.HasOne("Business_observatory.Models.ApplicationRole", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("Business_observatory.Models.Archivo", b =>
-                {
-                    b.Navigation("FilesOnDatabase");
+                    b.HasOne("Business_observatory.Models.ApplicationUser", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Business_observatory.Models.Proyecto", b =>
@@ -509,9 +510,16 @@ namespace Business_observatory.Migrations
                     b.Navigation("Archivos");
                 });
 
+            modelBuilder.Entity("Business_observatory.Models.ApplicationRole", b =>
+                {
+                    b.Navigation("UserRoles");
+                });
+
             modelBuilder.Entity("Business_observatory.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Proyectos");
+
+                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }

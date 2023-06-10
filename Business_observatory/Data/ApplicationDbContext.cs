@@ -6,21 +6,41 @@ using Microsoft.EntityFrameworkCore;
 namespace Business_observatory.Data
 {
 	public class ApplicationDbContext : IdentityDbContext
-	{
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-			: base(options)
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
 		{
-		}
-		public virtual DbSet<Archivo> Archivos { get; set; }
+        }
 
+        public virtual DbSet<Archivo> Archivos { get; set; }
 		public virtual DbSet<Categoria> Categorias { get; set; }
-
 		public virtual DbSet<Contacto> Contactos { get; set; }
-
 		public virtual DbSet<Proyecto> Proyectos { get; set; }
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<ApplicationRole> ApplicationRoles { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<ApplicationUserRole> ApplicationUserRoles { get; set; }
+
+		public DbSet<IdentityRole> IdentityRoles { get; set; }
+		public DbSet<IdentityUser> IdentityUsers { get; set; }
+		public DbSet<IdentityUserRole<string>> IdentityUserRoles { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
+            // Each User can have many entries in the UserRole join table
+            modelBuilder.Entity<ApplicationUser>(b => { 
+			b.HasMany(e=>e.UserRoles)
+				.WithOne(e=>e.User)
+				.HasForeignKey(ur=>ur.UserId)
+				.IsRequired();
+			});
+            // Each Role can have many entries in the UserRole join table
+            modelBuilder.Entity<ApplicationRole>(b =>
+			{
+				b.HasMany(e=>e.UserRoles)
+				.WithOne(e=>e.Role)
+				.HasForeignKey(ur=>ur.RoleId)
+				.IsRequired();
+			});
 			modelBuilder.Entity<Proyecto>()
 				.HasOne(p => p.ApplicationUser)
 				.WithMany(a => a.Proyectos)
@@ -44,9 +64,6 @@ namespace Business_observatory.Data
 				.HasMaxLength(127);
 			}));
 		}
-		public DbSet<Business_observatory.Models.ApplicationRole>? ApplicationRole { get; set; }
-		public DbSet<ApplicationUser>? ApplicationUser { get; set; }
 
-        public DbSet<FileOnDatabaseModel> FilesOnDatabase { get; set; }
     }
 }

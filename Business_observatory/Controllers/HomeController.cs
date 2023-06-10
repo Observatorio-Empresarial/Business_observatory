@@ -1,21 +1,24 @@
-﻿using Business_observatory.Models;
+﻿using Business_observatory.Data;
+using Business_observatory.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Business_observatory.Controllers
 {
     public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> _logger;
 
-		public HomeController(ILogger<HomeController> logger)
-		{
-			_logger = logger;
-		}
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
 
-		public IActionResult Index()
+        public async Task<IActionResult> Index()
 		{
-			return View();
+            return View();
 		}
 		public IActionResult Nosotros()
 		{

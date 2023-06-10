@@ -4,6 +4,7 @@ namespace Business_observatory.Models
 {
     public class ApplicationUser:IdentityUser
     {
-		public virtual ICollection<Proyecto>? Proyectos { get; set; }
+        public virtual ICollection<ApplicationUserRole>? UserRoles { get; set; }
+        public virtual ICollection<Proyecto>? Proyectos { get; set; }
 	}
 }

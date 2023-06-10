@@ -17,6 +17,12 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 	.AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddRazorPages();
+
+
 builder.Services.AddAuthorization(options => 
 {
     options.AddPolicy("Administrador", policy => policy.RequireRole("Administrador"));   
