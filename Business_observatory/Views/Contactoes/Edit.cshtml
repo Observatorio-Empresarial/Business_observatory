@@ -1,0 +1,92 @@
+﻿@model Business_observatory.Models.Contacto
+
+@{
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+    <div class="col-lg-12 layout-spacing">
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                        <h4>Editar Categoria</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-content widget-content-area">
+                <form asp-action="Edit">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Nombre">Nombre :</label>
+                        <input asp-for="Nombre" class="form-control" class="form-control" name="Nombre" type="text">
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Apellido">Apellido :</label>
+                        <input asp-for="Apellido" class="form-control" class="form-control" name="Apellido" type="text">
+                        <span asp-validation-for="Apellido" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Email">Email :</label>
+                        <input asp-for="Email" class="form-control" class="form-control" name="Email" type="text">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Telefono">Telefono :</label>
+                        <input asp-for="Telefono" class="form-control" class="form-control" name="Telefono" type="text">
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Message">Mensaje:</label>
+                        <input asp-for="Message" class="form-control" class="form-control" name="Message" type="text">
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Estado"> Estado :</label>
+                        <input asp-for="Estado" class="form-control" readonly id="my-input" />
+                        <span asp-validation-for="Estado" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="FechaCreacion">Fecha de Creacion :</label>
+                        <input asp-for="FechaCreacion" class="form-control" />
+                        <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                    </div>
+
+                    <input value="Save" type="submit">
+                </form>
+                <label>Cambiar el estado</label>
+                <div>
+                    <button id="button1">Activo</button>
+                    <button id="button2">En Progreso</button>
+                    <button id="button3">Inactivo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById("button1").addEventListener("click", function () {
+        document.getElementById("my-input").value = "Activo";
+    });
+
+    document.getElementById("button2").addEventListener("click", function () {
+        document.getElementById("my-input").value = "En Progreso";
+    });
+
+    document.getElementById("button3").addEventListener("click", function () {
+        document.getElementById("my-input").value = "Inactivo";
+    });
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

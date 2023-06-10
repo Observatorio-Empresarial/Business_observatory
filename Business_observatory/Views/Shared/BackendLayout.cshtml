@@ -1,0 +1,272 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using Business_observatory.Models
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Accounting | Equation - Multipurpose Bootstrap Dashboard Template </title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="~/css/backend/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/backend/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="~/css/backend/plugins/dropzone/dropzone.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/backend/plugins/dropzone/basic.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/backend/plugins/file-upload/file-upload-with-preview.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link href="~/css/backend/assets/css/support-chat.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/backend/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/backend/plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
+    <link href="~/css/backend/assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+</head>
+<body class="default-sidebar">
+    <!-- Tab Mobile View Header -->
+    <header class="tabMobileView header navbar fixed-top d-lg-none">
+        <div class="nav-toggle">
+            <a href="javascript:void(0);" class="nav-link sidebarCollapse" data-placement="bottom">
+                <i class="flaticon-menu-line-2"></i>
+            </a>
+            <a href="index.html" class=""> <img src="assets/img/logo-3.png" class="img-fluid" alt="logo"></a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="nav-item d-lg-none">
+                <form class="form-inline justify-content-end" role="search">
+                    <input type="text" class="form-control search-form-control mr-3">
+                </form>
+            </li>
+        </ul>
+    </header>
+    <!-- Tab Mobile View Header -->
+    <!--  BEGIN NAVBAR  -->
+    <header class="header navbar fixed-top navbar-expand-sm">
+        <a href="javascript:void(0);" class="sidebarCollapse d-none d-lg-block" data-placement="bottom"><i class="flaticon-menu-line-2"></i></a>
+        <ul class="navbar-nav flex-row">
+            <li class="nav-item dropdown language-dropdown ml-1  ml-lg-0">
+                <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="flagDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="assets/img/ca.svg" alt=""> <span class="d-lg-inline-block d-none"></span>
+                </a>
+                <div class="dropdown-menu position-absolute" aria-labelledby="flagDropdown">
+                    <a class="dropdown-item" href="javascript:void(0);"><img src="assets/img/de.svg" class="flag-width" alt=""> &#xA0;German</a>
+                    <a class="dropdown-item" href="javascript:void(0);"><img src="assets/img/jp.svg" class="flag-width" alt=""> &#xA0;Japanese</a>
+                    <a class="dropdown-item" href="javascript:void(0);"><img src="assets/img/fr.svg" class="flag-width" alt=""> &#xA0;French</a>
+                    <a class="dropdown-item" href="javascript:void(0);"><img src="assets/img/ru.svg" class="flag-width" alt=""> &#xA0;Russian</a>
+                    <a class="dropdown-item" href="javascript:void(0);"><img src="assets/img/ca.svg" class="flag-width" alt=""> &#xA0;English</a>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav flex-row ml-lg-auto">
+
+            <li class="nav-item dropdown user-profile-dropdown ml-lg-0 mr-lg-2 ml-3 order-lg-0 order-1">
+                <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="flaticon-user-12"></span>
+                </a>
+                <div class="dropdown-menu  position-absolute" aria-labelledby="userProfileDropdown">
+                    <a class="dropdown-item" href="user_profile.html">
+                        <i class="mr-1 flaticon-user-6"></i> <span>My Profile</span>
+                    </a>
+                   
+                    <div class="dropdown-divider"></div>
+@*                    <a class="dropdown-item" href="user_login_1.html">
+                        <i class="mr-1 flaticon-power-button"></i> <span>Log Out</span>
+                    </a>*@
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
+                    </form>
+                </div>
+            </li>
+
+        </ul>
+    </header>
+    <!--  END NAVBAR  -->
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+        <div class="overlay"></div>
+        <div class="cs-overlay"></div>
+
+        <!--  BEGIN SIDEBAR  -->
+
+        <div class="sidebar-wrapper sidebar-theme">
+
+            <div id="dismiss" class="d-lg-none"><i class="flaticon-cancel-12"></i></div>
+
+            <nav id="sidebar">
+
+                <ul class="navbar-nav theme-brand flex-row  d-none d-lg-flex">
+                    <li class="nav-item d-flex">
+                        <a href="index.html" class="navbar-brand">
+                            <img src="~/Images/ImagesUnivalle/MicrosoftTeams-image__5_-removebg-preview.png" class="img-fluid" alt="logo">
+                        </a>
+                        <p class="border-underline"></p>
+                    </li>
+                    <li class="nav-item theme-text">
+                        <a href="index.html" class="nav-link">ADMIN</a>
+                    </li>
+                </ul>
+
+
+                <ul class="list-unstyled menu-categories" id="accordionExample">
+
+                    <li class="menu">
+                        <a href="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-copy"></i>
+                                <span>Archivos</span>
+                            </div>
+                            <div>
+                                <i class="flaticon-right-arrow"></i>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="pages" data-parent="#accordionExample">
+                            <li>
+                                <a asp-action="Index" asp-controller="Archivoes">Lista de Archivos</a>
+                            </li>
+                            <li>
+                                <a asp-action="Create" asp-controller="Archivoes">Crear Archivo</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="menu">
+                        <a href="#pages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-copy"></i>
+                                <span>Roles</span>
+                            </div>
+                            <div>
+                                <i class="flaticon-right-arrow"></i>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="pages" data-parent="#accordionExample">
+
+                            <li>
+                                <a asp-action="CreateRole" asp-controller="User">Crear Role</a>
+                            </li>
+                            <li>
+                                <a asp-action="CreateUser" asp-controller="User">Register</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu">
+                        <a href="#pages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-copy"></i>
+                                <span>Categorias</span>
+                            </div>
+                            <div>
+                                <i class="flaticon-right-arrow"></i>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="pages" data-parent="#accordionExample">
+                            <li>
+                                <a asp-action="Index" asp-controller="Categorias">Lista de Categorias</a>
+                            </li>
+                            <li>
+                                <a asp-action="Create" asp-controller="Categorias">Crear Categoria</a>
+                            </li>
+                                             
+                        </ul>
+                    </li>
+
+                    <li class="menu">
+                        <a href="#dragndrop" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-redo-1"></i>
+                                <span>Contactos</span>
+                            </div>
+                            <div>
+                                <i class="flaticon-right-arrow"></i>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="dragndrop" data-parent="#accordionExample">
+                            <li>
+                                <a asp-action="Index" asp-controller="Contactoes">Lista de Conctactos</a>
+                            </li>                       
+                        </ul>
+                    </li>
+
+                    <li class="menu">
+                        <a href="#menulevel" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-menu-4"></i>
+                                <span>Proyectos</span>
+                            </div>
+                            <div>
+                                <i class="flaticon-right-arrow"></i>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="menulevel" data-parent="#accordionExample">
+
+                            <li>
+                                <a asp-action="Index" asp-controller="Proyectoes">Lista de Proyectos</a>
+                            </li>
+                               
+                            <li>
+                                <a asp-action="Create" asp-controller="Proyectoes">Crear Proyecto</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <!--  END SIDEBAR  -->
+        <!--  BEGIN CONTENT PART  -->
+        <div id="content" class="main-content">
+            <div class="container">     
+                @RenderBody()
+            </div>
+        </div>
+        <!--  END CONTENT PART  -->
+    </div>
+
+  
+    <!--  END FOOTER  -->
+    <!--  BEGIN CONTROL SIDEBAR  -->
+   
+    <!--  END CONTROL SIDEBAR  -->
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script type="text/javascript" src="~/css/backend/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="~/css/backend/bootstrap/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/css/backend/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/css/backend/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="~/css/backend/assets/js/app.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            App.init();
+        });
+    </script>
+    <script type="text/javascript" src="~/css/backend/assets/js/custom.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script src="~/css/backend/plugins/charts/chartist/chartist.js"></script>
+    <script src="~/css/backend/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="~/css/backend/plugins/maps/vector/jvector/worldmap_script/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="~/css/backend/plugins/calendar/pignose/moment.latest.min.js"></script>
+    <script src="~/css/backend/plugins/calendar/pignose/pignose.calendar.js"></script>
+    <script src="~/css/backend/plugins/progressbar/progressbar.min.js"></script>
+    <script src="~/css/backend/assets/js/default-dashboard/default-custom.js"></script>
+    <script src="~/css/backend/assets/js/support-chat.js"></script>
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script>
+        //First upload
+        var firstUpload = new FileUploadWithPreview('myFirstImage')
+        //Second upload
+        var secondUpload = new FileUploadWithPreview('mySecondImage')
+    </script>
+    <script src="~/css/backend/plugins/file-upload/file-upload-with-preview.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

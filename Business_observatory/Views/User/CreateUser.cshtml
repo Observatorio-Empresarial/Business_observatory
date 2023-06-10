@@ -1,0 +1,65 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<p>Register</p>
+<div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.Message
+        </div>
+    }
+    <div>
+        <form asp-action="CreateUser">
+            <div>
+                <label asp-for="Email"></label>
+                <input asp-for="Email" />
+            </div>
+            <div>
+                <label asp-for="PasswordHash"></label>
+                <input asp-for="PasswordHash" id="Password"/>
+            </div>
+            <div>
+                <select name="Roles">
+                    @foreach (var role in (SelectList)ViewData["Roles"])
+                    {
+                        <option value="@role.Value">@role.Text</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <label for="ConfirmPassword">Confirmar contrasena</label>
+                <input id="ConfirmPassword" />
+            </div>
+            <div>
+                <input type="submit" value="Create" />
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#Password").keyup(function () {
+            var password = $("#Password").val();
+            var confirmPassword = $("#ConfirmPassword").val();
+            if (password != confirmPassword)
+                $("#ConfirmPassword").css("border-color", "red");
+            else
+                $("#ConfirmPassword").css("border-color", "green");
+        });
+        $("#ConfirmPassword").keyup(function () {
+            var password = $("#Password").val();
+            var confirmPassword = $("#ConfirmPassword").val();
+            if (password != confirmPassword)
+                $("#ConfirmPassword").css("border-color", "red");
+            else
+                $("#ConfirmPassword").css("border-color", "green");
+        });
+    });
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}    
+}

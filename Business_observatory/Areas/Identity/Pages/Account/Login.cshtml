@@ -1,0 +1,95 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "~/Views/Shared/FrontendLayout.cshtml";
+}
+
+<!-- Faq Start -->
+<div class="rs-faq faq-style1 faq-modify5 pt-130 pb-130 md-pt-80 md-pb-80" id="Contactenos">
+	<div class="container">
+		<div class="row no-gutters">
+			<div class="col-lg-7">
+				<div class="content-wrap">
+					<div class="sec-title mb-40">
+						<span class="sub-text sub-text2"></span>
+						<h2 class="title pb-25">
+							Acceso
+						</h2>
+						<p class="desc">
+							Aqui ves y recibes mas informacion de lo que nosotros hacemos con Nuestro Observatorio Empresarial
+						</p>
+					</div>
+					<div class="faq-content">
+						<div id="accordion" class="accordion">
+							<div class="card">
+								<div class="card-header">
+									<a class="card-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">Mas Informacion sobre Observatorio Empresarial</a>
+								</div>
+								<div id="collapseTwo" class="collapse" data-bs-parent="#accordion" style="">
+									<div class="card-body">
+										El Observatorio Empresarial es un centro especializado en la vigilancia y análisis de tendencias y cambios en el mundo de los negocios. Proporcionamos información actualizada y asesoramiento estratégico a las empresas para tomar decisiones informadas en un entorno empresarial dinámico.
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header">
+									<a class="card-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false">A que Nos Dedicamos Como Observatorio?</a>
+								</div>
+								<div id="collapseThree" class="collapse" data-bs-parent="#accordion" style="">
+									<div class="card-body">
+										El Observatorio Empresarial es un centro especializado en la vigilancia y análisis de tendencias y cambios en el mundo de los negocios. Proporcionamos información actualizada y asesoramiento estratégico a las empresas para tomar decisiones informadas en un entorno empresarial dinámico.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-lg-5">
+				<!-- Contact Section End -->
+				<div class="rs-contact contact-style8">
+					<div class="contact-wrap">
+						<div class="sec-title mb-30">
+							<h2 class="title white-color">
+								Acceso
+							</h2>
+						</div>
+						<div id="form-messages"></div>
+						<form id="account" method="post">
+							<fieldset>
+								<div class="row">
+									<div class="col-sm-12 mb-20">
+										<input asp-for="Input.Email" id="fname" class="from-control" type="text" required="" placeholder="Email">
+									</div>
+									<div class="col-sm-12 mb-20">
+										<input asp-for="Input.Password" id="tname" class="from-control" type="password" required="" placeholder="Password">
+									</div>
+								</div>
+								<div class="btn-part">
+									<button class="readon submit submit-purple2" type="submit">Ingresar</button>
+									<label>
+										<div class="checkbox">
+											<label asp-for="Input.RememberMe" class="form-label">
+												<input class="woocommerce-form__input woocommerce-form__input-checkbox" type="checkbox" id="rememberme" asp-for="Input.RememberMe" />
+												@Html.DisplayNameFor(m => m.Input.RememberMe)
+											</label>
+										</div>
+									</label>
+								</div>
+
+							</fieldset>
+						</form>
+					</div>
+				</div>
+				<!-- Contact Section End -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Faq End -->
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
