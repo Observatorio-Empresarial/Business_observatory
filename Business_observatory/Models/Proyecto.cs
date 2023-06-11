@@ -29,4 +29,6 @@ public partial class Proyecto
 	public virtual ICollection<Archivo>? Archivos { get; set; } = new List<Archivo>();
 
     public virtual ICollection<Categoria>? Categorias { get; set; } = new List<Categoria>();
+
+    public string? UserId { get; set; } 
 }

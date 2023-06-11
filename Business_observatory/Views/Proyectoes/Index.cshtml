@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Business_observatory.Models.Proyecto>
+﻿@using System.Security.Claims;
+@model IEnumerable<Business_observatory.Models.Proyecto>
 @{
     Layout = "~/Views/Shared/BackendLayout.cshtml";
     ViewData["Title"] = "Index";
@@ -46,7 +47,7 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        if(User.IsInRole("Encargado"))
+                                        if(User.IsInRole("Administrador"))
                                         {
                                             if (userId == "0a9d428d-3326-40b1-be56-91293f066865")
                                             {
