@@ -4,29 +4,54 @@
 *@
 @{
 }
-<div>
-    <div>
-        @if (ViewBag.Message != null)
-        {
-            <div class="alert alert-success">
-                @ViewBag.Message
-            </div>
-        }
-        <form asp-action="CreateRole" >
-            <div>
-                <label asp-for="Name"></label>
-                <input asp-for="Name" />
-                <span asp-validation-for="Name"></span>
-            </div>
-            <div>
-                <button type="submit">Create</button>
-            </div>
-        </form>
+<div class="page-header">
+    <div class="page-title">
+        <h3>Contactos</h3>
+        <div class="crumbs">
+            <ul id="breadcrumbs" class="breadcrumb">
+                <li><a href="index.html"><i class="flaticon-home-fill"></i></a></li>
+                <li><a href="#">Tables</a></li>
+            </ul>
+        </div>
     </div>
 </div>
+
+<div class="row">
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.Message
+        </div>
+    }
+    <div class="col-lg-12 layout-spacing">
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                        <h4>Crear Rol</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-content widget-content-area">
+                <form asp-action="CreateRole">
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <input value="Create" type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
     }
-
