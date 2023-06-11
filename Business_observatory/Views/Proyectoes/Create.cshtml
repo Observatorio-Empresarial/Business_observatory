@@ -1,8 +1,11 @@
 ﻿@model Business_observatory.Models.Proyecto
+@using System.Security.Claims;
 
 @{
     Layout = "~/Views/Shared/BackendLayout.cshtml";
     ViewData["Title"] = "Create";
+
+    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 }
 <div class="page-header">
     <div class="page-title">
@@ -89,6 +92,13 @@
                                 </select>
                             </div>
                         </div>
+                    </div>
+                    
+                    <div class="form-row mb-4">
+
+                        <label asp-for="FechaFinalizacion"> Fecha de Finalizacion :</label>
+                        <input asp-for="FechaFinalizacion" class="form-control" type="text" value="@userId" disabled />
+                        <span asp-validation-for="FechaFinalizacion" class="text-danger"></span>
                     </div>
 
                     <input value="Create" type="submit">

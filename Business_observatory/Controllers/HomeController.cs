@@ -4,6 +4,7 @@ using Firebase.Auth;
 using Firebase.Storage;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -24,6 +25,64 @@ namespace Business_observatory.Controllers
         public HomeController(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        // GET: Proyectoes/Edit/5
+        public async Task<IActionResult> Pago(int? id)
+        {
+            if (id == null || _context.Proyectos == null)
+            {
+                return NotFound();
+            }
+
+            var proyecto = await _context.Proyectos.FindAsync(id);
+            if (proyecto == null)
+            {
+                return NotFound();
+            }
+            ViewData["AspNetUserId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id", proyecto.AspNetUserId);
+            return View(proyecto);
+        }
+
+        // POST: Proyectoes/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Pago2(int id, [Bind("Id,Nombre,Descripcion,FechaInicio,FechaFinalizacion,Responsable,Empresa,FechaCreacion,AspNetUserId")] Proyecto proyecto)
+        {
+            if (id != proyecto.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(proyecto);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ProyectoExists(proyecto.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["AspNetUserId"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id", proyecto.AspNetUserId);
+            return View(proyecto);
+        }
+
+        private bool ProyectoExists(int id)
+        {
+            return (_context.Proyectos?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
         public async Task<IActionResult> Proyectos()
@@ -98,7 +157,10 @@ namespace Business_observatory.Controllers
             }
             return View(contacto);
         }
-
+        public IActionResult Pago()
+        {
+            return View();
+        }
         public async Task<IActionResult> Index()
 		{
             return View();

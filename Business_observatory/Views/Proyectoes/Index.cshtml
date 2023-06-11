@@ -1,12 +1,16 @@
 ﻿@model IEnumerable<Business_observatory.Models.Proyecto>
-
+@using System.Security.Claims;
 @{
     Layout = "~/Views/Shared/BackendLayout.cshtml";
     ViewData["Title"] = "Index";
+
+    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
 }
 <div class="page-header">
     <div class="page-title">
         <h3>Proyectos</h3>
+        <h3> @userId </h3>
         <div class="crumbs">
             <ul id="breadcrumbs" class="breadcrumb">
                 <li><a href="index.html"><i class="flaticon-home-fill"></i></a></li>
@@ -43,30 +47,36 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.Nombre)</a></td>
+                                        if(User.IsInRole("Encargado"))
+                                        {
+                                            if (userId == "0a9d428d-3326-40b1-be56-91293f066865")
+                                            {
+                                                <tr>
+                                                    <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.Nombre)</a></td>
 
-                                            <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.Descripcion)</a></td>
+                                                    <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.Descripcion)</a></td>
 
-                                            <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.Responsable)</a></td>
+                                                    <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.Responsable)</a></td>
 
-                                            <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.Empresa)</a></td>
+                                                    <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.Empresa)</a></td>
 
-                                            <td class="">
-                                                <ul class="table-controls">
-                                                    <li>
-                                                        <a asp-action="Edit" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="top" title="Editar">
-                                                            <i class="flaticon-edit"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a asp-action="Delete" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="top" title="Eliminar">
-                                                            <i class="flaticon-delete-5"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
+                                                    <td class="">
+                                                        <ul class="table-controls">
+                                                            <li>
+                                                                <a asp-action="Edit" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="top" title="Editar">
+                                                                    <i class="flaticon-edit"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a asp-action="Delete" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                                                    <i class="flaticon-delete-5"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }                                                                               
                                     }
                                 </tbody>
                             </table>
