@@ -3,6 +3,7 @@ using Business_observatory.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Business_observatory.Controllers
@@ -16,9 +17,32 @@ namespace Business_observatory.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var userAdmin=from u in _context.IdentityUsers
+                          join ur in _context.IdentityUserRoles on u.Id equals ur.UserId
+                          join r in _context.IdentityRoles on ur.RoleId equals r.Id
+                          where r.Name=="Administrador"
+                          select u;
+            return View(await userAdmin.ToListAsync());
+        }
+        public async Task<IActionResult> IndexEncargados()
+        {
+            var userAdmin = from u in _context.IdentityUsers
+                            join ur in _context.IdentityUserRoles on u.Id equals ur.UserId
+                            join r in _context.IdentityRoles on ur.RoleId equals r.Id
+                            where r.Name == "Encargados"
+                            select u;
+            return View(await userAdmin.ToListAsync());
+        }
+        public async Task<IActionResult> IndexUsuariosComunes()
+        {
+            var userAdmin = from u in _context.IdentityUsers
+                            join ur in _context.IdentityUserRoles on u.Id equals ur.UserId
+                            join r in _context.IdentityRoles on ur.RoleId equals r.Id
+                            where r.Name == ""
+                            select u;
+            return View(await userAdmin.ToListAsync());
         }
         public IActionResult CreateUser()
         {
@@ -34,12 +58,13 @@ namespace Business_observatory.Controllers
             {
                 var appUser = new IdentityUser
                 {
+                    PhoneNumber = user.PhoneNumber,
                     UserName = user.Email,
+                    NormalizedUserName = user.Email.ToUpper(),
                     Email = user.Email,
                     NormalizedEmail = user.Email.ToUpper(),
-                    NormalizedUserName = user.Email.ToUpper(),
                     EmailConfirmed = true,
-                    LockoutEnabled = false,
+                    LockoutEnabled = true,
                 };
                 // Utilizar PasswordHasher para generar el hash de la contraseña
                 var passwordHasher = new PasswordHasher<IdentityUser>();
@@ -68,6 +93,16 @@ namespace Business_observatory.Controllers
         {
             var role = new IdentityRole();
             return View(role);
+        }
+        public async Task<IActionResult> IndexRoles()
+        {
+            var roles = await _context.IdentityRoles.ToListAsync();
+            return View(roles);
+        }
+        public async Task<IActionResult> IndexUsers()
+        {
+            var users = await _context.IdentityUsers.ToListAsync();
+            return View(users);
         }
         [HttpPost]
         public async Task<IActionResult> CreateRole(IdentityRole role)

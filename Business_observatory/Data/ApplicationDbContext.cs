@@ -20,9 +20,9 @@ namespace Business_observatory.Data
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<ApplicationUserRole> ApplicationUserRoles { get; set; }
 
-		public DbSet<IdentityRole> IdentityRoles { get; set; }
-		public DbSet<IdentityUser> IdentityUsers { get; set; }
-		public DbSet<IdentityUserRole<string>> IdentityUserRoles { get; set; }
+		public DbSet<IdentityRole>? IdentityRoles { get; set; }
+		public DbSet<IdentityUser>? IdentityUsers { get; set; }
+		public DbSet<IdentityUserRole<string>>? IdentityUserRoles { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);

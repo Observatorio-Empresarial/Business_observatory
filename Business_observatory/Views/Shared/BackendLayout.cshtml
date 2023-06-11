@@ -119,7 +119,7 @@
                             </div>
 
                             <div>
-                                <span class="badge badge-pill badge-secondary mr-2">1</span>
+                                <span class="badge badge-pill badge-secondary mr-2">2</span>
                             </div>
                         </a>
                         <ul class="collapse submenu list-unstyled show" id="dashboard" data-parent="#accordionExample">
@@ -127,7 +127,7 @@
                                 <a asp-action="Index" asp-controller="Proyectoes"> <i class="flaticon-notes-5"></i> Proyecto </a>
                             </li>
                             <li class="active">
-                                <a asp-action="Index" asp-controller="Categorias"><i class="flaticon-stack"></i> Archivos</a>
+                                <a asp-action="Index" asp-controller="Archivoes"><i class="flaticon-stack"></i> Archivos</a>
                             </li>
                         </ul>
                     </li>
@@ -144,7 +144,7 @@
                         </a>
                         <ul class="collapse submenu list-unstyled" id="ecommerce" data-parent="#accordionExample">
                             <li>
-                                <a href="ecommerce_dashboard.html"> Crear Proyecto </a>
+                                <a asp-action="Create" asp-controller="Proyectoes"> Crear Proyecto </a>
                             </li>
                             <li>
                                 <a href="ecommerce_reviews.html"> Asingar Encargado </a>
@@ -195,10 +195,10 @@
                                 <a asp-action="Index" asp-controller="User"> Administradores </a>
                             </li>
                             <li>
-                                <a asp-action="Index" asp-controller="User"> Encargados </a>
+                                <a asp-action="IndexEncargados" asp-controller="User"> Encargados </a>
                             </li>
                             <li>
-                                <a asp-action="Index" asp-controller="User"> Usuarios Comunes </a>
+                                <a asp-action="IndexUsuariosComunes" asp-controller="User"> Usuarios Comunes </a>
                             </li>
                             <li>
                                 <a asp-action="CreateUser" asp-controller="User"> Crear Usuario </a>
@@ -221,7 +221,7 @@
                                 <a href="#forms-bootstrap" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Roles <i class="flaticon-right-arrow"></i> </a>
                                 <ul class="collapse list-unstyled sub-submenu" id="forms-bootstrap" data-parent="#forms">
                                     <li>
-                                        <a asp-action="IndexRole" asp-controller="User">Roles</a>
+                                        <a asp-action="IndexRoles" asp-controller="User">Roles</a>
                                     </li>
                                     <li>
                                         <a asp-action="CreateRole" asp-controller="User"> Crear Rol </a>
@@ -232,7 +232,7 @@
                                 <a href="#forms-bootstrap" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Usuarios <i class="flaticon-right-arrow"></i> </a>
                                 <ul class="collapse list-unstyled sub-submenu" id="forms-bootstrap" data-parent="#forms">
                                     <li>
-                                        <a asp-action="IndexRole" asp-controller="User">Usuarios</a>
+                                        <a asp-action="IndexUsers" asp-controller="User">Usuarios</a>
                                     </li>
                                     <li>
                                         <a asp-action="CreateUser" asp-controller="User"> Crear Usuario </a>
