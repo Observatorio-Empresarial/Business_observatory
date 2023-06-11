@@ -74,6 +74,7 @@
                     <a class="dropdown-item" href="user_profile.html">
                         <i class="mr-1 flaticon-user-6"></i> <span>Mi Perfil</span>
                     </a>
+                   
                     <div class="dropdown-divider"></div>
                     <form class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                         <button class="btn btn-dark mb-4 mr-2" type="submit">Salir</button>
@@ -111,6 +112,7 @@
 
 
                 <ul class="list-unstyled menu-categories" id="accordionExample">
+
                     <li class="menu">
                         <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                             <div class="">
@@ -129,6 +131,7 @@
                             <li class="active">
                                 <a asp-action="Index" asp-controller="Archivoes"><i class="flaticon-stack"></i> Archivos</a>
                             </li>
+
                         </ul>
                     </li>
                     <!--Gestion de Proyectos-->
@@ -158,8 +161,8 @@
                                     <li>
                                         <a href="ecommerce_product_details_2.html"> Crear Categoria </a>
                                     </li>
-                                </ul>
-                            </li>
+                        </ul>
+                    </li>
                         </ul>
                     </li>
                     <!--Gestion de Contactos-->
@@ -177,6 +180,7 @@
                             <li>
                                 <a asp-action="Index" asp-controller="Contactoes"> Contactos</a>
                             </li>
+                                             
                         </ul>
                     </li>
                     <!--Gestion de Usuarios-->
@@ -202,7 +206,7 @@
                             </li>
                             <li>
                                 <a asp-action="CreateUser" asp-controller="User"> Crear Usuario </a>
-                            </li>
+                            </li>                       
                         </ul>
                     </li>
                     <!--Configuraciones-->
@@ -231,14 +235,16 @@
                             <li>
                                 <a href="#forms-bootstrap" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Usuarios <i class="flaticon-right-arrow"></i> </a>
                                 <ul class="collapse list-unstyled sub-submenu" id="forms-bootstrap" data-parent="#forms">
-                                    <li>
+                            <li>
                                         <a asp-action="IndexUsers" asp-controller="User">Usuarios</a>
-                                    </li>
-                                    <li>
+                            </li>
+                               
+                            <li>
                                         <a asp-action="CreateUser" asp-controller="User"> Crear Usuario </a>
                                     </li>
                                 </ul>
                             </li>
+                            
                         </ul>
                     </li>
                 </ul>

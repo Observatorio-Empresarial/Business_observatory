@@ -9,5 +9,5 @@ namespace Business_observatory.Models
 
         public int ContactoId { get; set; }
         public virtual Contacto? Contacto { get; set; }
-    }
+	}
 }

@@ -1,0 +1,149 @@
+﻿@model IEnumerable<Business_observatory.Models.Archivo>
+@{
+    ViewBag.Title = "Nosotros";
+    Layout = "~/Views/Shared/FrontendLayout.cshtml";
+    var dato = @TempData["Id"];
+}
+<!-- Main content Start -->
+<div class="main-content">
+
+    <!--Full width header Start-->
+    <div class="full-width-header">
+    </div>
+    <!--Full width header End-->
+    <!-- Breadcrumbs Start -->
+    <div class="rs-breadcrumbs img3">
+        <div class="container">
+            <div class="breadcrumbs-inner breadcrumbs-style1">
+                <h1 class="page-title">
+                    Archivos
+                </h1>
+                <p class="des"> Aproveche la fruta al alcance de la mano para identificar una actividad de valor agregado de estadio para la prueba beta. Anule la brecha digital con clics adicionales</p>
+                <ul class="breadcrumbs-area">
+                    <li title="Go to Bcom">
+                        <a class="active" href="https://www.univalle.edu/">Univalle</a>
+                    </li>
+                    <li>Servicios</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Reemplaza "TuNamespace" con el espacio de nombres donde se encuentra tu modelo de archivo -->
+    <div class="rs-services services-style8 services-modify7 gray-bg6 pt-135 pb-140 md-pt-75 md-pb-80">
+        <div class="container">
+            <div class="sec-title text-center mb-60">
+                <h2 class="title title12 two-blue-subnormal main-subnormal">
+                    <span class="watermark">Nuestros Archivos</span>
+                </h2>
+            </div>
+            <div class="row">
+                @foreach (var item in Model.Reverse())
+                {
+                    @if (item.ProyectosId == (int)dato)
+                    {
+                        <div class="col-lg-4 col-md-6 mb-55">
+                            <div class="services-item">
+                                <div class="services-wrap" style="height:25rem;">
+                                    <div class="numbering">
+                                        @{
+
+                                        }
+
+                                    </div>
+                                    <div class="services-icon">
+                                        <img src="assets/images/services/main-home/blue/ser-1.png" alt="">
+                                    </div>
+                                    <div class="services-content">
+                                        <h6 class="title"><a href="business-services.html">@Html.DisplayFor(modelItem=>item.Nombre)</a></h6>
+                                        <p class="services-txt">
+                                            @{
+                                                string descripcion = item.Descripcion;
+                                                int longitudTotal = descripcion.Length;
+                                                int longitudVeintePorciento = (int)(longitudTotal * 0.2);
+                                                int ultimoEspacio = descripcion.LastIndexOf(" ", longitudVeintePorciento);
+
+                                                // Si no se encuentra ningún espacio en blanco, se utiliza la longitud original.
+                                                if (ultimoEspacio < 0)
+                                                {
+                                                    ultimoEspacio = longitudVeintePorciento;
+                                                }
+
+                                                string primerosCaracteres = descripcion.Substring(0, ultimoEspacio);
+                                            }
+                                            @primerosCaracteres...
+                                        </p>
+                                        <div class="services-button ser-btn3">
+                                            <a class="btn btn-secondary" asp-controller="Archivoes" asp-action="DownloadFile" asp-route-id="@item.Id">Descargar 2</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+</div>
+<!-- Main content End -->
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@

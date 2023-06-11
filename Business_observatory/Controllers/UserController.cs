@@ -63,6 +63,7 @@ namespace Business_observatory.Controllers
                     NormalizedUserName = user.Email.ToUpper(),
                     Email = user.Email,
                     NormalizedEmail = user.Email.ToUpper(),
+                    NormalizedUserName = user.Email.ToUpper(),
                     EmailConfirmed = true,
                     LockoutEnabled = true,
                 };
