@@ -79,6 +79,9 @@ namespace Business_observatory.Migrations
                     b.Property<string>("Apellido")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("AspNetUserId")
+                        .HasColumnType("varchar(127)");
+
                     b.Property<string>("Email")
                         .HasColumnType("longtext");
 
@@ -98,6 +101,9 @@ namespace Business_observatory.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AspNetUserId")
+                        .IsUnique();
 
                     b.ToTable("Contactos");
                 });
@@ -390,6 +396,9 @@ namespace Business_observatory.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<int>("ContactoId")
+                        .HasColumnType("int");
+
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
@@ -409,6 +418,15 @@ namespace Business_observatory.Migrations
                         .IsRequired();
 
                     b.Navigation("Proyectos");
+                });
+
+            modelBuilder.Entity("Business_observatory.Models.Contacto", b =>
+                {
+                    b.HasOne("Business_observatory.Models.ApplicationUser", "ApplicationUser")
+                        .WithOne("Contacto")
+                        .HasForeignKey("Business_observatory.Models.Contacto", "AspNetUserId");
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("Business_observatory.Models.Proyecto", b =>
@@ -517,6 +535,8 @@ namespace Business_observatory.Migrations
 
             modelBuilder.Entity("Business_observatory.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("Contacto");
+
                     b.Navigation("Proyectos");
 
                     b.Navigation("UserRoles");

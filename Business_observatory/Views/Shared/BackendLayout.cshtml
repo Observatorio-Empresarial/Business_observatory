@@ -72,15 +72,11 @@
                 </a>
                 <div class="dropdown-menu  position-absolute" aria-labelledby="userProfileDropdown">
                     <a class="dropdown-item" href="user_profile.html">
-                        <i class="mr-1 flaticon-user-6"></i> <span>My Profile</span>
+                        <i class="mr-1 flaticon-user-6"></i> <span>Mi Perfil</span>
                     </a>
-                   
                     <div class="dropdown-divider"></div>
-@*                    <a class="dropdown-item" href="user_login_1.html">
-                        <i class="mr-1 flaticon-power-button"></i> <span>Log Out</span>
-                    </a>*@
-                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                        <button type="submit" class="nav-link btn btn-link text-light">LOG OUT</button>
+                    <form class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button class="btn btn-dark mb-4 mr-2" type="submit">Salir</button>
                     </form>
                 </div>
             </li>
@@ -115,105 +111,134 @@
 
 
                 <ul class="list-unstyled menu-categories" id="accordionExample">
-
                     <li class="menu">
-                        <a href="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                             <div class="">
-                                <i class="flaticon-copy"></i>
-                                <span>Archivos</span>
+                                <i class="flaticon-home-fill"></i>
+                                <span>Menu</span>
                             </div>
+
                             <div>
-                                <i class="flaticon-right-arrow"></i>
+                                <span class="badge badge-pill badge-secondary mr-2">1</span>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled" id="pages" data-parent="#accordionExample">
-                            <li>
-                                <a asp-action="Index" asp-controller="Archivoes">Lista de Archivos</a>
+                        <ul class="collapse submenu list-unstyled show" id="dashboard" data-parent="#accordionExample">
+                            <li class="active">
+                                <a asp-action="Index" asp-controller="Proyectoes"> <i class="flaticon-notes-5"></i> Proyecto </a>
                             </li>
-                            <li>
-                                <a asp-action="Create" asp-controller="Archivoes">Crear Archivo</a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li class="menu">
-                        <a href="#pages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                                <i class="flaticon-copy"></i>
-                                <span>Roles</span>
-                            </div>
-                            <div>
-                                <i class="flaticon-right-arrow"></i>
-                            </div>
-                        </a>
-                        <ul class="collapse submenu list-unstyled" id="pages" data-parent="#accordionExample">
-
-                            <li>
-                                <a asp-action="CreateRole" asp-controller="User">Crear Role</a>
-                            </li>
-                            <li>
-                                <a asp-action="CreateUser" asp-controller="User">Register</a>
+                            <li class="active">
+                                <a asp-action="Index" asp-controller="Categorias"><i class="flaticon-stack"></i> Archivos</a>
                             </li>
                         </ul>
                     </li>
+                    <!--Gestion de Proyectos-->
                     <li class="menu">
-                        <a href="#pages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#ecommerce" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
-                                <i class="flaticon-copy"></i>
-                                <span>Categorias</span>
+                                <i class="flaticon-cart-2"></i>
+                                <span>Gestion de Proyectos</span>
                             </div>
                             <div>
                                 <i class="flaticon-right-arrow"></i>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled" id="pages" data-parent="#accordionExample">
+                        <ul class="collapse submenu list-unstyled" id="ecommerce" data-parent="#accordionExample">
                             <li>
-                                <a asp-action="Index" asp-controller="Categorias">Lista de Categorias</a>
+                                <a href="ecommerce_dashboard.html"> Crear Proyecto </a>
                             </li>
                             <li>
-                                <a asp-action="Create" asp-controller="Categorias">Crear Categoria</a>
+                                <a href="ecommerce_reviews.html"> Asingar Encargado </a>
                             </li>
-                                             
+                            <li>
+                                <a href="#product-details" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" data-parent="#ecommerce"> Categorias<i class="flaticon-right-arrow"></i> </a>
+                                <ul class="collapse list-unstyled sub-submenu" id="product-details">
+                                    <li>
+                                        <a href="ecommerce_product_details_1.html">Categorias </a>
+                                    </li>
+                                    <li>
+                                        <a href="ecommerce_product_details_2.html"> Crear Categoria </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-
+                    <!--Gestion de Contactos-->
                     <li class="menu">
-                        <a href="#dragndrop" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#ui-features" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
-                                <i class="flaticon-redo-1"></i>
-                                <span>Contactos</span>
+                                <i class="flaticon-mail-30"></i>
+                                <span>Gestion de Contactos</span>
                             </div>
                             <div>
                                 <i class="flaticon-right-arrow"></i>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled" id="dragndrop" data-parent="#accordionExample">
+                        <ul class="collapse submenu list-unstyled" id="ui-features" data-parent="#accordionExample">
                             <li>
-                                <a asp-action="Index" asp-controller="Contactoes">Lista de Conctactos</a>
-                            </li>                       
+                                <a asp-action="Index" asp-controller="Contactoes"> Contactos</a>
+                            </li>
                         </ul>
                     </li>
-
+                    <!--Gestion de Usuarios-->
                     <li class="menu">
-                        <a href="#menulevel" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#components" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
-                                <i class="flaticon-menu-4"></i>
-                                <span>Proyectos</span>
+                                <i class="flaticon-user-11"></i>
+                                <span>Gestion de Usuarios</span>
                             </div>
                             <div>
                                 <i class="flaticon-right-arrow"></i>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled" id="menulevel" data-parent="#accordionExample">
-
+                        <ul class="collapse submenu list-unstyled" id="components" data-parent="#accordionExample">
                             <li>
-                                <a asp-action="Index" asp-controller="Proyectoes">Lista de Proyectos</a>
+                                <a asp-action="Index" asp-controller="User"> Administradores </a>
                             </li>
-                               
                             <li>
-                                <a asp-action="Create" asp-controller="Proyectoes">Crear Proyecto</a>
+                                <a asp-action="Index" asp-controller="User"> Encargados </a>
                             </li>
-                            
+                            <li>
+                                <a asp-action="Index" asp-controller="User"> Usuarios Comunes </a>
+                            </li>
+                            <li>
+                                <a asp-action="CreateUser" asp-controller="User"> Crear Usuario </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--Configuraciones-->
+                    <li class="menu">
+                        <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">
+                                <i class="flaticon-settings-1"></i>
+                                <span>Configuraciones</span>
+                            </div>
+                            <div>
+                                <i class="flaticon-right-arrow"></i>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="forms" data-parent="#accordionExample">
+                            <li>
+                                <a href="#forms-bootstrap" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Roles <i class="flaticon-right-arrow"></i> </a>
+                                <ul class="collapse list-unstyled sub-submenu" id="forms-bootstrap" data-parent="#forms">
+                                    <li>
+                                        <a asp-action="IndexRole" asp-controller="User">Roles</a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="CreateRole" asp-controller="User"> Crear Rol </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#forms-bootstrap" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Usuarios <i class="flaticon-right-arrow"></i> </a>
+                                <ul class="collapse list-unstyled sub-submenu" id="forms-bootstrap" data-parent="#forms">
+                                    <li>
+                                        <a asp-action="IndexRole" asp-controller="User">Usuarios</a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="CreateUser" asp-controller="User"> Crear Usuario </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </ul>

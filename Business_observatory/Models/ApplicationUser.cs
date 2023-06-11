@@ -6,5 +6,8 @@ namespace Business_observatory.Models
     {
         public virtual ICollection<ApplicationUserRole>? UserRoles { get; set; }
         public virtual ICollection<Proyecto>? Proyectos { get; set; }
-	}
+
+        public int ContactoId { get; set; }
+        public virtual Contacto? Contacto { get; set; }
+    }
 }

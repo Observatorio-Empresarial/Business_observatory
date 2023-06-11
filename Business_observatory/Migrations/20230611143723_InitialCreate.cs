@@ -21,6 +21,7 @@ namespace Business_observatory.Migrations
                 {
                     Id = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: false),
                     Discriminator = table.Column<string>(type: "longtext", nullable: false),
+                    RoleName = table.Column<string>(type: "longtext", nullable: true),
                     Name = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
                     NormalizedName = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "longtext", nullable: true)
@@ -37,6 +38,7 @@ namespace Business_observatory.Migrations
                 {
                     Id = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: false),
                     Discriminator = table.Column<string>(type: "longtext", nullable: false),
+                    ContactoId = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "varchar(127)", maxLength: 127, nullable: true),
                     Email = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
@@ -71,26 +73,6 @@ namespace Business_observatory.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categorias", x => x.Id);
-                })
-                .Annotation("MySQL:Charset", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Contactos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Nombre = table.Column<string>(type: "longtext", nullable: true),
-                    Apellido = table.Column<string>(type: "longtext", nullable: true),
-                    Email = table.Column<string>(type: "longtext", nullable: true),
-                    Telefono = table.Column<string>(type: "longtext", nullable: true),
-                    Message = table.Column<string>(type: "longtext", nullable: true),
-                    Estado = table.Column<string>(type: "longtext", nullable: true),
-                    FechaCreacion = table.Column<DateTime>(type: "datetime(6)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Contactos", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -164,7 +146,8 @@ namespace Business_observatory.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "varchar(127)", nullable: false),
-                    RoleId = table.Column<string>(type: "varchar(127)", nullable: false)
+                    RoleId = table.Column<string>(type: "varchar(127)", nullable: false),
+                    Discriminator = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -202,6 +185,32 @@ namespace Business_observatory.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySQL:Charset", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Contactos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Nombre = table.Column<string>(type: "longtext", nullable: true),
+                    Apellido = table.Column<string>(type: "longtext", nullable: true),
+                    Email = table.Column<string>(type: "longtext", nullable: true),
+                    Telefono = table.Column<string>(type: "longtext", nullable: true),
+                    Message = table.Column<string>(type: "longtext", nullable: true),
+                    Estado = table.Column<string>(type: "longtext", nullable: true),
+                    FechaCreacion = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    AspNetUserId = table.Column<string>(type: "varchar(127)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Contactos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Contactos_AspNetUsers_AspNetUserId",
+                        column: x => x.AspNetUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
@@ -327,6 +336,12 @@ namespace Business_observatory.Migrations
                 name: "IX_CategoriaProyecto_ProyectosId",
                 table: "CategoriaProyecto",
                 column: "ProyectosId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Contactos_AspNetUserId",
+                table: "Contactos",
+                column: "AspNetUserId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Proyectos_AspNetUserId",

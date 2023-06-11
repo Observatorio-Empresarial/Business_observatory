@@ -41,6 +41,13 @@ namespace Business_observatory.Data
 				.HasForeignKey(ur=>ur.RoleId)
 				.IsRequired();
 			});
+			//Relacion uno entre contacto y ApplicationUser
+
+			modelBuilder.Entity<Contacto>()
+				.HasOne(c => c.ApplicationUser)
+				.WithOne(a => a.Contacto)
+				.HasForeignKey<Contacto>(c => c.AspNetUserId);
+
 			modelBuilder.Entity<Proyecto>()
 				.HasOne(p => p.ApplicationUser)
 				.WithMany(a => a.Proyectos)
