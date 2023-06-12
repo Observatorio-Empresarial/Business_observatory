@@ -4,6 +4,7 @@
 *@
 @{
 }
+
 <script>
     $(document).ready(function () {
         $("#Password").keyup(function () {
@@ -73,7 +74,7 @@
                     </div>
                     <br />
                     <div>
-                        <select name="Roles">
+                        <select name="Roles" class="form-control mt-3">
                             @foreach (var role in (SelectList)ViewData["Roles"])
                             {
                                 <option value="@role.Value">@role.Text</option>

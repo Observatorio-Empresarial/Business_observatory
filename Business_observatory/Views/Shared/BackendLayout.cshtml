@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Identity.EntityFrameworkCore
 @using Business_observatory.Models
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +22,6 @@
     <link href="~/css/backend/plugins/dropzone/basic.min.css" rel="stylesheet" type="text/css" />
     <link href="~/css/backend/plugins/file-upload/file-upload-with-preview.css" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL STYLES -->
-
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="~/css/backend/assets/css/support-chat.css" rel="stylesheet" type="text/css" />
     <link href="~/css/backend/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
@@ -63,9 +64,13 @@
                 </div>
             </li>
         </ul>
-
         <ul class="navbar-nav flex-row ml-lg-auto">
-
+            @if (SignInManager.IsSignedIn(User))
+            {
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name</a>
+                <li class="nav-item">
+                </li>
+            }
             <li class="nav-item dropdown user-profile-dropdown ml-lg-0 mr-lg-2 ml-3 order-lg-0 order-1">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="flaticon-user-12"></span>
@@ -74,14 +79,12 @@
                     <a class="dropdown-item" href="user_profile.html">
                         <i class="mr-1 flaticon-user-6"></i> <span>Mi Perfil</span>
                     </a>
-                   
                     <div class="dropdown-divider"></div>
                     <form class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                         <button class="btn btn-dark mb-4 mr-2" type="submit">Salir</button>
                     </form>
                 </div>
             </li>
-
         </ul>
     </header>
     <!--  END NAVBAR  -->
@@ -93,11 +96,8 @@
         <!--  BEGIN SIDEBAR  -->
 
         <div class="sidebar-wrapper sidebar-theme">
-
             <div id="dismiss" class="d-lg-none"><i class="flaticon-cancel-12"></i></div>
-
             <nav id="sidebar">
-
                 <ul class="navbar-nav theme-brand flex-row  d-none d-lg-flex">
                     <li class="nav-item d-flex">
                         <a href="index.html" class="navbar-brand">
@@ -109,10 +109,7 @@
                         <a href="index.html" class="nav-link">ADMIN</a>
                     </li>
                 </ul>
-
-
                 <ul class="list-unstyled menu-categories" id="accordionExample">
-
                     <li class="menu">
                         <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                             <div class="">
@@ -131,7 +128,6 @@
                             <li class="active">
                                 <a asp-action="Index" asp-controller="Archivoes"><i class="flaticon-stack"></i> Archivos</a>
                             </li>
-
                         </ul>
                     </li>
                     <!--Gestion de Proyectos-->
@@ -161,8 +157,8 @@
                                     <li>
                                         <a href="ecommerce_product_details_2.html"> Crear Categoria </a>
                                     </li>
-                        </ul>
-                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <!--Gestion de Contactos-->
@@ -180,7 +176,7 @@
                             <li>
                                 <a asp-action="Index" asp-controller="Contactoes"> Contactos</a>
                             </li>
-                                             
+
                         </ul>
                     </li>
                     <!--Gestion de Usuarios-->
@@ -206,7 +202,7 @@
                             </li>
                             <li>
                                 <a asp-action="CreateUser" asp-controller="User"> Crear Usuario </a>
-                            </li>                       
+                            </li>
                         </ul>
                     </li>
                     <!--Configuraciones-->
@@ -235,16 +231,16 @@
                             <li>
                                 <a href="#forms-bootstrap" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Usuarios <i class="flaticon-right-arrow"></i> </a>
                                 <ul class="collapse list-unstyled sub-submenu" id="forms-bootstrap" data-parent="#forms">
-                            <li>
+                                    <li>
                                         <a asp-action="IndexUsers" asp-controller="User">Usuarios</a>
-                            </li>
-                               
-                            <li>
+                                    </li>
+
+                                    <li>
                                         <a asp-action="CreateUser" asp-controller="User"> Crear Usuario </a>
                                     </li>
                                 </ul>
                             </li>
-                            
+
                         </ul>
                     </li>
                 </ul>
@@ -255,17 +251,16 @@
         <!--  END SIDEBAR  -->
         <!--  BEGIN CONTENT PART  -->
         <div id="content" class="main-content">
-            <div class="container">     
+            <div class="container">
                 @RenderBody()
             </div>
         </div>
         <!--  END CONTENT PART  -->
     </div>
 
-  
+
     <!--  END FOOTER  -->
     <!--  BEGIN CONTROL SIDEBAR  -->
-   
     <!--  END CONTROL SIDEBAR  -->
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script type="text/javascript" src="~/css/backend/assets/js/libs/jquery-3.1.1.min.js"></script>

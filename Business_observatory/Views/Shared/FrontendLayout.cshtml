@@ -99,18 +99,12 @@
 													}
 												</ul>
 											</li>
-
 											@if (SignInManager.IsSignedIn(User))
 											{
 												<li class="nav-item">
 													<a class="nav-link text-dark" asp-area="Identity"  asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
 												</li>
 											}
-													
-														@*<li><a href="">Login</a></li>
-											<li><a href="/Account/Register">Registrar</a></li>*@
-@*														<li><a href="contact-us-3.html">Contact Us 3</a></li>
-*@											
 											</ul>   <!-- //.nav-menu -->
 										</nav>
 									</div> <!-- //.main-menu -->

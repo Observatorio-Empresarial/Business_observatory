@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Business_observatory.Data;
 using Business_observatory.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Business_observatory.Controllers
 {
@@ -22,6 +23,26 @@ namespace Business_observatory.Controllers
         // GET: Proyectoes
         public async Task<IActionResult> Index()
         {
+            //Obteber rol del usuario logueado
+
+            var userRole=from r in _context.Roles
+                        join ur in _context.UserRoles on r.Id equals ur.RoleId
+                        join u in _context.Users on ur.UserId equals u.Id
+                        where u.UserName==User.Identity.Name
+                        select r.Name;
+
+            //user con rol encargado
+            //var userEncargado = from u in _context.IdentityUsers
+            //                    join ur in _context.IdentityUserRoles on u.Id equals ur.UserId
+            //                    join r in _context.IdentityRoles on ur.RoleId equals r.Id
+            //                    where r.Name == "Encargado"
+            //                    select u;
+
+            //ViewData["userEncargado"] = userEncargado.ToList();
+
+            ViewData["userRole"]=userRole.FirstOrDefault();
+
+
             var applicationDbContext = _context.Proyectos.Include(p => p.ApplicationUser);
             return View(await applicationDbContext.ToListAsync());
         }

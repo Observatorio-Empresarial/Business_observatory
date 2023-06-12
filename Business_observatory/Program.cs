@@ -25,8 +25,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddAuthorization(options => 
 {
-    options.AddPolicy("Administrador", policy => policy.RequireRole("Administrador"));   
-    options.AddPolicy("Empresa", policy => policy.RequireRole("Empresa"));   
+    options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("Administrador"));   
+    options.AddPolicy("Encargado", policy => policy.RequireRole("Encargado"));   
 });
 var app = builder.Build();
 

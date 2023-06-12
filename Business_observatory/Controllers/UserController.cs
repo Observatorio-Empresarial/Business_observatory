@@ -31,8 +31,9 @@ namespace Business_observatory.Controllers
             var userAdmin = from u in _context.IdentityUsers
                             join ur in _context.IdentityUserRoles on u.Id equals ur.UserId
                             join r in _context.IdentityRoles on ur.RoleId equals r.Id
-                            where r.Name == "Encargados"
+                            where r.Name == "Encargado"
                             select u;
+
             return View(await userAdmin.ToListAsync());
         }
         public async Task<IActionResult> IndexUsuariosComunes()
