@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Business_observatory.Models.Categoria>
+
+@{
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+    ViewData["Title"] = "Index";
+}
+<div class="page-header">
+    <div class="page-title">
+        <h3>Categorias</h3>
+        <div class="crumbs">
+            <ul id="breadcrumbs" class="breadcrumb">
+                <li><a href="index.html"><i class="flaticon-home-fill"></i></a></li>
+                <li><a href="#">Tables</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="row layout-spacing">
+    <div class="col-lg-12">
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                        <h4>Lista de Categorias</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-content widget-content-area">
+                <div class="row">
+                    <div class="col-lg-12 mb-4 column-mode">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped table-checkable table-highlight-head mb-4">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nombre</th>
+                                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Descripcion</th>
+                                        <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Fecha de Creacion</th>
+                                        <th scope="col">Editar/Eliminar</th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.Nombre)</a></td>
+
+                                            <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.Descripcion)</a></td>
+
+                                            <td class="tablesaw_columns"><a href="javascript:void(0);">@Html.DisplayFor(modelItem => item.FechaCreacion)</a></td>
+
+
+                                            <td class="">
+                                                <ul class="table-controls">
+                                                    <li>
+                                                        <a asp-action="Edit" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="top" title="Editar">
+                                                            <i class="flaticon-edit"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-action="Delete" asp-route-id="@item.Id" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                                            <i class="flaticon-delete-5"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

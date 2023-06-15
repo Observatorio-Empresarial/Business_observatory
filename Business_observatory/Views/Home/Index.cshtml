@@ -1,8 +1,696 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model Business_observatory.Models.Contacto
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@using Business_observatory.Models
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+	var userRole = ViewData["userRole"] as string;
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	if (userRole == "Administrador" || userRole == "Encargado")
+	{
+		Layout = "~/Views/Shared/BackendLayout.cshtml";
+	}
+	else
+	{
+		Layout = "~/Views/Shared/FrontendLayout.cshtml";
+	}
+}
+@if (User.IsInRole("Administrador")||User.IsInRole("Encargado"))
+{
+	
+}
+else{
+<!-- Main content Start -->
+<div class="main-content">
+	<!--Full width header Start-->
+	<div class="full-width-header">
+		<!--Header Start-->
+		<header id="rs-header" class="rs-header header-style1 header-modify7 header-transparent">
+			<!-- Menu Start -->
+			<!-- Menu End -->
+			<!-- Canvas Mobile Menu start -->
+			<!-- Canvas Menu end -->
+		</header>
+		<!--Header End-->
+	</div>
+	<!--Full width header End-->
+	<!-- Banner Start -->
+	<div class="rs-banner banner-style4">
+		<div class="container">
+			<div class="content-wrap">
+				<span class="sub-title">BIENVENIDO AL</span>
+				<h1 class="title">Observatorio<br>Empresarial - Univalle.</h1>
+				<div class="description">
+					<p>
+						Bienvenido a la pagina principal de nuestro Observatorio Empresarial<br>
+						puedes explorar todo nuestro contenido en esta pagina Web.
+					</p>
+				</div>
+				<ul class="bnr-btn wow fadeInUp">
+					<li>
+						<a class="readon consultant discover" href="https://www.univalle.edu/">Descubrir más</a>
+					</li>
+					<li>
+						<div class="rs-videos mt--5">
+							<div class="animate-border animate-style3">
+								<a class="popup-border popup-videos" href="https://www.youtube.com/watch?v=3J1O-vOa71s">
+									<i class="fa fa-play"></i>
+									<span class="btn-text">Ver Video</span>
+								</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="banner-images">
+				<div class="col-lg-6">
+					<div class="image-wrap left-img">
+						<img src="" alt="Images">
+					</div>
+					<!--IMG BACK-->
+
+				</div>
+				<div class="col-lg-6">
+					<div class="image-wrap right-img">
+						<img src="" alt="Images">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Banner End -->
+	<!-- Skillbar Start -->
+	<div class="rs-skillbar skillbar-style1 skillbar-modify3">
+		<div class="row no-gutters">
+			<div class="col-lg-6 videos-item" href="https://www.youtube.com/watch?v=3J1O-vOa71s"></div>
+			<div class="col-lg-6">
+				<div class="path-success">
+					<div class="sec-title">
+						<span class="sub-text sub-text2">Por qué elegirnos</span>
+						<h2 class="title pb-27">
+							Somos el único líder<br>
+							Empresa en este campo
+						</h2>
+						<p class="desc desc8">
+							El Observatorio Empresarial es un centro especializado en la vigilancia y análisis de tendencias y cambios en el mundo de los negocios. Proporcionamos información actualizada y asesoramiento estratégico a las empresas para tomar decisiones informadas en un entorno empresarial dinámico.
+						</p>
+						<div class="feature-border pt-70"></div>
+						<!-- Counter Start -->
+						<div class="rs-counter counter-style1 counter-modify1">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="rs-counter-list">
+										<div class="count-text">
+											<div class="count-number">
+												<span class="rs-count">90</span>
+												<span class="prefix">%</span>
+											</div>
+											<span class="title">Crecimiento de establecimiento de negocios</span>
+										</div>
+									</div>
+									<!-- Skillbar Section Start -->
+									<div class="cl-skill-bar">
+										<!-- Start Skill Bar -->
+										<div class="skillbar" data-percent="95">
+											<p class="skillbar-bar"></p>
+										</div>
+									</div>
+									<!-- Skillbar Section End -->
+								</div>
+								<div class="col-lg-6">
+									<div class="rs-counter-list">
+										<div class="count-text">
+											<div class="count-number">
+												<span class="rs-count">80</span>
+												<span class="prefix">%</span>
+											</div>
+											<span class="title">Resolución de problemas empresariales</span>
+										</div>
+									</div>
+									<!-- Skillbar Section Start -->
+									<div class="cl-skill-bar">
+										<!-- Start Skill Bar -->
+										<div class="skillbar" data-percent="75">
+											<p class="skillbar-bar"></p>
+										</div>
+									</div>
+									<!-- Skillbar Section End -->
+								</div>
+							</div>
+						</div>
+						<!-- Counter End -->
+						@*<ul class="feature-btn mt-20">
+						<li>
+						<a class="readon consultant discover learn-more" href="https://www.univalle.edu/">
+						<span class="btn-text">Empezar</span>
+						</a>
+						</li>
+						<li>
+						<a class="readon consultant phone-number purple-light" href="https://www.univalle.edu/">
+						<span class="btn-icon">
+						<i class="fa fa-phone"></i>
+						</span>
+						<span class="btn-text">(00) 123 456 789</span>
+						</a>
+						</li>
+						</ul>*@
+					</div>
+					<div class="rs-videos video-style1 purple-video1">
+						<div class="video-item">
+							<div class="overly-border">
+								<a class="popup-border popup-videos" href="https://www.youtube.com/watch?v=3J1O-vOa71s">
+									<i class="fa fa-play"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Skillbar End -->
+	<!-- Partner Start -->
+	<div class="rs-partner partner-style3 partner-modify6 pt-10 pb-10">
+		<div class="container">
+			<div class="slider partner-slide-1">
+				<div class="partner-item">
+					<div class="logo-img">
+						<a href="https://rstheme.com">
+							<img class="hovers-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-1.png" alt="Images">
+							<img class="mains-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-1.png" alt="Images">
+						</a>
+					</div>
+				</div>
+				<div class="partner-item">
+					<div class="logo-img">
+						<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-2.png" alt="Images">
+								<img class="mains-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-2.png" alt="Images">
+						</a>
+					</div>
+				</div>
+				<div class="partner-item">
+					<div class="logo-img">
+						<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-3.png" alt="Images">
+								<img class="mains-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-3.png" alt="Images">
+						</a>
+					</div>
+				</div>
+				<div class="partner-item">
+					<div class="logo-img">
+						<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-4.png" alt="Images">
+								<img class="mains-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-4.png" alt="Images">
+						</a>
+					</div>
+				</div>
+				<div class="partner-item">
+					<div class="logo-img">
+						<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-5.png" alt="Images">
+								<img class="mains-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-5.png" alt="Images">
+						</a>
+					</div>
+				</div>
+				<div class="partner-item">
+					<div class="logo-img">
+						<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-6.png" alt="Images">
+								<img class="mains-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-6.png" alt="Images">
+						</a>
+					</div>
+				</div>
+				<div class="partner-item">
+					<div class="logo-img">
+						<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-7.png" alt="Images">
+								<img class="mains-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-7.png" alt="Images">
+						</a>
+					</div>
+				</div>
+				<div class="partner-item">
+					<div class="logo-img">
+						<a href="https://rstheme.com">
+								<img class="hovers-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-8.png" alt="Images">
+								<img class="mains-logos rs-grid-img" src="~/css/frontend/images/partner/style5/ptnr-8.png" alt="Images">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Partner End -->
+	<!-- About Start -->
+	<div class="rs-about about-style3 about-modify3" id="About">
+		<div class="row no-gutters">
+			<div class="col-lg-7">
+				<div class="feature-provide">
+					<div class="sec-title">
+						<span class="sub-text sub-text2">Nosotros</span>
+						<h2 class="title pb-25">
+							Soluciones personalizadas y efectivas.
+						</h2>
+						<p class="desc desc8 pb-25">
+							Nuestra misión es ayudar a las empresas a superar obstáculos y alcanzar sus objetivos a través de la aplicación innovadora de la tecnología y las mejores prácticas de la industria.
+						</p>
+						<ul class="row check-lists check-list10">
+							<li class="col-lg-6 md-mb-10">
+								<div class="list-item">
+									<span class="icon-list-icon">
+										<i aria-hidden="true" class="fa fa-check-circle"></i>
+									</span>
+									<span style="color: #5701ae" class="list-text">Soluciones personalizadas.</span>
+								</div>
+								<div class="list-item">
+									<span class="icon-list-icon">
+										<i aria-hidden="true" class="fa fa-check-circle"></i>
+									</span>
+									<span style="color: #5701ae" class="list-text">Experiencia y conocimiento.</span>
+								</div>
+							</li>
+							<li class="col-lg-6">
+								<div class="list-item">
+									<span class="icon-list-icon">
+										<i aria-hidden="true" class="fa fa-check-circle"></i>
+									</span>
+									<span style="color: #5701ae" class="list-text">Incremento de la eficiencia.</span>
+								</div>
+								<div class="list-item">
+									<span class="icon-list-icon">
+										<i aria-hidden="true" class="fa fa-check-circle"></i>
+									</span>
+									<span style="color: #5701ae" class="list-text">Satisfacción del cliente.</span>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 feature-woman"></div>
+		</div>
+	</div>
+	<!-- About End -->
+	<!-- Project Start -->
+	<div class="rs-project project-style4 project-modify1 gray-bg5 pt-125 pb-110 md-pt-80 md-pb-80" id="Proyectos">
+		<div class="container">
+			<div class="row y-middle">
+				<div class="col-lg-6">
+					<div class="sec-title mb-50">
+						<span class="sub-text sub-text2">Nuestros Proyectos</span>
+						<h2 class="title">
+							explorar estudios de casos
+						</h2>
+					</div>
+				</div>
+			</div>
+			<div class="slider project-slide-1">
+				<div class="project-item">
+					<div class="project-img">
+						<a href="portfolio-single.html"><img src="~/Images/ImagesUnivalle/portada01.jpg" alt="Images"></a>
+					</div>
+					<div class="project-content">
+						<span class="category"><a href="portfolio-single.html">Publicidad digital</a></span>
+						<h5 class="title"><a href="portfolio-single.html">planificación de negocios</a></h5>
+					</div>
+				</div>
+				<div class="project-item">
+					<div class="project-img">
+						<a href="portfolio-single.html"><img src="~/Images/ImagesUnivalle/portada01.jpg" alt="Images"></a>
+					</div>
+					<div class="project-content">
+						<span class="category"><a href="portfolio-single.html">La promoción del producto</a></span>
+						<h5 class="title"><a href="portfolio-single.html">planificación de negocios</a></h5>
+					</div>
+				</div>
+				<div class="project-item">
+					<div class="project-img">
+						<a href="portfolio-single.html"><img src="~/Images/ImagesUnivalle/portada01.jpg" alt="Images"></a>
+					</div>
+					<div class="project-content">
+						<span class="category"><a href="portfolio-single.html">Asesoría financiera</a></span>
+						<h5 class="title"><a href="portfolio-single.html">Investment Plan</a></h5>
+					</div>
+				</div>
+				<div class="project-item">
+					<div class="project-img">
+						<a href="portfolio-single.html"><img src="~/Images/ImagesUnivalle/portada01.jpg" alt="Images"></a>
+					</div>
+					<div class="project-content">
+						<span class="category"><a href="portfolio-single.html">Digital Marketing</a></span>
+						<h5 class="title"><a href="portfolio-single.html">planificación de negocios</a></h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Project End -->
+	<!-- Services Start -->
+	<div class="rs-services services-style3 pt-135 pb-140 md-pt-75 md-pb-80" id="Servicios">
+		<div class="container">
+			<div class="sec-title text-center mb-40">
+				<span class="sub-text sub-text2">Que Ofrecemos</span>
+				<h2 class="title">
+					Brindamos las mejores  <br>
+					soluciones
+				</h2>
+			</div>
+			<ul class="row no-gutters">
+				<li class="col-xl-3 col-md-6">
+					<div class="services-item">
+						<div class="services-wrap">
+							<div class="services-icon">
+								<img class="normal-logo" src="assets/images/services/main-home/black/ser-1.png" alt="">
+								<img class="hover-logo" src="assets/images/services/main-home/purple/ser-1.png" alt="">
+							</div>
+							<div class="services-content">
+								<h6 class="title">Consultoría estratégica</h6>
+								<p class="services-txt">Asesoramiento estratégico a empresas para optimizar su desempeño económico.</p>
+								<div class="services-button">
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xl-3 col-md-6">
+					<div class="services-item">
+						<div class="services-wrap">
+							<div class="services-icon">
+								<img class="normal-logo" src="assets/images/services/main-home/black/ser-3.png" alt="">
+								<img class="hover-logo" src="assets/images/services/main-home/purple/ser-3.png" alt="">
+							</div>
+							<div class="services-content">
+								<h6 class="title">Análisis financiero</h6>
+								<p class="services-txt">Evaluación de estados financieros, análisis de rentabilidad, gestión de costos y presupuestos.</p>
+								<div class="services-button">
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xl-3 col-md-6">
+					<div class="services-item">
+						<div class="services-wrap">
+							<div class="services-icon">
+								<img class="normal-logo" src="assets/images/services/main-home/black/ser-3.png" alt="">
+								<img class="hover-logo" src="assets/images/services/main-home/purple/ser-3.png" alt="">
+							</div>
+							<div class="services-content">
+								<h6 class="title">Investigación de mercado</h6>
+								<p class="services-txt">Estudios de mercado exhaustivos para ayudar a las empresas a comprender las tendencias</p>
+								<div class="services-button">
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xl-3 col-md-6">
+					<div class="services-item">
+						<div class="services-wrap">
+
+							<div class="services-content">
+								<h6 class="title">Evaluación de proyectos de inversión</h6>
+								<p class="services-txt">Análisis de viabilidad, estimación de flujos de efectivo, valoración de activos y riesgo financiero.</p>
+								<div class="services-button">
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xl-3 col-md-6">
+					<div class="services-item">
+						<div class="services-wrap">
+
+							<div class="services-content">
+								<h6 class="title">Gestión de riesgos financieros</h6>
+								<p class="services-txt">Ayudar a las empresas a identificar, evaluar y gestionar los riesgos financieros.</p>
+								<div class="services-button">
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xl-3 col-md-6">
+					<div class="services-item">
+						<div class="services-wrap">
+							<div class="services-icon">
+								<img class="normal-logo" src="assets/images/services/main-home/black/ser-3.png" alt="">
+								<img class="hover-logo" src="assets/images/services/main-home/purple/ser-3.png" alt="">
+							</div>
+							<div class="services-content">
+								<h6 class="title">Asesoramiento fiscal</h6>
+								<p class="services-txt">Brindar orientación en materia fiscal, planificación fiscal, cumplimiento de obligaciones fiscales.</p>
+								<div class="services-button">
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xl-3 col-md-6">
+					<div class="services-item">
+						<div class="services-wrap">
+
+							<div class="services-content">
+								<h6 class="title">Formación y capacitación</h6>
+								<p class="services-txt">Ofrecer programas de formación y capacitación en áreas como análisis financiero, gestión empresarial y planificación estratégica.</p>
+								<div class="services-button">
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="col-xl-3 col-md-6">
+					<div class="services-item">
+						<div class="services-wrap">
+							<div class="services-content">
+								<h6 class="title">Desarrollo de modelos financieros</h6>
+								<p class="services-txt"> Tomar decisiones basadas en datos, evaluar escenarios y realizar análisis de sensibilidad.</p>
+								<div class="services-button">
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Services End -->
+	<!-- Faq Start -->
+	<div class="rs-faq faq-style1 faq-modify5 pt-130 pb-130 md-pt-80 md-pb-80" id="Contactenos">
+		<div class="container">
+			<div class="row no-gutters">
+				<div class="col-lg-7">
+					<div class="content-wrap">
+						<div class="sec-title mb-40">
+
+							<h2 class="title pb-25">
+								Ofrecemos servicios personalizados según las necesidades de su empresa
+							</h2>
+							<p class="desc">
+								Nos especializamos en brindar soluciones personalizadas. Nuestro equipo trabajará estrechamente contigo para comprender tus necesidades específicas y ofrecerte soluciones adaptadas a tu negocio.
+							</p>
+						</div>
+						<div class="faq-content">
+							<div id="accordion" class="accordion">
+								<div class="card">
+									<div class="card-header">
+										<a class="card-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">¿Cuál es el alcance de sus servicios en el campo de la Economía?</a>
+									</div>
+									<div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+										<div class="card-body">
+											Nuestros servicios en el campo de la Economía abarcan una amplia gama de áreas, como análisis financiero, consultoría estratégica, investigación de mercado, evaluación de proyectos de inversión y asesoramiento fiscal.
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<a class="card-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">¿Servicios personalizados según las necesidades de su empresa?</a>
+									</div>
+									<div id="collapseTwo" class="collapse" data-bs-parent="#accordion" style="">
+										<div class="card-body">
+											Sí, nos especializamos en brindar soluciones personalizadas. Nuestro equipo trabajará estrechamente contigo para comprender tus necesidades específicas.
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<a class="card-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false">¿Trabajan solo con empresas de cierto tamaño o sector?</a>
+									</div>
+									<div id="collapseThree" class="collapse" data-bs-parent="#accordion" style="">
+										<div class="card-body">
+											No, trabajamos con empresas de todos los tamaños y sectores. Nuestros servicios están diseñados para adaptarse a diversas necesidades empresariales, ya sean startups, pequeñas y medianas empresas o grandes corporaciones.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<!-- Contact Section End -->
+					<div class="rs-contact contact-style8">
+						<div class="contact-wrap">
+							<div class="sec-title mb-30">
+								<h2 class="title white-color">
+									Contactenos
+								</h2>
+							</div>
+							<div id="form-messages"></div>
+							<form asp-action="Create" asp-controller="Contactoes">
+								<fieldset>
+									<div class="row">
+										<div class="col-sm-12 mb-20">
+											<input asp-for="Nombre" class="from-control" type="text" name="Nombre" placeholder="Nombre" required="">
+											<span asp-validation-for="Nombre" class="text-danger"></span>
+										</div>
+										<div class="col-sm-12 mb-20">
+											<input asp-for="Apellido" class="from-control" type="text" name="Apellido" placeholder="Apellido" required="">
+											<span asp-validation-for="Apellido" class="text-danger"></span>
+										</div>
+										<div class="col-sm-12 mb-20">
+											<input asp-for="Email" class="from-control" type="text" name="Email" placeholder="Email" required="">
+											<span asp-validation-for="Email" class="text-danger"></span>
+										</div>
+										<div class="col-sm-12 mb-20">
+											<input asp-for="Telefono" class="from-control" type="text" name="Telefono" placeholder="Telefono" required="">
+											<span asp-validation-for="Telefono" class="text-danger"></span>
+										</div>
+										<div class="col-sm-12 mb-35">
+											<textarea asp-for="Message" class="from-control" name="Message" placeholder="Escribe tu mensaje aqui" required=""></textarea>
+											<span asp-validation-for="Message" class="text-danger"></span>
+										</div>
+									</div>
+									<div class="btn-part">
+										<div class="form-group mb-0">
+											<input class="readon submit submit-purple2" type="submit" value="Enviar Ahora">
+										</div>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+					<!-- Contact Section End -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Faq End -->
+	<!-- Testimonial Section End -->
+	<div class="rs-testimonial testimonial-style3 pt-125 pb-180 md-pt-80 md-pb-130">
+		<div class="container">
+			<div class="sec-title text-center mb-20">
+				<h2 class="title">
+					Lo que dicen los clientes<br>
+					Sobre nosotros
+				</h2>
+			</div>
+			<div class="slider testi-slide-3">
+				<div class="testi-item">
+					<div class="item-content">
+						<span>
+							<img src="~/css/frontend/images/testimonial/style2/arrow-4.png" alt="Logo">
+						</span>
+						<p class="desc">It's incredible. It's really wonderful. Redox has completely surpassed our expectations. Urna porttitor rhoncus dolor purus non enim praesent.</p>
+					</div>
+					<div class="testi-content">
+						<div class="image-wrap">
+							<img src="~/Images/logo2.png" alt="Images">
+						</div>
+						<div class="testi-information">
+							<div class="testi-name">Alex Burner</div>
+							<span class="testi-title">Web Developer</span>
+						</div>
+					</div>
+				</div>
+				<div class="testi-item">
+					<div class="item-content">
+						<span>
+							<img src="~/css/frontend/images/testimonial/style2/arrow-4.png" alt="Logo">
+						</span>
+						<p class="desc">It's incredible. It's really wonderful. Redox has completely surpassed our expectations. Urna porttitor rhoncus dolor purus non enim praesent.</p>
+					</div>
+					<div class="testi-content">
+						<div class="image-wrap">
+							<img src="~/Images/logo2.png" alt="Images">
+						</div>
+						<div class="testi-information">
+							<div class="testi-name">Cameron Williamson</div>
+							<span class="testi-title">Digital Marketer</span>
+						</div>
+					</div>
+				</div>
+				<div class="testi-item">
+					<div class="item-content">
+						<span>
+							<img src="~/css/frontend/images/testimonial/style2/arrow-4.png" alt="Logo">
+						</span>
+						<p class="desc">It's incredible. It's really wonderful. Redox has completely surpassed our expectations. Urna porttitor rhoncus dolor purus non enim praesent.</p>
+					</div>
+					<div class="testi-content">
+						<div class="image-wrap">
+							<img src="~/Images/logo2.png" alt="Images">
+						</div>
+						<div class="testi-information">
+							<div class="testi-name">Arlene McCoy</div>
+							<span class="testi-title">Manager</span>
+						</div>
+					</div>
+				</div>
+				<div class="testi-item">
+					<div class="item-content">
+						<span>
+							<img src="~/css/frontend/images/testimonial/style2/arrow-4.png" alt="Logo">
+						</span>
+						<p class="desc">It's incredible. It's really wonderful. Redox has completely surpassed our expectations. Urna porttitor rhoncus dolor purus non enim praesent.</p>
+					</div>
+					<div class="testi-content">
+						<div class="image-wrap">
+							<img src="~/Images/logo2.png" alt="Images">
+						</div>
+						<div class="testi-information">
+							<div class="testi-name">Alex Burner</div>
+							<span class="testi-title">Web Developer</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Testimonial Section End -->
+	<!-- Cta Start -->
+	<div class="rs-cta cta-main-home cta-style8 pt-80 pb-80">
+		<video class="rs-html5-video" autoplay="" muted="" playsinline="" loop="" src="~/css/frontend/images/cta-bg-video.mp4"></video>
+		<div class="background-video-wrap">
+			<div class="background-overlay"></div>
+		</div>
+		<div class="container">
+			<div class="row y-middle">
+				<div class="col-lg-7 md-mb-30">
+					<div class="sec-title">
+						<h2 class="title white-color pb-23">
+							Emprende mejor tu negocio<br>con Observatorio Empresarial
+						</h2>
+						<p class="desc desc2">
+							Trabajamos en estrecha colaboración contigo para impulsar el éxito y el crecimiento de tu negocio. Contáctanos hoy mismo y descubre cómo podemos ayudarte a alcanzar tus metas económicas.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-5 text-right md-left">
+					<div class="bnr-part">
+						<a class="readon started phone-number phone-small" href="contact-us-1.html">
+							<span class="btn-icon">
+								<i class="fa fa-phone"></i>
+							</span>
+							<span class="btn-text">(00) 123 456 789</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Cta End -->
 </div>
+}

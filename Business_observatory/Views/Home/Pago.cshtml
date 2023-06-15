@@ -1,0 +1,102 @@
+﻿@model Business_observatory.Models.Proyecto
+
+@{
+    Layout = "~/Views/Shared/FrontendLayout.cshtml";
+    ViewData["Title"] = "Edit";
+}
+
+<!--Full width header Start-->
+<div class="full-width-header">
+</div>
+<!--Full width header End-->
+<!-- Breadcrumbs Start -->
+<div class="rs-breadcrumbs img3">
+    <div class="container">
+        <div class="breadcrumbs-inner breadcrumbs-style1">
+            <h1 class="page-title">
+                Pago por QR
+            </h1>
+            <ul class="breadcrumbs-area">
+                <li title="Go to Bcom">
+                    <a class="active" href="https://www.univalle.edu/">Univalle</a>
+                </li>
+                <li>Servicios</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@*<div style="align-items">*@
+<img src="/Images/BNBqr.png" height="200px" width="500px" style="display: block; margin-left: auto; margin-right: auto;">
+@*</div>*@
+
+<!-- Breadcrumbs End -->
+<div class="row">
+    <div class="col-lg-12 layout-spacing">
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                </div>
+            </div>
+            <div class="widget-content widget-content-area">
+                <form asp-action="Pago">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-row mb-4">
+
+                        <input asp-for="Nombre" class="form-control" class="form-control" name="Nombre" type="text" style="display:none;">
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <input asp-for="Descripcion" class="form-control" class="form-control" name="Descripcion" type="text" style="display:none;">
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <input asp-for="FechaInicio" class="form-control" name="FechaInicio" style="display:none;" />
+                        <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <input asp-for="FechaFinalizacion" class="form-control" name="FechaFinalizacion" style="display:none;" />
+                        <span asp-validation-for="FechaFinalizacion" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <input asp-for="Responsable" class="form-control" class="form-control" name="Responsable" type="text" style="display:none;">
+                        <span asp-validation-for="Responsable" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <input asp-for="Empresa" class="form-control" name="Empresa" style="display:none;" />
+                        <span asp-validation-for="Empresa" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <input asp-for="FechaCreacion" class="form-control" name="FechaCreacion" style="display:none;" />
+                        <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-4">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <select asp-for="AspNetUserId" class="form-control" style="display:none;" asp-items="ViewBag.AspNetUserId"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <input asp-for="IsCanceled" class="form-control" name="IsCanceled" type="text" value="True" style="display:none;">
+                        <span asp-validation-for="IsCanceled" class="text-danger"></span>
+                    </div>
+                    <input value="Pagar" type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

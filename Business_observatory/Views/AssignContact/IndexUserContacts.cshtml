@@ -1,0 +1,40 @@
+﻿@model ICollection<Business_observatory.Models.UsuarioEncargado>
+
+<div class="page-header">
+    <div class="page-title">
+        <h3>Contactos </h3>
+        <div class="crumbs">
+            <ul id="breadcrumbs" class="breadcrumb">
+                <li><a href="index.html"><i class="flaticon-home-fill"></i></a></li>
+                <li><a href="#">Tables</a></li>
+                <li class="active"><a href="#">Tablesaw</a> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="widget-content widget-content-area">
+    <div class="row">
+        <div class="col-lg-12 mb-4 column-mode">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped table-checkable table-highlight-head mb-4">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Contactos asignados   </th>                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @if (Model !=null && Model.Count>0)
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>Contacto : @item.Contacto.Nombre @item.Contacto.Apellido | Encargado : @item.CorreoEncargado </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

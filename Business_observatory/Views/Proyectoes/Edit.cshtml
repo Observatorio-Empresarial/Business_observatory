@@ -1,0 +1,93 @@
+﻿@model Business_observatory.Models.Proyecto
+
+@{
+    Layout = "~/Views/Shared/BackendLayout.cshtml";
+    ViewData["Title"] = "Edit";
+}
+<div class="page-header">
+    <div class="page-title">
+        <h3>Contactos</h3>
+        <div class="crumbs">
+            <ul id="breadcrumbs" class="breadcrumb">
+                <li><a href="index.html"><i class="flaticon-home-fill"></i></a></li>
+                <li><a href="#">Tables</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 layout-spacing">
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                        <h4>Editar Proyecto</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-content widget-content-area">
+                <form asp-action="Edit">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Nombre">Nombre :</label>
+                        <input asp-for="Nombre" class="form-control" class="form-control" name="Nombre" type="text">
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Descripcion">Descripcion: </label>
+                        <input asp-for="Descripcion" class="form-control" class="form-control" name="Descripcion" type="text">
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="FechaInicio"> Fecha de Inicio: </label>
+                        <input asp-for="FechaInicio" class="form-control" />
+                        <span asp-validation-for="FechaInicio" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="FechaFinalizacion"> Fecha de Finalizacion :</label>
+                        <input asp-for="FechaFinalizacion" class="form-control" />
+                        <span asp-validation-for="FechaFinalizacion" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Responsable">Responsable:</label>
+                        <input asp-for="Responsable" class="form-control" class="form-control" name="Responsable" type="text">
+                        <span asp-validation-for="Responsable" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="Empresa"> Empresa :</label>
+                        <input asp-for="Empresa" class="form-control" />
+                        <span asp-validation-for="Empresa" class="text-danger"></span>
+                    </div>
+                    <div class="form-row mb-4">
+
+                        <label asp-for="FechaCreacion">Fecha de Creacion :</label>
+                        <input asp-for="FechaCreacion" class="form-control" />
+                        <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-4">
+                        <div class="row">
+                            <label asp-for="AspNetUserId" class="col-md-4"> AspNetUserId :</label>
+                            <div class="col-md-8">
+                                <select asp-for="AspNetUserId" class="form-control" asp-items="ViewBag.AspNetUserId"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="btn btn-dark mb-4 mr-2" value="Save" type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
