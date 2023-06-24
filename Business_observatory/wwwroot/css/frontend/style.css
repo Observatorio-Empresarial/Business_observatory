@@ -929,7 +929,7 @@ ul.check-lists.check-list10 .list-item {
   padding-bottom: calc(9px);
 }
 ul.check-lists.check-list10 .list-item .icon-list-icon i:before {
-  color: #FBFBFB;
+  color: gray;
 }
 ul.check-lists.check-list10 .list-item .list-text {
   font-size: 18px;
@@ -16365,7 +16365,7 @@ body .search-modal .close:hover {
   font-size: 16px;
   transition: all .8s ease;
   background-color: #E7ECFD;
-  color: #1a73e9;
+  color: white;
   width: 38px;
   height: 38px;
   text-align: center;
@@ -16383,18 +16383,18 @@ body .search-modal .close:hover {
   font-weight: 700;
   color: #ffffff;
 }
-.rs-footer.footer-main-home .footer-top .footer-title:before {
-  content: "";
-  position: absolute;
-  left: -6px;
-  top: 4px;
-  width: 24px;
-  height: 24px;
-  background: #1a73e9;
-  border-radius: 50%;
-  opacity: 0.2;
-  display: block;
-}
+    .rs-footer.footer-main-home .footer-top .footer-title:before {
+        content: "";
+        position: absolute;
+        left: -6px;
+        top: 4px;
+        width: 24px;
+        height: 24px;
+        background: #4B3945;
+        border-radius: 50%;
+        opacity: 0.2;
+        display: block;
+    }
 .rs-footer.footer-main-home .footer-top .site-map {
   margin-top: -6px;
 }
@@ -16863,7 +16863,7 @@ body .search-modal .close:hover {
   background-color: #E7ECFD00;
   border-style: solid;
   border-width: 1px 1px 1px 1px;
-  border-color: #0092F242;
+  border-color: white;
 }
 .rs-footer.footer-main-home.footer-modify3 .footer-top .footer-social li a i:hover {
   background-color: #ffffff;
@@ -16879,14 +16879,14 @@ body .search-modal .close:hover {
 }
 .rs-footer.footer-main-home.footer-modify3 .footer-top .site-map li a:before,
 .rs-footer.footer-main-home.footer-modify3 .footer-bottom .bottom-border .copy-right-menu li:before {
-  background-color: #0092f2;
+  background-color: white;
 }
 .rs-footer.footer-main-home.footer-modify3 .footer-top .site-map li a:hover,
 .rs-footer.footer-main-home.footer-modify3 .footer-top .contact-box .address-box .address-icon i,
 .rs-footer.footer-main-home.footer-modify3 .footer-top .contact-box .address-box .address-text .text a:hover,
 .rs-footer.footer-main-home.footer-modify3 .footer-bottom .bottom-border .copy-right-menu li a:hover,
 .rs-footer.footer-main-home.footer-modify3 .footer-bottom .bottom-border .copyright p a:hover {
-  color: #0092f2;
+  color: white;
 }
 .rs-footer.footer-main-home.footer-modify3 .footer-bottom .bottom-border {
   border-top: 1px solid transparent;
