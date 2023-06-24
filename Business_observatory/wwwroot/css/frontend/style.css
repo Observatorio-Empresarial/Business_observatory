@@ -6912,14 +6912,14 @@ body .search-modal .close:hover {
 .rs-slider.slider-style3 .slider {
   position: relative;
 }
-.rs-slider.slider-style3 .slider .slider-item {
-  position: relative;
-  z-index: 11;
-  background-image: url(assets/images/slider/style3/slide-1.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+    .rs-slider.slider-style3 .slider .slider-item {
+        position: relative;
+        z-index: 11;
+        background-image: url(/Images/ImagesUnivalle/Banner1.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 .rs-slider.slider-style3 .slider .slider-item .slider-content {
   padding: 290px 0 250px;
 }
@@ -6956,11 +6956,11 @@ body .search-modal .close:hover {
 .rs-slider.slider-style3 .slider .slider-item .slider-content .content-wrap .shape-bottom img {
   opacity: 0.80;
 }
-.rs-slider.slider-style3 .slider .slider-item.slide-bg2 {
-  background-image: url(assets/images/slider/style3/slide-2.png);
-}
+    .rs-slider.slider-style3 .slider .slider-item.slide-bg2 {
+        background-image: url(/Images/ImagesUnivalle/Banner2.png);
+    }
 .rs-slider.slider-style3 .slider .slider-item.slide-bg3 {
-  background-image: url(assets/images/slider/style3/slide-3.png);
+  background-image: url(/Images/ImagesUnivalle/Banner3.png);
 }
 .rs-slider.slider-style3 .slider .slider-item .animate-wrap .animation {
   position: absolute;
