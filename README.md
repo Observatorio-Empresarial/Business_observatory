@@ -25,9 +25,11 @@ En la parte que es de proyectos no manda a ver que proyectos tenemos y también 
 
 ![Imagen5](https://github.com/Observatorio-Empresarial/Business_observatory/assets/111919106/2ad8a6da-3302-4259-94e0-ef58e1d885b7)
 
+
 Donde también puede ver los proyectos que tienen botones VER ARCHIVOS que le mandan a ver el proyecto 
 
 ![Imagen6](https://github.com/Observatorio-Empresarial/Business_observatory/assets/111919106/7d1f8edf-731a-4964-bc7c-e75d293a57c2)
+
 
 Si hace click en ver archivos le manda al proyecto donde se aprecia que tenemos un botón de descargar 
 
@@ -38,23 +40,19 @@ También tenemos la parte de SERVICIOS donde básicamente ponemos una descripci�
 
 ![Imagen8](https://github.com/Observatorio-Empresarial/Business_observatory/assets/111919106/ea8ee747-78f7-4dd9-9139-aa80e4db589b)
 
+
 pasamos a la parte de contáctenos donde tenemos un formulario donde nuestros usuarios pueden mandar un mensaje desde ese formulario.
 
 ![Imagen9](https://github.com/Observatorio-Empresarial/Business_observatory/assets/111919106/93b6dc53-dd70-442d-ab00-f840ba314dba)
 
-En la parte de Cuenta lo que tenemos es el login y registro que serian los siguientes:
 
+En la parte de Cuenta lo que tenemos es el login y registro que serian los siguientes:
 Login donde puedes ingresar como USUARIO COMUN, ENCARGADO y ADMINISTRADOR
 
 ![Imagen10](https://github.com/Observatorio-Empresarial/Business_observatory/assets/111919106/d146ccd2-26fe-4a34-a652-efbc1fbe2fd1)
+
 
 Y la parte de registrarse 
 
  ![Imagen11](https://github.com/Observatorio-Empresarial/Business_observatory/assets/111919106/71716f35-8e08-4848-ac56-9518aecc2bfe)
 
-
-
-
-
-
-Y la parte de registrarse 
