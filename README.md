@@ -52,8 +52,6 @@ Login donde puedes ingresar como USUARIO COMUN, ENCARGADO y ADMINISTRADOR
 ![Imagen10](https://github.com/Observatorio-Empresarial/Business_observatory/assets/111919106/d146ccd2-26fe-4a34-a652-efbc1fbe2fd1)
 
 
-#VIDEO
-
 
 Y la parte de registrarse 
 
